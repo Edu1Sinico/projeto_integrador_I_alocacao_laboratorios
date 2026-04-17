@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Proj_inter_sistem_alocacao\\ProjetoIntegredor\\ProjetoIntegredor.csproj",
+      "projectUniqueName": "C:\\Proj_inter_sistem_alocacao\\projeto_integrador_I_alocacao_laboratorios\\ProjetoIntegredor\\ProjetoIntegredor.csproj",
       "projectName": "ProjetoIntegredor",
-      "projectPath": "C:\\Proj_inter_sistem_alocacao\\ProjetoIntegredor\\ProjetoIntegredor.csproj",
+      "projectPath": "C:\\Proj_inter_sistem_alocacao\\projeto_integrador_I_alocacao_laboratorios\\ProjetoIntegredor\\ProjetoIntegredor.csproj",
       "packagesPath": "C:\\Users\\Migue\\.nuget\\packages\\",
-      "outputPath": "C:\\Proj_inter_sistem_alocacao\\ProjetoIntegredor\\obj\\",
+      "outputPath": "C:\\Proj_inter_sistem_alocacao\\projeto_integrador_I_alocacao_laboratorios\\ProjetoIntegredor\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Migue\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -64,7 +64,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.419/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.420/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

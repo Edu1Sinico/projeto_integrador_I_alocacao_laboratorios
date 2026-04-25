@@ -18,7 +18,7 @@ namespace ProjetoIntegredor.model
             set
             {
                 if (string.IsNullOrEmpty(value))
-                    throw new ArgumentException("O nome do software não pode ser vazio!");
+                    throw new ArgumentException("Nome do software inválido!");
                 nomeSoftware = value;
             }
         }
@@ -29,7 +29,7 @@ namespace ProjetoIntegredor.model
             set
             {
                 if (string.IsNullOrEmpty(value))
-                    throw new ArgumentException("A versão não pode ser vazia!");
+                    throw new ArgumentException("Versão inválida!");
                 versao = value;
             }
         }

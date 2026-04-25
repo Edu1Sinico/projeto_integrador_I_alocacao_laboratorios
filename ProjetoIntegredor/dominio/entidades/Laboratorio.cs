@@ -21,7 +21,7 @@ namespace ProjetoIntegredor.model
             set
             {
                 if (value <= 0)
-                    throw new ArgumentException("O número do laboratório não pode ser zero ou negativo!");
+                    throw new ArgumentException("Número do laboratório inválido!");
                 numLaboratorio = value;
             }
         }
@@ -32,7 +32,7 @@ namespace ProjetoIntegredor.model
             set
             {
                 if (value <= 0)
-                    throw new ArgumentException("O número da quantidade de computadores não pode ser zero ou negativo!");
+                    throw new ArgumentException("Quantidade de computadores inválida!");
                 qtdeComputador = value;
             }
         }
@@ -43,7 +43,7 @@ namespace ProjetoIntegredor.model
             set
             {
                 if (value <= 0)
-                    throw new ArgumentException("A capacidade máxima de alunos não pode ser zero ou negativo!");
+                    throw new ArgumentException("Capacidade máxima de alunos inválida!");
                 capacidadeMaxAluno = value;
             }
         }

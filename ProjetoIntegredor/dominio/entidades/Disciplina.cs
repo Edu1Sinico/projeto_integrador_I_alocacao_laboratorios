@@ -18,7 +18,7 @@ namespace ProjetoIntegredor.model
             set
             {
                 if (string.IsNullOrEmpty(value))
-                    throw new ArgumentException("O nome da disciplina não pode ser vazia!");
+                    throw new ArgumentException("Nome da disciplina inválida!");
                 nomeDisciplina = value;
             }
         }
@@ -29,7 +29,7 @@ namespace ProjetoIntegredor.model
             set
             {
                 if (value <= 0)
-                    throw new ArgumentException("Quantidade de alunos não pode ser zero ou negativo!");
+                    throw new ArgumentException("Quantidade de alunos inválido!");
                 qtdeAlunos = value;
             }
         }

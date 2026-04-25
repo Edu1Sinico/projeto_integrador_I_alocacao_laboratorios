@@ -12,20 +12,21 @@ namespace ProjetoIntegredor.model
     {
         private static int contador = 1;
         public int IdUsuario { get; private set; }
-        private int re;
+        private string re;
         private string nome;
         private string senhaHash;
         private string email;
         public TipoUsuario Tipo { get; set; }
 
         // Validação de RE
-        public int RE
+        public string RE
         {
             get => re;
             set
             {
-                if (re == value)
-                    throw new ArgumentException("RE não pode ser zero ou negativo!");
+                if (string.IsNullOrWhiteSpace(value))
+                    throw new ArgumentException("RE inválido!");
+
                 re = value;
             }
         }
@@ -37,7 +38,7 @@ namespace ProjetoIntegredor.model
             set
             {
                 if (string.IsNullOrEmpty(value))
-                    throw new ArgumentException("O nome não pode ser vazio!");
+                    throw new ArgumentException("Nome de usuário inválido!");
                 nome = value;
             }
         }
@@ -49,7 +50,7 @@ namespace ProjetoIntegredor.model
             set
             {
                 // Valida se o valor não é nulo ou vázio string.IsNullOrEmpty(value)
-                if (string.IsNullOrEmpty(value) || !value.Contains("@") || email.Equals(value))
+                if (string.IsNullOrEmpty(value) || !value.Contains("@"))
                     throw new ArgumentException("E-mail inválido!");
                 email = value;
             }
@@ -82,7 +83,7 @@ namespace ProjetoIntegredor.model
         }
 
         // Construtor
-        public Usuario(int re, string nome, string email, TipoUsuario tipo)
+        public Usuario(string re, string nome, string email, TipoUsuario tipo)
         {
             IdUsuario = contador++;
             RE = re;

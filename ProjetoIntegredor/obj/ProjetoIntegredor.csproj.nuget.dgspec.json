@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\B 789\\Downloads\\projeto_integrador_I_alocacao_laboratorios\\ProjetoIntegredor\\ProjetoIntegredor.csproj": {}
+    "C:\\Users\\sinic\\OneDrive\\Desktop\\Códigos e Projetos\\projeto_integrador_I_alocacao_laboratorios\\ProjetoIntegredor\\ProjetoIntegredor.csproj": {}
   },
   "projects": {
-    "C:\\Users\\B 789\\Downloads\\projeto_integrador_I_alocacao_laboratorios\\ProjetoIntegredor\\ProjetoIntegredor.csproj": {
+    "C:\\Users\\sinic\\OneDrive\\Desktop\\Códigos e Projetos\\projeto_integrador_I_alocacao_laboratorios\\ProjetoIntegredor\\ProjetoIntegredor.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\B 789\\Downloads\\projeto_integrador_I_alocacao_laboratorios\\ProjetoIntegredor\\ProjetoIntegredor.csproj",
+        "projectUniqueName": "C:\\Users\\sinic\\OneDrive\\Desktop\\Códigos e Projetos\\projeto_integrador_I_alocacao_laboratorios\\ProjetoIntegredor\\ProjetoIntegredor.csproj",
         "projectName": "ProjetoIntegredor",
-        "projectPath": "C:\\Users\\B 789\\Downloads\\projeto_integrador_I_alocacao_laboratorios\\ProjetoIntegredor\\ProjetoIntegredor.csproj",
-        "packagesPath": "C:\\Users\\B 789\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\B 789\\Downloads\\projeto_integrador_I_alocacao_laboratorios\\ProjetoIntegredor\\obj\\",
+        "projectPath": "C:\\Users\\sinic\\OneDrive\\Desktop\\Códigos e Projetos\\projeto_integrador_I_alocacao_laboratorios\\ProjetoIntegredor\\ProjetoIntegredor.csproj",
+        "packagesPath": "C:\\Users\\sinic\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\sinic\\OneDrive\\Desktop\\Códigos e Projetos\\projeto_integrador_I_alocacao_laboratorios\\ProjetoIntegredor\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\B 789\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\sinic\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"

@@ -2,48 +2,59 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ProjetoIntegredor.dominio.enums;
 
 namespace ProjetoIntegredor.model
 {
     public class Laboratorio
     {
         private static int contador = 1;
-        public int Id_laboratorio { get; private set; }
-        private int num_laboratorio;
-        private int qtde_computador;
-        private int capacidade_max_aluno;
-
-        public int Num_laboratorio
+        public int IdLaboratorio { get; private set; }
+        private int numLaboratorio;
+        private int qtdeComputador;
+        private int capacidadeMaxAluno;
+        public char Blocos { get; set; }
+        public Disponibilidade StatusDisponibilidade { get; set; } = Disponibilidade.D; // Define automaticamente a disponibilidade como "D - Disponível".
+        public int NumLaboratorio
         {
-            get { return num_laboratorio; }
+            get => numLaboratorio;
             set
             {
-                if (value < 0)
-                    throw new ArgumentException("O número do laboratório não pode ser negativo!");
-                num_laboratorio = value;
+                if (value <= 0)
+                    throw new ArgumentException("O número do laboratório não pode ser zero ou negativo!");
+                numLaboratorio = value;
             }
         }
 
-        public int Qtde_computador
+        public int QtdeComputador
         {
-            get { return Qtde_computador; }
+            get => qtdeComputador;
             set
             {
-                if (value < 0)
-                    throw new ArgumentException("O número da quantidade de computadores não pode ser negativo!");
-                qtde_computador = value;
+                if (value <= 0)
+                    throw new ArgumentException("O número da quantidade de computadores não pode ser zero ou negativo!");
+                qtdeComputador = value;
             }
         }
 
-        public int Capacidade_max_aluno
+        public int CapacidadeMaxAluno
         {
-            get { return capacidade_max_aluno; }
+            get => capacidadeMaxAluno;
             set
             {
-                if (value < 0)
-                    throw new ArgumentException("A capacidade máxima de alunos não pode ser negativo!");
-                capacidade_max_aluno = value;
+                if (value <= 0)
+                    throw new ArgumentException("A capacidade máxima de alunos não pode ser zero ou negativo!");
+                capacidadeMaxAluno = value;
             }
+        }
+
+        public Laboratorio(int numLaboratorio, int qtdeComputador, int capacidadeMaxAluno, char blocos)
+        {
+            IdLaboratorio = contador++;
+            NumLaboratorio = numLaboratorio;
+            QtdeComputador = qtdeComputador;
+            CapacidadeMaxAluno = capacidadeMaxAluno;
+            Blocos = blocos;
         }
     }
 }

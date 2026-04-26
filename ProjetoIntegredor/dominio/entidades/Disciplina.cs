@@ -11,6 +11,7 @@ namespace ProjetoIntegredor.model
         public int IdDisciplina { get; private set; }
         private string nomeDisciplina;
         private int qtdeAlunos;
+        public List<Software> Softwares { get; private set; } = new();
 
         public string NomeDisciplina
         {
@@ -34,11 +35,28 @@ namespace ProjetoIntegredor.model
             }
         }
 
-        public Disciplina(string nomeDisciplina, int qtde_alunos)
+        public Disciplina(string nomeDisciplina, int qtdeAlunos)
         {
             IdDisciplina = contador++;
             NomeDisciplina = nomeDisciplina;
-            QtdeAlunos = qtde_alunos;
+            QtdeAlunos = qtdeAlunos;
+        }
+
+        // Adicionar Software para Disciplina
+        public void AdicionarSoftware(Software software)
+        {
+            if (software == null)
+                throw new ArgumentNullException(nameof(software)); // trata o erro caso a referência do parâmetro for null
+
+            if (!Softwares.Contains(software)) // Só adiciona se a disciplina não estiver com nenhum software vinculado a ela
+                Softwares.Add(software);
+
+        }
+
+        // Remover Software da Disciplina
+        public void RemoverSoftware(Software software)
+        {
+            Softwares.Remove(software);
         }
     }
 }

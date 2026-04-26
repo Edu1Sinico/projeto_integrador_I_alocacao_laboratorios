@@ -16,7 +16,7 @@ namespace ProjetoIntegredor.model
         private string nome;
         private string senhaHash;
         private string email;
-        public TipoUsuario Tipo { get; set; }
+        public TipoUsuario Tipo { get; private set; }
 
         // Validação de RE
         public string RE

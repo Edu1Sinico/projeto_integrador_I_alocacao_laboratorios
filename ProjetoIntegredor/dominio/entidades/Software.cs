@@ -25,7 +25,7 @@ namespace ProjetoIntegredor.model
 
         public string Versao
         {
-            get => nomeSoftware;
+            get => versao;
             set
             {
                 if (string.IsNullOrEmpty(value))
@@ -39,6 +39,11 @@ namespace ProjetoIntegredor.model
             IdSoftware = contador++;
             NomeSoftware = nomeSoftware;
             Versao = versao;
+        }
+
+        public static implicit operator List<object>(Software v)
+        {
+            throw new NotImplementedException();
         }
     }
 }

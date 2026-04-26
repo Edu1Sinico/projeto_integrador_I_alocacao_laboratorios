@@ -18,14 +18,15 @@ namespace ProjetoIntegredor.Servicos
         // Cadastrar
         public Usuario CadastrarUsuario(Usuario usuarioLogado, string re, string nome, string senha, string email, TipoUsuario tipo)
         {
-            ValidarDiretor(usuarioLogado);
+            AutorizacaoService.ValidarUsuario(usuarioLogado);
+            AutorizacaoService.ValidarDiretor(usuarioLogado);
 
             // Verifica se o RE já foi cadastrado.
             if (usuarios.Any(u => u.RE == re))
                 throw new ArgumentException("RE já cadastrado!");
 
             // Realiza o cadastro e define uma senha para ele
-            var usuario = new Usuario(re, nome, email, tipo);
+            var usuario = new Usuario(re, nome, email.ToLower(), tipo);
             usuario.DefinirSenha(senha);
 
             usuarios.Add(usuario);
@@ -35,23 +36,34 @@ namespace ProjetoIntegredor.Servicos
         // Buscar (por RE ou Nome)
         public Usuario? BuscarUsuarioRE(Usuario usuarioLogado, string re)
         {
-            ValidarDiretor(usuarioLogado);
+            AutorizacaoService.ValidarUsuario(usuarioLogado);
+            AutorizacaoService.ValidarDiretor(usuarioLogado);
             return usuarios.FirstOrDefault(u => u.RE == re);
         }
 
         // Pode haver mais de um usuário com o mesmo nome
         public List<Usuario> BuscarUsuarioNome(Usuario usuarioLogado, string nome)
         {
-            ValidarDiretor(usuarioLogado);
+            AutorizacaoService.ValidarUsuario(usuarioLogado);
+            AutorizacaoService.ValidarDiretor(usuarioLogado);
             return usuarios
                 .Where(u => u.Nome.Equals(nome, StringComparison.OrdinalIgnoreCase))
                 .ToList();
         }
 
+        // Todos os usuários
+        public List<Usuario> BuscarUsuarios(Usuario usuarioLogado)
+        {
+            AutorizacaoService.ValidarUsuario(usuarioLogado);
+            AutorizacaoService.ValidarDiretor(usuarioLogado);
+            return usuarios.ToList();
+        }
+
         // Atualizar
         public Usuario? AtualizarUsuario(Usuario usuarioLogado, int id, string nome, string email, string? senha = null)
         {
-            ValidarDiretor(usuarioLogado);
+            AutorizacaoService.ValidarUsuario(usuarioLogado);
+            AutorizacaoService.ValidarDiretor(usuarioLogado);
             var usuario = usuarios.FirstOrDefault(u => u.IdUsuario == id);
 
             if (usuario == null)
@@ -70,7 +82,8 @@ namespace ProjetoIntegredor.Servicos
         // Excluir
         public Usuario? ExcluirUsuario(Usuario usuarioLogado, int id)
         {
-            ValidarDiretor(usuarioLogado);
+            AutorizacaoService.ValidarUsuario(usuarioLogado);
+            AutorizacaoService.ValidarDiretor(usuarioLogado);
             var usuario = usuarios.FirstOrDefault(u => u.IdUsuario == id);
 
             if (usuario != null)
@@ -109,39 +122,6 @@ namespace ProjetoIntegredor.Servicos
             usuario.DefinirSenha(novaSenha);
             return true;
         }
-
-        // Funcionalidades do Diretor
-
-        // Validação de funcionalidades do diretor
-        private void ValidarDiretor(Usuario usuario)
-        {
-            if (usuario.Tipo != TipoUsuario.DI) // Valida se o tipo de usuário está de acordo como 'diretor'
-                throw new UnauthorizedAccessException("Apenas diretores podem executar essa ação!");
-        }
-
-        // Aprovar alocação
-        public void AprovarAlocacao()
-        {
-
-        }
-
-        // Funcionalidades do Coordenador
-
-        // // Validação de funcionalidades do Coordenador
-        // private void ValidarCoordenador(Usuario usuario)
-        // {
-        //     if (usuario.Tipo != TipoUsuario.CO) // Valida se o tipo de usuário está de acordo como 'coordenador'
-        //         throw new UnauthorizedAccessException("Apenas coordenadores podem executar essa ação!");
-        // }
-
-        // // Funcionalidades do Responsável de TI
-
-        // // Validação de funcionalidades do Responsável de TI
-        // private void ValidarResponsavelTI(Usuario usuario)
-        // {
-        //     if (usuario.Tipo != TipoUsuario.RT) // Valida se o tipo de usuário está de acordo como 'Responsável de TI'
-        //         throw new UnauthorizedAccessException("Apenas os responsáveis do TI podem executar essa ação!");
-        // }
 
     }
 }

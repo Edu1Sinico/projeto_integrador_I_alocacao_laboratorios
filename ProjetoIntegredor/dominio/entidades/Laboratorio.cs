@@ -13,8 +13,14 @@ namespace ProjetoIntegredor.model
         private int numLaboratorio;
         private int qtdeComputador;
         private int capacidadeMaxAluno;
-        public char Blocos { get; set; }
-        public Disponibilidade StatusDisponibilidade { get; set; } = Disponibilidade.D; // Define automaticamente a disponibilidade como "D - Disponível".
+        public Bloco Bloco { get; private set; }
+        public void AlterarBloco(Bloco bloco)
+        {
+            Bloco = bloco;
+        }
+        public Disponibilidade StatusDisponibilidade { get; private set; } = Disponibilidade.D; // Define automaticamente a disponibilidade como "D - Disponível".
+        public List<Software> Softwares { get; private set; } = new();
+
         public int NumLaboratorio
         {
             get => numLaboratorio;
@@ -48,13 +54,31 @@ namespace ProjetoIntegredor.model
             }
         }
 
-        public Laboratorio(int numLaboratorio, int qtdeComputador, int capacidadeMaxAluno, char blocos)
+        public Laboratorio(int numLaboratorio, int qtdeComputador, int capacidadeMaxAluno, Bloco bloco)
         {
             IdLaboratorio = contador++;
             NumLaboratorio = numLaboratorio;
             QtdeComputador = qtdeComputador;
             CapacidadeMaxAluno = capacidadeMaxAluno;
-            Blocos = blocos;
+            Bloco = bloco;
+            StatusDisponibilidade = Disponibilidade.D;
+        }
+
+        // Adicionar Software para o Laboratório
+        public void AdicionarSoftware(Software software)
+        {
+            if (software == null)
+                throw new ArgumentNullException(nameof(software)); // trata o erro caso a referência do parâmetro for null
+
+            if (!Softwares.Contains(software)) // Só adiciona se o laboratório não estiver com nenhum software vinculado a ela
+                Softwares.Add(software);
+
+        }
+
+        // Remover Software do Laboratório
+        public void RemoverSoftware(Software software)
+        {
+            Softwares.Remove(software);
         }
     }
 }

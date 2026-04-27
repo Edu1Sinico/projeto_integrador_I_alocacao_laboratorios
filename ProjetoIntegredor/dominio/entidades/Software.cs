@@ -41,9 +41,5 @@ namespace ProjetoIntegredor.model
             Versao = versao;
         }
 
-        public static implicit operator List<object>(Software v)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

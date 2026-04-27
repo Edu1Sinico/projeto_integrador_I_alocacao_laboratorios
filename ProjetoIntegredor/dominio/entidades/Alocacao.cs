@@ -52,5 +52,3 @@ namespace ProjetoIntegredor.model
         }
     }
 }
-
-// Pedir para o chat validar a classe "AlocacaoService" e a funcionalidade e "AlterarStatusAprovacao"

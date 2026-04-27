@@ -12,7 +12,7 @@ namespace ProjetoIntegredor.Servicos
         List<Laboratorio> laboratorios = new();
 
         // Cadastrar
-        public Laboratorio CadastrarLaboratorio(Usuario usuarioLogado, int numLaboratorio, int qtdeComputador, int capacidadeMaxAluno, Bloco bloco, Software software)
+        public Laboratorio CadastrarLaboratorio(Usuario usuarioLogado, int numLaboratorio, int qtdeComputador, Bloco bloco, Software software)
         {
             AutorizacaoService.ValidarUsuario(usuarioLogado);
             AutorizacaoService.ValidarDiretor(usuarioLogado);
@@ -20,7 +20,7 @@ namespace ProjetoIntegredor.Servicos
             if (laboratorios.Any(l => l.NumLaboratorio == numLaboratorio && l.Bloco == bloco))
                 throw new ArgumentException("Laboratório já cadastrado neste bloco!");
 
-            var laboratorio = new Laboratorio(numLaboratorio, qtdeComputador, capacidadeMaxAluno, bloco);
+            var laboratorio = new Laboratorio(numLaboratorio, qtdeComputador, bloco);
             laboratorio.AdicionarSoftware(software);
             laboratorios.Add(laboratorio);
             return laboratorio;
@@ -54,7 +54,7 @@ namespace ProjetoIntegredor.Servicos
 
             laboratorio.NumLaboratorio = numLaboratorio;
             laboratorio.QtdeComputador = qtdeComputador;
-            laboratorio.CapacidadeMaxAluno = capacidadeMaxAluno;
+            laboratorio.CapacidadeMaxAluno = qtdeComputador*2;
             laboratorio.AlterarBloco(bloco);
 
             return laboratorio;

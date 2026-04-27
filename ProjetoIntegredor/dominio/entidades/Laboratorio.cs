@@ -54,12 +54,12 @@ namespace ProjetoIntegredor.model
             }
         }
 
-        public Laboratorio(int numLaboratorio, int qtdeComputador, int capacidadeMaxAluno, Bloco bloco)
+        public Laboratorio(int numLaboratorio, int qtdeComputador, Bloco bloco)
         {
             IdLaboratorio = contador++;
             NumLaboratorio = numLaboratorio;
             QtdeComputador = qtdeComputador;
-            CapacidadeMaxAluno = capacidadeMaxAluno;
+            CapacidadeMaxAluno = qtdeComputador*2;
             Bloco = bloco;
             StatusDisponibilidade = Disponibilidade.D;
         }

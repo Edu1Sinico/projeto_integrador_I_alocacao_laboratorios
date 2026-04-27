@@ -13,7 +13,7 @@ namespace ProjetoIntegredor.model
         public DateOnly Data { get; private set; }
         public TimeOnly HoraInicio { get; private set; }
         private TimeOnly horaFim;
-        public Aprovacao StatusAprovacao { get; private set; } = Aprovacao.P; // Define automaticamente a aprovação como "P - Pendente".
+        public Aprovacao StatusAprovacao { get; set; } = Aprovacao.P; // Define automaticamente a aprovação como "P - Pendente".
         public Laboratorio Laboratorio { get; private set; }
         public Disciplina Disciplina { get; private set; }
         public Usuario Usuario { get; private set; }
@@ -41,12 +41,14 @@ namespace ProjetoIntegredor.model
         }
 
         // Alterar status de aprovação
-        public Aprovacao AlterarStatusAprovacao(bool aprovacao)
+        public void Aprovar()
         {
-            if(aprovacao)
-                return Aprovacao.A;
-            else
-                return Aprovacao.R;
+            StatusAprovacao = Aprovacao.A;
+        }
+
+        public void Reprovar()
+        {
+            StatusAprovacao = Aprovacao.R;
         }
     }
 }

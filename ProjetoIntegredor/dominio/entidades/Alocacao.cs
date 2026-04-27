@@ -29,7 +29,7 @@ namespace ProjetoIntegredor.model
             }
         }
 
-        public Alocacao(DateOnly data, TimeOnly horaInicio, TimeOnly horaFim,Laboratorio lab, Disciplina disc, Usuario usuario)
+        public Alocacao(DateOnly data, TimeOnly horaInicio, TimeOnly horaFim, Laboratorio lab, Disciplina disc, Usuario usuario)
         {
             IdAlocacao = contador++;
             Data = data;
@@ -39,5 +39,16 @@ namespace ProjetoIntegredor.model
             Disciplina = disc;
             Usuario = usuario;
         }
+
+        // Alterar status de aprovação
+        public Aprovacao AlterarStatusAprovacao(bool aprovacao)
+        {
+            if(aprovacao)
+                return Aprovacao.A;
+            else
+                return Aprovacao.R;
+        }
     }
 }
+
+// Pedir para o chat validar a classe "AlocacaoService" e a funcionalidade e "AlterarStatusAprovacao"

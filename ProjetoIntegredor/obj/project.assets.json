@@ -8,19 +8,19 @@
     "net8.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Aluno\\.nuget\\packages\\": {}
+    "C:\\Users\\sinic\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Aluno\\Documents\\projeto_integrador_I_alocacao_laboratorios\\ProjetoIntegredor\\ProjetoIntegredor.csproj",
+      "projectUniqueName": "C:\\Users\\sinic\\OneDrive\\Desktop\\Códigos e Projetos\\projeto_integrador_I_alocacao_laboratorios\\ProjetoIntegredor\\ProjetoIntegredor.csproj",
       "projectName": "ProjetoIntegredor",
-      "projectPath": "C:\\Users\\Aluno\\Documents\\projeto_integrador_I_alocacao_laboratorios\\ProjetoIntegredor\\ProjetoIntegredor.csproj",
-      "packagesPath": "C:\\Users\\Aluno\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Aluno\\Documents\\projeto_integrador_I_alocacao_laboratorios\\ProjetoIntegredor\\obj\\",
+      "projectPath": "C:\\Users\\sinic\\OneDrive\\Desktop\\Códigos e Projetos\\projeto_integrador_I_alocacao_laboratorios\\ProjetoIntegredor\\ProjetoIntegredor.csproj",
+      "packagesPath": "C:\\Users\\sinic\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\sinic\\OneDrive\\Desktop\\Códigos e Projetos\\projeto_integrador_I_alocacao_laboratorios\\ProjetoIntegredor\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Aluno\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\sinic\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -64,7 +64,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.420/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.419/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

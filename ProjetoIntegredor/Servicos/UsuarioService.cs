@@ -13,6 +13,17 @@ namespace ProjetoIntegredor.Servicos
 
         private List<Usuario> usuarios = new();
 
+        // CADASTRO DE DIRETOR (TEMPORÁRIO)
+        public void CadastrarDiretor()
+        {
+            if (usuarios.Any(u => u.RE == "123"))
+                return;
+
+            var diretor = new Usuario("123", "Marcos", "marcosdiretor@einstein.com.br", TipoUsuario.DI);
+            diretor.DefinirSenha("123456");
+            usuarios.Add(diretor);
+        }
+
         // Métodos CRUD dos Usuários
 
         // Cadastrar

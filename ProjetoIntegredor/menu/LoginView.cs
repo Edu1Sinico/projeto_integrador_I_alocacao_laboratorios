@@ -34,7 +34,7 @@ namespace ProjetoIntegredor.menu
                     continue;
                 }
 
-                // Define uma variável para o enumerado (TipoUsuario)
+                // Define uma variável para o enumerador (TipoUsuario)
                 TipoUsuario tipoUsuario;
 
                 switch (opcaoSelecionada)

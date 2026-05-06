@@ -59,12 +59,14 @@ namespace ProjetoIntegredor.menu
                 Console.Write("Informe a senha: ");
                 string? senha = Console.ReadLine();
 
-                usuarioLogado = usuarioService.Login(tipoUsuario, re, senha);
-
-                // Caso não encontrar, retorna um erro
-                if (usuarioLogado == null)
+                try
                 {
-                    Console.WriteLine("\nRE, senha ou tipo de usuário inválidos!");
+                    usuarioLogado = usuarioService.Login(tipoUsuario, re, senha);
+                }
+                catch (ArgumentException ex)
+                {
+                    Console.WriteLine($"Erro ao realizar o login: \n{ex.Message}");
+                    continue;
                 }
 
             } while (usuarioLogado == null);

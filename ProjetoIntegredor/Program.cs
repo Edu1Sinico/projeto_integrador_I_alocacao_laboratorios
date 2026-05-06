@@ -8,6 +8,7 @@ internal class Program
     public static void Main(string[] args)
     {
         string? opcao = null; // Variável de controle
+        string? mensagem = null;
         bool sistemaAtivo = true; // Controla o sistema
 
         // Funcionalidades dos Usuários
@@ -57,11 +58,12 @@ internal class Program
                     switch (opcaoSelecionada)
                     {
                         case 1:
-                            string mensagem = DiretorView.CadUsuarioInterface(usuarioLogado, usuarioService);
+                            mensagem = DiretorView.CadUsuarioInterface(usuarioLogado, usuarioService);
                             Console.WriteLine($"\n{mensagem}");
                             break;
                         case 2:
-
+                            mensagem = DiretorView.CadLabInterface(usuarioLogado, labService);
+                            Console.WriteLine($"\n{mensagem}");
                             break;
                         case 3:
 

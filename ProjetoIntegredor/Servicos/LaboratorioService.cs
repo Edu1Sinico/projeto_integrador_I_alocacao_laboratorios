@@ -21,7 +21,6 @@ namespace ProjetoIntegredor.Servicos
                 throw new ArgumentException("Laboratório já cadastrado neste bloco!");
 
             var laboratorio = new Laboratorio(numLaboratorio, qtdeComputador, bloco);
-            // laboratorio.AdicionarSoftware(software);
             laboratorios.Add(laboratorio);
             return laboratorio;
         }
@@ -54,7 +53,7 @@ namespace ProjetoIntegredor.Servicos
 
             laboratorio.NumLaboratorio = numLaboratorio;
             laboratorio.QtdeComputador = qtdeComputador;
-            laboratorio.CapacidadeMaxAluno = qtdeComputador*2;
+            laboratorio.CapacidadeMaxAluno = qtdeComputador * 2;
             laboratorio.AlterarBloco(bloco);
 
             return laboratorio;

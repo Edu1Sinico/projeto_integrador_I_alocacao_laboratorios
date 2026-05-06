@@ -55,7 +55,8 @@ namespace ProjetoIntegredor.menu
                     }
                     catch (ArgumentException ex)
                     {
-                        return $"\nErro: {ex.Message}";
+                        Console.WriteLine($"\nErro: {ex.Message}");
+                        continue;
                     }
 
                     TipoUsuario tipoUsuario;
@@ -99,7 +100,7 @@ namespace ProjetoIntegredor.menu
         }
 
         // Menu de Cadastro de Labotatórios
-        public static string CadLabInterface(Usuario usuarioLogado, LaboratorioService labService, SoftwareService software)
+        public static string CadLabInterface(Usuario usuarioLogado, LaboratorioService labService)
         {
             int numLaboratorio;
             int qtdeComputador;
@@ -123,7 +124,8 @@ namespace ProjetoIntegredor.menu
                     }
                     catch (ArgumentException ex)
                     {
-                        return $"\nErro: {ex.Message}";
+                        Console.WriteLine($"\nErro: {ex.Message}");
+                        continue;
                     }
 
                     Console.Write("Informe a quantidade de computadores: ");
@@ -142,10 +144,10 @@ namespace ProjetoIntegredor.menu
                     }
 
                     Console.WriteLine("\nInforme o Bloco: ");
-                    Console.WriteLine("A: Bloco A");
-                    Console.WriteLine("B: Bloco B");
-                    Console.WriteLine("C: Bloco C");
-                    Console.WriteLine("D: Bloco D");
+                    Console.WriteLine("A");
+                    Console.WriteLine("B");
+                    Console.WriteLine("C");
+                    Console.WriteLine("D");
 
                     Console.Write("\nOpção: ");
                     string? opcao = Console.ReadLine();
@@ -153,7 +155,7 @@ namespace ProjetoIntegredor.menu
 
                     Bloco bloco;
 
-                    switch (opcao)
+                    switch (opcao.ToUpper())
                     {
                         case "A":
                             bloco = Bloco.A;
@@ -168,7 +170,7 @@ namespace ProjetoIntegredor.menu
                             bloco = Bloco.D;
                             break;
                         default:
-                            Console.WriteLine("\nInforme um usuário válido!");
+                            Console.WriteLine("\nInforme um bloco válido!");
                             continue;
                     }
 

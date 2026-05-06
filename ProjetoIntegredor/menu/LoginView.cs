@@ -53,7 +53,7 @@ namespace ProjetoIntegredor.menu
                         continue;
                 }
 
-                Console.Write("Informe o RE Institucional: ");
+                Console.Write("\nInforme o RE Institucional: ");
                 string? re = Console.ReadLine();
 
                 Console.Write("Informe a senha: ");

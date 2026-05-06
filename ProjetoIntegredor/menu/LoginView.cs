@@ -65,7 +65,7 @@ namespace ProjetoIntegredor.menu
                 }
                 catch (ArgumentException ex)
                 {
-                    Console.WriteLine($"Erro ao realizar o login: \n{ex.Message}");
+                    Console.WriteLine($"\nErro ao realizar o login: {ex.Message}");
                     continue;
                 }
 

@@ -117,9 +117,7 @@ internal class Program
                     switch (opcaoSelecionada)
                     {
                         case 1:
-                            // Teste
-                            string mensagem = DiretorView.CadUsuarioInterface(usuarioLogado, usuarioService);
-                            Console.WriteLine($"\n{mensagem}");
+
                             break;
                         case 2:
 

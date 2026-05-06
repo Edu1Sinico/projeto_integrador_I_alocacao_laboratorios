@@ -13,6 +13,9 @@ namespace ProjetoIntegredor.menu
         // Menu de cadastro do usuário
         public static string CadUsuarioInterface(Usuario usuarioLogado, UsuarioService usuarioService)
         {
+
+            int opcaoSelecionada;
+
             if (usuarioLogado.Tipo == TipoUsuario.DI)
             {
                 // Rodando infinitamente até que o usuário encaminhe os dados corretos ou que o usuário cancele o cadastro
@@ -41,14 +44,18 @@ namespace ProjetoIntegredor.menu
                     Console.WriteLine("1 - Diretor");
                     Console.WriteLine("2 - Coordenador");
                     Console.WriteLine("3 - Responsável de TI");
-                    Console.Write("\nOpção: ");
-                    string? opcaoTipoUsuario = Console.ReadLine();
-                    if (opcaoTipoUsuario == "0") return "Cadastro cancelado.";
 
-                    if (!int.TryParse(opcaoTipoUsuario, out int opcaoSelecionada))
+                    Console.Write("\nOpção: ");
+                    string? opcao = Console.ReadLine();
+                    if (opcao == "0") return "Cadastro cancelado.";
+
+                    try
                     {
-                        Console.WriteLine("\nDigite uma opção válida!");
-                        continue;
+                        opcaoSelecionada = ValidarInteiro(opcao);
+                    }
+                    catch (ArgumentException ex)
+                    {
+                        return $"\nErro: {ex.Message}";
                     }
 
                     TipoUsuario tipoUsuario;
@@ -89,6 +96,112 @@ namespace ProjetoIntegredor.menu
             {
                 return "Erro: Apenas diretores podem executar essa ação!";
             }
+        }
+
+        // Menu de Cadastro de Labotatórios
+        public static string CadLabInterface(Usuario usuarioLogado, LaboratorioService labService, SoftwareService software)
+        {
+            int numLaboratorio;
+            int qtdeComputador;
+
+            if (usuarioLogado.Tipo == TipoUsuario.DI)
+            {
+                // Rodando infinitamente até que o usuário encaminhe os dados corretos ou que o usuário cancele o cadastro
+                while (true)
+                {
+                    Console.WriteLine("\n====== CADASTRAR LABORATÓRIO ======\n");
+                    Console.WriteLine("Digite 0 a qualquer momento para cancelar.\n");
+
+                    Console.Write("Informe o número do laboratório: ");
+                    string? numero = Console.ReadLine();
+                    if (numero == "0") return "Cadastro cancelado.";
+
+                    // Verifica se o usuário realmente digitou um número
+                    try
+                    {
+                        numLaboratorio = ValidarInteiro(numero);
+                    }
+                    catch (ArgumentException ex)
+                    {
+                        return $"\nErro: {ex.Message}";
+                    }
+
+                    Console.Write("Informe a quantidade de computadores: ");
+                    string? qtde = Console.ReadLine();
+                    if (qtde == "0") return "Cadastro cancelado.";
+
+                    // Verifica se o usuário realmente digitou um número
+                    try
+                    {
+                        qtdeComputador = ValidarInteiro(qtde);
+                    }
+                    catch (ArgumentException ex)
+                    {
+                        Console.WriteLine($"\nErro: {ex.Message}");
+                        continue;
+                    }
+
+                    Console.WriteLine("\nInforme o Bloco: ");
+                    Console.WriteLine("A: Bloco A");
+                    Console.WriteLine("B: Bloco B");
+                    Console.WriteLine("C: Bloco C");
+                    Console.WriteLine("D: Bloco D");
+
+                    Console.Write("\nOpção: ");
+                    string? opcao = Console.ReadLine();
+                    if (opcao == "0") return "Cadastro cancelado.";
+
+                    Bloco bloco;
+
+                    switch (opcao)
+                    {
+                        case "A":
+                            bloco = Bloco.A;
+                            break;
+                        case "B":
+                            bloco = Bloco.B;
+                            break;
+                        case "C":
+                            bloco = Bloco.C;
+                            break;
+                        case "D":
+                            bloco = Bloco.D;
+                            break;
+                        default:
+                            Console.WriteLine("\nInforme um usuário válido!");
+                            continue;
+                    }
+
+                    try
+                    {
+                        var labCadastrado = labService.CadastrarLaboratorio(usuarioLogado, numLaboratorio!, qtdeComputador!, bloco); // "!" Permite cadastrar mesmo sabendo que o valor pode ser nulo
+
+                        return $"Laboratório cadastrado com sucesso!";
+                    }
+                    catch (ArgumentException ex)
+                    {
+                        return $"Erro ao cadastrar laboratório: {ex.Message}";
+                    }
+                    catch (UnauthorizedAccessException ex)
+                    {
+                        return $"Erro: {ex.Message}";
+                    }
+                }
+            }
+            else
+            {
+                return "Erro: Apenas diretores podem executar essa ação!";
+            }
+        }
+
+        // Outros métodos
+
+        // Validar se o usuário digitou um número
+        private static int ValidarInteiro(string valor)
+        {
+            if (!int.TryParse(valor, out int valorInformado))
+                throw new ArgumentException("Digite um número válido!");
+            return valorInformado;
         }
     }
 }

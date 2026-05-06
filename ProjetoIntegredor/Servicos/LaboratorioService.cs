@@ -11,8 +11,8 @@ namespace ProjetoIntegredor.Servicos
     {
         List<Laboratorio> laboratorios = new();
 
-        // Cadastrar
-        public Laboratorio CadastrarLaboratorio(Usuario usuarioLogado, int numLaboratorio, int qtdeComputador, Bloco bloco, Software software)
+        // Cadastrar (Separar funcionalidade do cadastro de software no laboratório)
+        public Laboratorio CadastrarLaboratorio(Usuario usuarioLogado, int numLaboratorio, int qtdeComputador, Bloco bloco)
         {
             AutorizacaoService.ValidarUsuario(usuarioLogado);
             AutorizacaoService.ValidarDiretor(usuarioLogado);
@@ -21,7 +21,7 @@ namespace ProjetoIntegredor.Servicos
                 throw new ArgumentException("Laboratório já cadastrado neste bloco!");
 
             var laboratorio = new Laboratorio(numLaboratorio, qtdeComputador, bloco);
-            laboratorio.AdicionarSoftware(software);
+            // laboratorio.AdicionarSoftware(software);
             laboratorios.Add(laboratorio);
             return laboratorio;
         }

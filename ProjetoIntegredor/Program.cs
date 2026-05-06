@@ -10,9 +10,12 @@ internal class Program
         string? opcao = null; // Variável de controle
         bool sistemaAtivo = true; // Controla o sistema
 
+        // Funcionalidades dos Usuários
         UsuarioService usuarioService = new UsuarioService(); // Chama as funcionalidades do sistema
         usuarioService.CadastrarDiretor(); // Cadastra o diretor de forma temporária
 
+        // Funcionalidades dos Labotatórios
+        LaboratorioService labService = new LaboratorioService();
 
         while (sistemaAtivo)
         {

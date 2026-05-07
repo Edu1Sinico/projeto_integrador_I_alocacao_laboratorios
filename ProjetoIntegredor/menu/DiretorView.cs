@@ -116,7 +116,7 @@ namespace ProjetoIntegredor.menu
 
                 if (usuarioEncotrado != null)
                 {
-                    Console.WriteLine("\n====== USUÁRIO ENCONTRADO ======\n");
+                    Console.WriteLine("\n====== USUÁRIO ENCONTRADO ======");
                     return $"(ID: {usuarioEncotrado.IdUsuario} - RE: {usuarioEncotrado.RE} - Nome: {usuarioEncotrado.Nome} - E-mail: {usuarioEncotrado.Email})";
                 }
                 else
@@ -165,6 +165,62 @@ namespace ProjetoIntegredor.menu
             }
         }
 
+        // Menu de atualização dos usuários
+        public static string AtualizarUsuarioInterface(Usuario usuarioLogado, UsuarioService usuarioService)
+        {
+            return "";
+        }
+
+        // Menu de exclusão dos usuários
+        public static string ExcluirUsuarioInterface(Usuario usuarioLogado, UsuarioService usuarioService)
+        {
+            if (usuarioLogado.Tipo == TipoUsuario.DI)
+            {
+                while (true)
+                {
+                    Console.WriteLine("\n====== EXCLUIR USUÁRIOS ======\n");
+                    Console.WriteLine("Digite 0 a qualquer momento para cancelar.\n");
+
+                    Console.Write("Informe o RE do usuário: ");
+                    string? re = Console.ReadLine();
+                    if (re == "0") return "Exclusão cancelada.";
+
+                    var usuarioEncotrado = usuarioService.BuscarUsuarioRE(usuarioLogado, re!);
+
+                    if (usuarioEncotrado != null)
+                    {
+                        Console.WriteLine("\n====== USUÁRIO ENCONTRADO PARA EXCLUSÃO ======\n");
+                        Console.WriteLine($"(ID: {usuarioEncotrado.IdUsuario} - RE: {usuarioEncotrado.RE} - Nome: {usuarioEncotrado.Nome} - E-mail: {usuarioEncotrado.Email})");
+
+                        Console.WriteLine("\nDeseja realmente excluir este usuário? (S - Sim | N - Não)");
+                        Console.Write("\nOpção: ");
+                        string? opcao = Console.ReadLine().ToUpper();
+
+                        switch (opcao)
+                        {
+                            case "S":
+                                var usuarioExcluido = usuarioService.ExcluirUsuario(usuarioLogado,usuarioEncotrado.IdUsuario);
+                                return $"Usuário {usuarioExcluido.Nome} excluído com sucesso!";
+
+                            case "N":
+                                return "Operação cancelada.";
+
+                            default:
+                                Console.WriteLine("\nInforme uma opção válida!");
+                                continue;
+                        }
+
+                    }
+                    else
+                        return "Usuário não encontrado.";
+                }
+            }
+            else
+            {
+                return "Erro: Apenas diretores podem executar essa ação!";
+            }
+        }
+
         // Controle das telas de usuários
         public static string CrudUsuariosInterface(Usuario usuarioLogado, UsuarioService usuarioService)
         {
@@ -184,7 +240,8 @@ namespace ProjetoIntegredor.menu
                     Console.WriteLine("2 - Buscar Usuário por RE");
                     Console.WriteLine("3 - Buscar Usuário por Nome");
                     Console.WriteLine("4 - Listar Usuários");
-                    Console.WriteLine("5 - Excluir Usuário");
+                    Console.WriteLine("5 - Atualizar Usuário");
+                    Console.WriteLine("6 - Excluir Usuário");
                     Console.WriteLine("0 - Cancelar Operação");
 
                     Console.Write("\nOpção: ");
@@ -212,10 +269,13 @@ namespace ProjetoIntegredor.menu
                             return BuscarUsuarioNomeInterface(usuarioLogado, usuarioService);
 
                         case 4:
-                            return ListarUsuariosInterface(usuarioLogado,usuarioService);
+                            return ListarUsuariosInterface(usuarioLogado, usuarioService);
 
                         case 5:
 
+
+                        case 6:
+                            return ExcluirUsuarioInterface(usuarioLogado,usuarioService);
 
                         case 0:
                             return "Operação cancelada.";

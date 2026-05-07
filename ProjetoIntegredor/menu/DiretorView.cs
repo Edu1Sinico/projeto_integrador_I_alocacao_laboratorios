@@ -171,7 +171,7 @@ namespace ProjetoIntegredor.menu
             return "";
         }
 
-        // Menu de exclusão dos usuários
+        // Menu de exclusão dos usuários (Evitar que o usuário exclua a si mesmo.)
         public static string ExcluirUsuarioInterface(Usuario usuarioLogado, UsuarioService usuarioService)
         {
             if (usuarioLogado.Tipo == TipoUsuario.DI)
@@ -194,13 +194,20 @@ namespace ProjetoIntegredor.menu
 
                         Console.WriteLine("\nDeseja realmente excluir este usuário? (S - Sim | N - Não)");
                         Console.Write("\nOpção: ");
-                        string? opcao = Console.ReadLine().ToUpper();
+                        string? opcao = Console.ReadLine()?.ToUpper();
 
                         switch (opcao)
                         {
                             case "S":
-                                var usuarioExcluido = usuarioService.ExcluirUsuario(usuarioLogado,usuarioEncotrado.IdUsuario);
-                                return $"Usuário {usuarioExcluido.Nome} excluído com sucesso!";
+                                try
+                                {
+                                    var usuarioExcluido = usuarioService.ExcluirUsuario(usuarioLogado, usuarioEncotrado.IdUsuario);
+                                    return $"Usuário {usuarioExcluido.Nome} excluído com sucesso!";
+                                }
+                                catch (InvalidOperationException ex) // Tratando o erro se o usuário digitar o próprio ID para exclusão.
+                                {
+                                    return $"Erro: {ex.Message}";
+                                }
 
                             case "N":
                                 return "Operação cancelada.";
@@ -275,7 +282,7 @@ namespace ProjetoIntegredor.menu
 
 
                         case 6:
-                            return ExcluirUsuarioInterface(usuarioLogado,usuarioService);
+                            return ExcluirUsuarioInterface(usuarioLogado, usuarioService);
 
                         case 0:
                             return "Operação cancelada.";

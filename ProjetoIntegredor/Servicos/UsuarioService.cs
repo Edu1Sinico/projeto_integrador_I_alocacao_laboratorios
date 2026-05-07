@@ -95,6 +95,10 @@ namespace ProjetoIntegredor.Servicos
         {
             AutorizacaoService.ValidarUsuario(usuarioLogado);
             AutorizacaoService.ValidarDiretor(usuarioLogado);
+
+            if (usuarioLogado.IdUsuario == id)
+                throw new InvalidOperationException("Você não pode excluir o próprio usuário logado.");
+
             var usuario = usuarios.FirstOrDefault(u => u.IdUsuario == id);
 
             if (usuario != null)

@@ -41,7 +41,9 @@ internal class Program
                     Console.WriteLine("2 - Funções de Laboratórios (Cadastrar, Buscar, Atualizar e Excluir)");
                     Console.WriteLine("3 - Vincular Software com Laboratório");
                     Console.WriteLine("4 - Aprovar/Recusar Alocação"); // Inserir histórico de alocações junto
-                    Console.WriteLine("5 - Logout");
+                    Console.WriteLine("5 - Listar Disciplinas");
+                    Console.WriteLine("6 - Listar Softwares");
+                    Console.WriteLine("7 - Logout");
                     Console.WriteLine("0 - Sair");
                     Console.Write("\nOpção: ");
 
@@ -71,6 +73,12 @@ internal class Program
 
                             break;
                         case 5:
+
+                            break;
+                        case 6:
+
+                            break;
+                        case 7:
                             usuarioAutenticado = false;
                             Console.WriteLine("\nLogout realizado com sucesso!");
                             break;
@@ -87,14 +95,13 @@ internal class Program
                 else if (usuarioLogado.Tipo == TipoUsuario.CO)
                 {
                     Console.WriteLine("Escolha uma opção:");
-                    Console.WriteLine("1 - Cadastrar Disciplina");
+                    Console.WriteLine("1 - Funções de Disciplina (Cadastrar, Buscar, Atualizar e Excluir)");
                     Console.WriteLine("2 - Vincular Software com a Disciplina");
                     Console.WriteLine("3 - Solicitar Alocação");
                     Console.WriteLine("4 - Histórico de Alocações");
                     Console.WriteLine("5 - Listar Laboratórios");
-                    Console.WriteLine("6 - Listar Disciplinas");
-                    Console.WriteLine("7 - Listar Softwares");
-                    Console.WriteLine("8 - Logout");
+                    Console.WriteLine("6 - Listar Softwares");
+                    Console.WriteLine("7 - Logout");
                     Console.WriteLine("0 - Sair");
                     Console.Write("\nOpção: ");
 
@@ -144,11 +151,10 @@ internal class Program
                 else if (usuarioLogado.Tipo == TipoUsuario.RT)
                 {
                     Console.WriteLine("Escolha uma opção:");
-                    Console.WriteLine("1 - Cadastrar Software");
+                    Console.WriteLine("1 - Funções de Software (Cadastrar, Buscar, Atualizar e Excluir)");
                     Console.WriteLine("2 - Listar Laboratórios");
                     Console.WriteLine("3 - Listar Disciplinas");
-                    Console.WriteLine("4 - Listar Softwares");
-                    Console.WriteLine("5 - Logout");
+                    Console.WriteLine("4 - Logout");
                     Console.WriteLine("0 - Sair");
                     Console.Write("\nOpção: ");
 
@@ -171,12 +177,9 @@ internal class Program
 
                             break;
                         case 3:
-
+                        
                             break;
                         case 4:
-
-                            break;
-                        case 5:
                             usuarioAutenticado = false;
                             Console.WriteLine("\nLogout realizado com sucesso!");
                             break;

@@ -168,7 +168,64 @@ namespace ProjetoIntegredor.menu
         // Menu de atualização dos usuários
         public static string AtualizarUsuarioInterface(Usuario usuarioLogado, UsuarioService usuarioService)
         {
-            return "";
+            if (usuarioLogado.Tipo == TipoUsuario.DI)
+            {
+                while (true)
+                {
+                    Console.WriteLine("\n====== ATUALIZAR USUÁRIO ======\n");
+                    Console.WriteLine("Digite 0 a qualquer momento para cancelar.\n");
+
+                    Console.Write("Informe o RE do usuário: ");
+                    string? re = Console.ReadLine();
+                    if (re == "0") return "Atualização cancelada.";
+
+                    var usuarioEncotrado = usuarioService.BuscarUsuarioRE(usuarioLogado, re!);
+
+                    if (usuarioEncotrado != null)
+                    {
+                        Console.WriteLine("\n====== USUÁRIO ENCONTRADO PARA ATUALIZAÇÃO ======\n");
+                        Console.WriteLine($"(ID: {usuarioEncotrado.IdUsuario} - RE: {usuarioEncotrado.RE} - Nome: {usuarioEncotrado.Nome} - E-mail: {usuarioEncotrado.Email})");
+
+                        Console.WriteLine("\nInforme os campos que deseja atualizar (deixe em branco os campos que não deseja alterar):\n");
+
+                        Console.Write("Informe o novo nome do usuário: ");
+                        string? nome = Console.ReadLine();
+                        if (nome == "0") return "Atualização cancelada.";
+                        if (string.IsNullOrWhiteSpace(nome)) nome = usuarioEncotrado.Nome; // Caso o valor esteja vazio, ele mantem o valor original.
+
+                        Console.Write("Informe o novo e-mail do usuário: ");
+                        string? email = Console.ReadLine();
+                        if (email == "0") return "Atualização cancelada.";
+                        if (string.IsNullOrWhiteSpace(email)) email = usuarioEncotrado.Email; // Caso o valor esteja vazio, ele mantem o valor original.
+
+                        Console.Write("Informe a nova senha do usuário: ");
+                        string? senha = Console.ReadLine();
+                        if (senha == "0") return "Atualização cancelada.";
+                        if (string.IsNullOrWhiteSpace(senha)) senha = null; // Caso o valor esteja vazio, ele mantem o valor original e é validado dentro do método "AtualizarSoftware".
+
+                        try
+                        {
+                            var usuarioAtualizado = usuarioService.AtualizarUsuario(usuarioLogado, usuarioEncotrado.IdUsuario, nome!, email!, senha!);
+
+                            return $"Usuário {usuarioAtualizado.Nome} atualizado com sucesso!";
+                        }
+                        catch (ArgumentException ex)
+                        {
+                            return $"Erro ao atualizar usuário: {ex.Message}";
+                        }
+                        catch (UnauthorizedAccessException ex)
+                        {
+                            return $"Erro: {ex.Message}";
+                        }
+                    }
+                    else
+                        return "Usuário não encontrado.";
+                }
+            }
+            else
+            {
+                return "Erro: Apenas diretores podem executar essa ação!";
+            }
         }
 
         // Menu de exclusão dos usuários
@@ -279,7 +336,7 @@ namespace ProjetoIntegredor.menu
                             return ListarUsuariosInterface(usuarioLogado, usuarioService);
 
                         case 5:
-
+                            return AtualizarUsuarioInterface(usuarioLogado, usuarioService);
 
                         case 6:
                             return ExcluirUsuarioInterface(usuarioLogado, usuarioService);

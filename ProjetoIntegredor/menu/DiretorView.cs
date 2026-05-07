@@ -171,7 +171,7 @@ namespace ProjetoIntegredor.menu
             return "";
         }
 
-        // Menu de exclusão dos usuários (Evitar que o usuário exclua a si mesmo.)
+        // Menu de exclusão dos usuários
         public static string ExcluirUsuarioInterface(Usuario usuarioLogado, UsuarioService usuarioService)
         {
             if (usuarioLogado.Tipo == TipoUsuario.DI)

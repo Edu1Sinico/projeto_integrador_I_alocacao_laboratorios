@@ -137,19 +137,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\gusta\\.nuget\\packages\\": {}
+    "C:\\Users\\OPEHRMZXY3\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Projeto_Sistema_De_Alocacao\\SistemaAlocLab\\SistemaLocLab.API\\SistemaLocLab.API.csproj",
+      "projectUniqueName": "C:\\atvde01Estrutura\\C# Code\\projeto_integrador_I_alocacao_laboratorios\\SistemaLocLab.API\\SistemaLocLab.API.csproj",
       "projectName": "SistemaLocLab.API",
-      "projectPath": "C:\\Projeto_Sistema_De_Alocacao\\SistemaAlocLab\\SistemaLocLab.API\\SistemaLocLab.API.csproj",
-      "packagesPath": "C:\\Users\\gusta\\.nuget\\packages\\",
-      "outputPath": "C:\\Projeto_Sistema_De_Alocacao\\SistemaAlocLab\\SistemaLocLab.API\\obj\\",
+      "projectPath": "C:\\atvde01Estrutura\\C# Code\\projeto_integrador_I_alocacao_laboratorios\\SistemaLocLab.API\\SistemaLocLab.API.csproj",
+      "packagesPath": "C:\\Users\\OPEHRMZXY3\\.nuget\\packages\\",
+      "outputPath": "C:\\atvde01Estrutura\\C# Code\\projeto_integrador_I_alocacao_laboratorios\\SistemaLocLab.API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\gusta\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\OPEHRMZXY3\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net10.0"
@@ -161,11 +161,11 @@
         "net10.0": {
           "targetAlias": "net10.0",
           "projectReferences": {
-            "C:\\Projeto_Sistema_De_Alocacao\\SistemaAlocLab\\SistemaLocLab.Application\\SistemaLoclab.Application.csproj": {
-              "projectPath": "C:\\Projeto_Sistema_De_Alocacao\\SistemaAlocLab\\SistemaLocLab.Application\\SistemaLoclab.Application.csproj"
+            "C:\\atvde01Estrutura\\C# Code\\projeto_integrador_I_alocacao_laboratorios\\SistemaLocLab.Application\\SistemaLoclab.Application.csproj": {
+              "projectPath": "C:\\atvde01Estrutura\\C# Code\\projeto_integrador_I_alocacao_laboratorios\\SistemaLocLab.Application\\SistemaLoclab.Application.csproj"
             },
-            "C:\\Projeto_Sistema_De_Alocacao\\SistemaAlocLab\\SistemaLocLab.Infrastructure\\SistemaLocLab.Infrastructure.csproj": {
-              "projectPath": "C:\\Projeto_Sistema_De_Alocacao\\SistemaAlocLab\\SistemaLocLab.Infrastructure\\SistemaLocLab.Infrastructure.csproj"
+            "C:\\atvde01Estrutura\\C# Code\\projeto_integrador_I_alocacao_laboratorios\\SistemaLocLab.Infrastructure\\SistemaLocLab.Infrastructure.csproj": {
+              "projectPath": "C:\\atvde01Estrutura\\C# Code\\projeto_integrador_I_alocacao_laboratorios\\SistemaLocLab.Infrastructure\\SistemaLocLab.Infrastructure.csproj"
             }
           }
         }
@@ -180,7 +180,7 @@
         "auditLevel": "low",
         "auditMode": "all"
       },
-      "SdkAnalysisLevel": "10.0.100"
+      "SdkAnalysisLevel": "10.0.200"
     },
     "frameworks": {
       "net10.0": {
@@ -210,7 +210,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.107/PortableRuntimeIdentifierGraph.json",
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.201/PortableRuntimeIdentifierGraph.json",
         "packagesToPrune": {
           "Microsoft.AspNetCore": "(,10.0.32767]",
           "Microsoft.AspNetCore.Antiforgery": "(,10.0.32767]",

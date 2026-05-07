@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 using ProjetoIntegredor.dominio.enums;
 using ProjetoIntegredor.model;
@@ -99,7 +100,141 @@ namespace ProjetoIntegredor.menu
             }
         }
 
-        // Menu de Cadastro de Labotatórios
+        // Menu de buscas dos usuários (por re, nome e listagem completa)
+        public static string BuscarUsuarioReInterface(Usuario usuarioLogado, UsuarioService usuarioService)
+        {
+            if (usuarioLogado.Tipo == TipoUsuario.DI)
+            {
+                Console.WriteLine("\n====== BUSCAR USUÁRIO POR RE ======\n");
+                Console.WriteLine("Digite 0 a qualquer momento para cancelar.\n");
+
+                Console.Write("Informe o RE do usuário: ");
+                string? re = Console.ReadLine();
+                if (re == "0") return "Busca cancelada.";
+
+                var usuarioEncotrado = usuarioService.BuscarUsuarioRE(usuarioLogado, re!);
+
+                if (usuarioEncotrado != null)
+                {
+                    Console.WriteLine("\n====== USUÁRIO ENCONTRADO ======\n");
+                    return $"(ID: {usuarioEncotrado.IdUsuario} - RE: {usuarioEncotrado.RE} - Nome: {usuarioEncotrado.Nome} - E-mail: {usuarioEncotrado.Email})";
+                }
+                else
+                    return "Usuário não encontrado.";
+            }
+            else
+            {
+                return "Erro: Apenas diretores podem executar essa ação!";
+            }
+
+        }
+
+        public static string BuscarUsuarioNomeInterface(Usuario usuarioLogado, UsuarioService usuarioService)
+        {
+            if (usuarioLogado.Tipo == TipoUsuario.DI)
+            {
+                Console.WriteLine("\n====== BUSCAR USUÁRIO POR NOME ======\n");
+                Console.WriteLine("Digite 0 a qualquer momento para cancelar.\n");
+
+                Console.Write("Informe o nome do usuário: ");
+                string? nome = Console.ReadLine();
+                if (nome == "0") return "Busca cancelada.";
+
+                var usuariosEncotrados = usuarioService.BuscarUsuarioNome(usuarioLogado, nome!);
+
+                return FormatarUsuarios(usuariosEncotrados);
+            }
+            else
+            {
+                return "Erro: Apenas diretores podem executar essa ação!";
+            }
+
+        }
+
+        public static string ListarUsuariosInterface(Usuario usuarioLogado, UsuarioService usuarioService)
+        {
+            if (usuarioLogado.Tipo == TipoUsuario.DI)
+            {
+                var usuarios = usuarioService.BuscarUsuarios(usuarioLogado);
+
+                return FormatarUsuarios(usuarios);
+            }
+            else
+            {
+                return "Erro: Apenas diretores podem executar essa ação!";
+            }
+        }
+
+        // Controle das telas de usuários
+        public static string CrudUsuariosInterface(Usuario usuarioLogado, UsuarioService usuarioService)
+        {
+
+            int opcaoSelecionada;
+
+            if (usuarioLogado.Tipo == TipoUsuario.DI)
+            {
+
+                while (true)
+                {
+                    Console.WriteLine("\n====== FUNÇÕES DE USUÁRIO ======\n");
+                    Console.WriteLine("Digite 0 a qualquer momento para cancelar.\n");
+
+                    Console.WriteLine("Escolha uma função: ");
+                    Console.WriteLine("1 - Cadastrar Usuário");
+                    Console.WriteLine("2 - Buscar Usuário por RE");
+                    Console.WriteLine("3 - Buscar Usuário por Nome");
+                    Console.WriteLine("4 - Listar Usuários");
+                    Console.WriteLine("5 - Excluir Usuário");
+                    Console.WriteLine("0 - Cancelar Operação");
+
+                    Console.Write("\nOpção: ");
+                    string? opcao = Console.ReadLine();
+
+                    try
+                    {
+                        opcaoSelecionada = ValidarInteiro(opcao);
+                    }
+                    catch (ArgumentException ex)
+                    {
+                        Console.WriteLine($"\nErro: {ex.Message}");
+                        continue;
+                    }
+
+                    switch (opcaoSelecionada)
+                    {
+                        case 1:
+                            return CadUsuarioInterface(usuarioLogado, usuarioService);
+
+                        case 2:
+                            return BuscarUsuarioReInterface(usuarioLogado, usuarioService);
+
+                        case 3:
+                            return BuscarUsuarioNomeInterface(usuarioLogado, usuarioService);
+
+                        case 4:
+                            return ListarUsuariosInterface(usuarioLogado,usuarioService);
+
+                        case 5:
+
+
+                        case 0:
+                            return "Operação cancelada.";
+
+                        default:
+                            Console.WriteLine("\nInforme uma opção válida!");
+                            break;
+                    }
+                }
+            }
+            else
+            {
+                return "Erro: Apenas diretores podem executar essa ação!";
+            }
+        }
+
+        // ---------------------------------------------------------------------------------------------------------------------------
+
+        // Menu de Cadastro de Labotatórios (Fazer opções de escolha para cadastro, busca, atualização e exclusão)
         public static string CadLabInterface(Usuario usuarioLogado, LaboratorioService labService)
         {
             int numLaboratorio;
@@ -150,12 +285,12 @@ namespace ProjetoIntegredor.menu
                     Console.WriteLine("D");
 
                     Console.Write("\nOpção: ");
-                    string? opcao = Console.ReadLine();
+                    string? opcao = Console.ReadLine()?.ToUpper();
                     if (opcao == "0") return "Cadastro cancelado.";
 
                     Bloco bloco;
 
-                    switch (opcao.ToUpper())
+                    switch (opcao)
                     {
                         case "A":
                             bloco = Bloco.A;
@@ -196,7 +331,102 @@ namespace ProjetoIntegredor.menu
             }
         }
 
+        // Vincular software com laboratório (Fazer uma opção de vincular ou remover software  )
+        /*        public static string VinSoftwareLabInterface(Usuario usuarioLogado, LaboratorioService laboratorioService, List<Laboratorio> laboratorios, List<Software> softwares)
+                {
+                    if (usuarioLogado.Tipo == TipoUsuario.DI)
+                    {
+
+                    }
+                    else
+                    {
+                        return "Erro: Apenas diretores podem executar essa ação!";
+                    }
+                } 
+
+        */
+
+        // Controle das telas de laboratórios
+        public static string CrudLabInterface(Usuario usuarioLogado, LaboratorioService laboratorioService)
+        {
+
+            int opcaoSelecionada;
+
+            if (usuarioLogado.Tipo == TipoUsuario.DI)
+            {
+
+                while (true)
+                {
+                    Console.WriteLine("\n====== FUNÇÕES DE LABORATÓRIO ======\n");
+                    Console.WriteLine("Digite 0 a qualquer momento para cancelar.\n");
+
+                    Console.WriteLine("Escolha uma função: ");
+                    Console.WriteLine("1 - Cadastrar Laboratório");
+                    Console.WriteLine("2 - Buscar Usuário por Número e Bloco");
+                    Console.WriteLine("4 - Listar Usuários");
+                    Console.WriteLine("5 - Excluir Usuário");
+                    Console.WriteLine("0 - Cancelar Operação");
+
+                    Console.Write("\nOpção: ");
+                    string? opcao = Console.ReadLine();
+
+                    try
+                    {
+                        opcaoSelecionada = ValidarInteiro(opcao);
+                    }
+                    catch (ArgumentException ex)
+                    {
+                        Console.WriteLine($"\nErro: {ex.Message}");
+                        continue;
+                    }
+
+                    switch (opcaoSelecionada)
+                    {
+                        case 1:
+                            return CadLabInterface(usuarioLogado, laboratorioService);
+
+                        case 2:
+
+
+                        case 3:
+
+
+                        case 4:
+
+                        case 0:
+                            return "Operação cancelada.";
+
+                        default:
+                            Console.WriteLine("\nInforme uma opção válida!");
+                            break;
+                    }
+
+                }
+            }
+            else
+            {
+                return "Erro: Apenas diretores podem executar essa ação!";
+            }
+        }
+
         // Outros métodos
+
+        // Formatar listagem de Usuários
+        public static string FormatarUsuarios(List<Usuario> usuarios)
+        {
+            if (usuarios == null || usuarios.Count == 0)
+                return "Nenhum usuário encontrado.";
+
+            string resultado = "\n====== USUÁRIOS ENCONTRADOS ======\n";
+
+            foreach (var usuario in usuarios)
+            {
+                resultado += $"\n(ID: {usuario.IdUsuario} - RE: {usuario.RE} - Nome: {usuario.Nome} - E-mail: {usuario.Email})";
+            }
+
+            return resultado;
+        }
+
 
         // Validar se o usuário digitou um número
         private static int ValidarInteiro(string valor)

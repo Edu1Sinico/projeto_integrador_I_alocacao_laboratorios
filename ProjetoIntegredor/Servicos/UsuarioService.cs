@@ -58,7 +58,7 @@ namespace ProjetoIntegredor.Servicos
             AutorizacaoService.ValidarUsuario(usuarioLogado);
             AutorizacaoService.ValidarDiretor(usuarioLogado);
             return usuarios
-                .Where(u => u.Nome.Equals(nome, StringComparison.OrdinalIgnoreCase))
+                .Where(u => u.Nome.Contains(nome, StringComparison.OrdinalIgnoreCase))
                 .ToList();
         }
 

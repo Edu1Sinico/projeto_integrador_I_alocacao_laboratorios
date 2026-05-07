@@ -11,7 +11,7 @@ namespace ProjetoIntegredor.Servicos
     {
         List<Laboratorio> laboratorios = new();
 
-        // Cadastrar (Separar funcionalidade do cadastro de software no laboratório)
+        // Cadastrar
         public Laboratorio CadastrarLaboratorio(Usuario usuarioLogado, int numLaboratorio, int qtdeComputador, Bloco bloco)
         {
             AutorizacaoService.ValidarUsuario(usuarioLogado);

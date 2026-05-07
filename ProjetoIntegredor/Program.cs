@@ -18,6 +18,9 @@ internal class Program
         // Funcionalidades dos Labotatórios
         LaboratorioService labService = new LaboratorioService();
 
+        // Funcionalidades dos Softwares
+        SoftwareService softwareService = new SoftwareService();
+
         while (sistemaAtivo)
         {
             // Definindo as telas
@@ -29,20 +32,16 @@ internal class Program
 
             while (usuarioAutenticado)
             {
-                Console.WriteLine("\n====== PORTAL DE ALOCAÇÃO ======\n");
+                Console.WriteLine("\n======== PORTAL DE ALOCAÇÃO ========\n");
 
                 if (usuarioLogado.Tipo == TipoUsuario.DI)
                 {
                     Console.WriteLine("Escolha uma opção:");
-                    Console.WriteLine("1 - Cadastrar Usuários");
-                    Console.WriteLine("2 - Cadastrar Laboratório");
-                    Console.WriteLine("3 - Aprovar/Recusar Alocação");
-                    Console.WriteLine("4 - Histórico de Alocações");
-                    Console.WriteLine("5 - Listar Usuários"); // Dentro da classe "UsuarioView", dar opção do usuário para buscar usuário pelo nome, re ou listagem completa
-                    Console.WriteLine("6 - Listar Laboratórios"); // Dentro da classe "LaboratorioView", dar opção do usuário para buscar número e bloco do laboratório ou listagem completa
-                    Console.WriteLine("7 - Listar Disciplinas"); // Dentro da classe "DisciplinaView", dar opção do usuário para buscar disciplina pelo nome ou listagem completa
-                    Console.WriteLine("8 - Listar Softwares"); // Dentro da classe "SoftwareView", dar opção do usuário para buscar software pelo nome ou listagem completa
-                    Console.WriteLine("9 - Logout");
+                    Console.WriteLine("1 - Funções de Usuários (Cadastrar, Buscar, Atualizar e Excluir)");
+                    Console.WriteLine("2 - Funções de Laboratórios (Cadastrar, Buscar, Atualizar e Excluir)");
+                    Console.WriteLine("3 - Vincular Software com Laboratório");
+                    Console.WriteLine("4 - Aprovar/Recusar Alocação"); // Inserir histórico de alocações junto
+                    Console.WriteLine("5 - Logout");
                     Console.WriteLine("0 - Sair");
                     Console.Write("\nOpção: ");
 
@@ -58,11 +57,11 @@ internal class Program
                     switch (opcaoSelecionada)
                     {
                         case 1:
-                            mensagem = DiretorView.CadUsuarioInterface(usuarioLogado, usuarioService);
+                            mensagem = DiretorView.CrudUsuariosInterface(usuarioLogado, usuarioService);
                             Console.WriteLine($"\n{mensagem}");
                             break;
                         case 2:
-                            mensagem = DiretorView.CadLabInterface(usuarioLogado, labService);
+                            mensagem = DiretorView.CrudLabInterface(usuarioLogado, labService);
                             Console.WriteLine($"\n{mensagem}");
                             break;
                         case 3:
@@ -72,18 +71,6 @@ internal class Program
 
                             break;
                         case 5:
-
-                            break;
-                        case 6:
-
-                            break;
-                        case 7:
-
-                            break;
-                        case 8:
-
-                            break;
-                        case 9:
                             usuarioAutenticado = false;
                             Console.WriteLine("\nLogout realizado com sucesso!");
                             break;
@@ -101,12 +88,13 @@ internal class Program
                 {
                     Console.WriteLine("Escolha uma opção:");
                     Console.WriteLine("1 - Cadastrar Disciplina");
-                    Console.WriteLine("2 - Solicitar Alocação");
-                    Console.WriteLine("3 - Histórico de Alocações");
-                    Console.WriteLine("4 - Listar Laboratórios");
-                    Console.WriteLine("5 - Listar Disciplinas");
-                    Console.WriteLine("6 - Listar Softwares");
-                    Console.WriteLine("7 - Logout");
+                    Console.WriteLine("2 - Vincular Software com a Disciplina");
+                    Console.WriteLine("3 - Solicitar Alocação");
+                    Console.WriteLine("4 - Histórico de Alocações");
+                    Console.WriteLine("5 - Listar Laboratórios");
+                    Console.WriteLine("6 - Listar Disciplinas");
+                    Console.WriteLine("7 - Listar Softwares");
+                    Console.WriteLine("8 - Logout");
                     Console.WriteLine("0 - Sair");
                     Console.Write("\nOpção: ");
 
@@ -176,7 +164,8 @@ internal class Program
                     switch (opcaoSelecionada)
                     {
                         case 1:
-
+                            mensagem = ResponsavelTiView.CadSoftwareInterface(usuarioLogado, softwareService);
+                            Console.WriteLine($"\n{mensagem}");
                             break;
                         case 2:
 

@@ -11,14 +11,14 @@ namespace ProjetoIntegredor.menu
     public class LaboratorioView
     {
         // Menu de Cadastro de Labotatórios
-        public static string CadLabInterface(Usuario usuarioLogado, LaboratorioService labService)
+        public static string CadLabInterface(Usuario usuarioLogado, LaboratorioService LaboratorioService)
         {
             int numLaboratorio;
             int qtdeComputador;
 
             if (usuarioLogado.Tipo == TipoUsuario.DI)
             {
-                // Rodando infinitamente até que o usuário encaminhe os dados corretos ou que o usuário cancele o cadastro
+                // Rodando infinitamente até que o laboratório encaminhe os dados corretos ou que o laboratório cancele o cadastro
                 while (true)
                 {
                     Console.WriteLine("\n====== CADASTRAR LABORATÓRIO ======\n");
@@ -28,10 +28,10 @@ namespace ProjetoIntegredor.menu
                     string? numero = Console.ReadLine();
                     if (numero == "0") return "Cadastro cancelado.";
 
-                    // Verifica se o usuário realmente digitou um número
+                    // Verifica se o laboratório realmente digitou um número
                     try
                     {
-                        numLaboratorio = Validacao.ValidarInteiro(numero);
+                        numLaboratorio = Validacao.ValidarInteiro(numero!);
                     }
                     catch (ArgumentException ex)
                     {
@@ -43,10 +43,10 @@ namespace ProjetoIntegredor.menu
                     string? qtde = Console.ReadLine();
                     if (qtde == "0") return "Cadastro cancelado.";
 
-                    // Verifica se o usuário realmente digitou um número
+                    // Verifica se o laboratório realmente digitou um número
                     try
                     {
-                        qtdeComputador = Validacao.ValidarInteiro(qtde);
+                        qtdeComputador = Validacao.ValidarInteiro(qtde!);
                     }
                     catch (ArgumentException ex)
                     {
@@ -87,8 +87,7 @@ namespace ProjetoIntegredor.menu
 
                     try
                     {
-                        var labCadastrado = labService.CadastrarLaboratorio(usuarioLogado, numLaboratorio!, qtdeComputador!, bloco); // "!" Permite cadastrar mesmo sabendo que o valor pode ser nulo
-
+                        LaboratorioService.CadastrarLaboratorio(usuarioLogado, numLaboratorio!, qtdeComputador!, bloco);
                         return $"Laboratório cadastrado com sucesso!";
                     }
                     catch (ArgumentException ex)
@@ -123,7 +122,7 @@ namespace ProjetoIntegredor.menu
 
                 try
                 {
-                    numLaboratorio = Validacao.ValidarInteiro(numero);
+                    numLaboratorio = Validacao.ValidarInteiro(numero!);
                 }
                 catch (ArgumentException ex)
                 {
@@ -162,12 +161,12 @@ namespace ProjetoIntegredor.menu
                         continue;
                 }
 
-                var laboratorioEncontrada = laboratorioService.BuscarLaboratorioNumBloco(numLaboratorio!, bloco);
+                var laboratorioEncontrado = laboratorioService.BuscarLaboratorioNumBloco(numLaboratorio!, bloco);
 
-                if (laboratorioEncontrada != null)
+                if (laboratorioEncontrado != null)
                 {
-                    Console.WriteLine("\n====== USUÁRIO ENCONTRADO ======");
-                    return $"(ID: {laboratorioEncontrada.IdLaboratorio} - Número: {laboratorioEncontrada.NumLaboratorio} - Bloco: {laboratorioEncontrada.Bloco} - Qtde. de Computadores: {laboratorioEncontrada.QtdeComputador} - Capacidade Máxima de Alunos: {laboratorioEncontrada.CapacidadeMaxAluno} - Disponibilidade: {laboratorioEncontrada.StatusDisponibilidade})";
+                    Console.WriteLine("\n====== LABORATÓRIO ENCONTRADO ======");
+                    return $"(ID: {laboratorioEncontrado.IdLaboratorio} - Número: {laboratorioEncontrado.NumLaboratorio} - Bloco: {laboratorioEncontrado.Bloco} - Qtde. de Computadores: {laboratorioEncontrado.QtdeComputador} - Capacidade Máxima de Alunos: {laboratorioEncontrado.CapacidadeMaxAluno} - Disponibilidade: {laboratorioEncontrado.StatusDisponibilidade})";
                 }
                 else
                     return "Laboratório não encontrado.";
@@ -179,6 +178,257 @@ namespace ProjetoIntegredor.menu
             var laboratorios = laboratorioService.Buscarlaboratorios();
 
             return FormatarLaboratorios(laboratorios);
+        }
+
+        // Menu de atualização dos laboratórios
+        public static string AtualizarLaboratorioInterface(Usuario usuarioLogado, LaboratorioService laboratorioService)
+        {
+
+            int numLaboratorio;
+            int qtdeComputador;
+
+            if (usuarioLogado.Tipo == TipoUsuario.DI)
+            {
+                while (true)
+                {
+                    Console.WriteLine("\n====== ATUALIZAR LABORATÓRIO ======\n");
+                    Console.WriteLine("Digite 0 a qualquer momento para cancelar.\n");
+
+                    Console.Write("Informe o número do laboratório: ");
+                    string? numero = Console.ReadLine();
+                    if (numero == "0") return "Cadastro cancelado.";
+
+                    try
+                    {
+                        numLaboratorio = Validacao.ValidarInteiro(numero!);
+                    }
+                    catch (ArgumentException ex)
+                    {
+                        Console.WriteLine($"\nErro: {ex.Message}");
+                        continue;
+                    }
+
+                    Console.WriteLine("\nInforme o Bloco: ");
+                    Console.WriteLine("A");
+                    Console.WriteLine("B");
+                    Console.WriteLine("C");
+                    Console.WriteLine("D");
+
+                    Console.Write("\nOpção: ");
+                    string? opcao = Console.ReadLine()?.ToUpper();
+                    if (opcao == "0") return "Cadastro cancelado.";
+
+                    Bloco bloco;
+
+                    switch (opcao)
+                    {
+                        case "A":
+                            bloco = Bloco.A;
+                            break;
+                        case "B":
+                            bloco = Bloco.B;
+                            break;
+                        case "C":
+                            bloco = Bloco.C;
+                            break;
+                        case "D":
+                            bloco = Bloco.D;
+                            break;
+                        default:
+                            Console.WriteLine("\nInforme um bloco válido!");
+                            continue;
+                    }
+
+                    var laboratorioEncontrado = laboratorioService.BuscarLaboratorioNumBloco(numLaboratorio!, bloco!);
+
+                    if (laboratorioEncontrado != null)
+                    {
+                        numero = null;
+                        opcao = null;
+
+                        Console.WriteLine("\n====== LABORATÓRIO ENCONTRADO PARA ATUALIZAÇÃO ======\n");
+                        Console.WriteLine($"(ID: {laboratorioEncontrado.IdLaboratorio} - Número: {laboratorioEncontrado.NumLaboratorio} - Bloco: {laboratorioEncontrado.Bloco} - Qtde. de Computadores: {laboratorioEncontrado.QtdeComputador} - Capacidade Máxima de Alunos: {laboratorioEncontrado.CapacidadeMaxAluno} - Disponibilidade: {laboratorioEncontrado.StatusDisponibilidade})");
+
+                        Console.WriteLine("\nInforme os campos que deseja atualizar (deixe em branco os campos que não deseja alterar):\n");
+
+                        Console.Write("Informe o novo número do laboratório: ");
+                        numero = Console.ReadLine();
+                        if (numero == "0") return "Cadastro cancelado.";
+                        if (string.IsNullOrWhiteSpace(numero)) numLaboratorio = laboratorioEncontrado.NumLaboratorio; // Corrigir exceção dos números
+
+                        try
+                        {
+                            numLaboratorio = Validacao.ValidarInteiro(numero!);
+                        }
+                        catch (ArgumentException ex)
+                        {
+                            Console.WriteLine($"\nErro: {ex.Message}");
+                            continue;
+                        }
+
+                        Console.Write("Informe a nova quantidade de computadores: ");
+                        string? qtde = Console.ReadLine();
+                        if (qtde == "0") return "Cadastro cancelado.";
+                        if (string.IsNullOrWhiteSpace(qtde)) qtdeComputador = laboratorioEncontrado.QtdeComputador;
+
+                        // Verifica se o laboratório realmente digitou um número
+                        try
+                        {
+                            qtdeComputador = Validacao.ValidarInteiro(qtde!);
+                        }
+                        catch (ArgumentException ex)
+                        {
+                            Console.WriteLine($"\nErro: {ex.Message}");
+                            continue;
+                        }
+
+
+                        Console.WriteLine("\nInforme novo o Bloco: ");
+                        Console.WriteLine("A");
+                        Console.WriteLine("B");
+                        Console.WriteLine("C");
+                        Console.WriteLine("D");
+
+                        Console.Write("\nOpção: ");
+                        opcao = Console.ReadLine()?.ToUpper();
+                        if (opcao == "0") return "Cadastro cancelado.";
+                        if (string.IsNullOrWhiteSpace(opcao)) bloco = laboratorioEncontrado.Bloco;
+
+                        switch (opcao)
+                        {
+                            case "A":
+                                bloco = Bloco.A;
+                                break;
+                            case "B":
+                                bloco = Bloco.B;
+                                break;
+                            case "C":
+                                bloco = Bloco.C;
+                                break;
+                            case "D":
+                                bloco = Bloco.D;
+                                break;
+                            default:
+                                Console.WriteLine("\nInforme um bloco válido!");
+                                continue;
+                        }
+
+                        try
+                        {
+                            laboratorioService.AtualizarLaboratorio(usuarioLogado, laboratorioEncontrado.IdLaboratorio, numLaboratorio!, qtdeComputador!, bloco!);
+                            return $"laboratório atualizado com sucesso!";
+                        }
+                        catch (ArgumentException ex)
+                        {
+                            return $"Erro ao atualizar laboratório: {ex.Message}";
+                        }
+                        catch (UnauthorizedAccessException ex)
+                        {
+                            return $"Erro: {ex.Message}";
+                        }
+                    }
+                    else
+                        return "laboratório não encontrado.";
+                }
+            }
+            else
+            {
+                return "Erro: Apenas diretores podem executar essa ação!";
+            }
+        }
+
+        // Menu de exclusão dos laboratórios
+        public static string ExcluirLaboratórioInterface(Usuario usuarioLogado, LaboratorioService laboratorioService)
+        {
+
+            int numLaboratorio;
+
+            if (usuarioLogado.Tipo == TipoUsuario.DI)
+            {
+                while (true)
+                {
+                    Console.WriteLine("\n====== EXCLUIR LABORATÓRIOS ======\n");
+                    Console.WriteLine("Digite 0 a qualquer momento para cancelar.\n");
+
+                    Console.Write("Informe o número do laboratório: ");
+                    string? numero = Console.ReadLine();
+                    if (numero == "0") return "Cadastro cancelado.";
+
+                    try
+                    {
+                        numLaboratorio = Validacao.ValidarInteiro(numero!);
+                    }
+                    catch (ArgumentException ex)
+                    {
+                        Console.WriteLine($"\nErro: {ex.Message}");
+                        continue;
+                    }
+
+                    Console.WriteLine("\nInforme o Bloco: ");
+                    Console.WriteLine("A");
+                    Console.WriteLine("B");
+                    Console.WriteLine("C");
+                    Console.WriteLine("D");
+
+                    Console.Write("\nOpção: ");
+                    string? opcao = Console.ReadLine()?.ToUpper();
+                    if (opcao == "0") return "Cadastro cancelado.";
+
+                    Bloco bloco;
+
+                    switch (opcao)
+                    {
+                        case "A":
+                            bloco = Bloco.A;
+                            break;
+                        case "B":
+                            bloco = Bloco.B;
+                            break;
+                        case "C":
+                            bloco = Bloco.C;
+                            break;
+                        case "D":
+                            bloco = Bloco.D;
+                            break;
+                        default:
+                            Console.WriteLine("\nInforme um bloco válido!");
+                            continue;
+                    }
+
+                    var laboratorioEncontrado = laboratorioService.BuscarLaboratorioNumBloco(numLaboratorio!, bloco!);
+
+                    if (laboratorioEncontrado != null)
+                    {
+                        Console.WriteLine("\n====== LABORATÓRIO ENCONTRADO PARA EXCLUSÃO ======\n");
+                        Console.WriteLine($"(ID: {laboratorioEncontrado.IdLaboratorio} - Número: {laboratorioEncontrado.NumLaboratorio} - Bloco: {laboratorioEncontrado.Bloco} - Qtde. de Computadores: {laboratorioEncontrado.QtdeComputador} - Capacidade Máxima de Alunos: {laboratorioEncontrado.CapacidadeMaxAluno} - Disponibilidade: {laboratorioEncontrado.StatusDisponibilidade})");
+
+                        Console.WriteLine("\nDeseja realmente excluir este usuário? (S - Sim | N - Não)");
+                        Console.Write("\nOpção: ");
+                        opcao = Console.ReadLine()?.ToUpper();
+
+                        switch (opcao)
+                        {
+                            case "S":
+                                laboratorioService.ExcluirLaboratorio(usuarioLogado, laboratorioEncontrado.IdLaboratorio);
+                                return $"Laboratório excluído com sucesso!";
+
+                            case "N":
+                                return "Operação cancelada.";
+
+                            default:
+                                Console.WriteLine("\nInforme uma opção válida!");
+                                continue;
+                        }
+
+                    }
+                    else
+                        return "Laboratório não encontrado.";
+                }
+            }
+            else
+            {
+                return "Erro: Apenas diretores podem executar essa ação!";
+            }
         }
 
         // Controle das telas de laboratórios
@@ -197,7 +447,7 @@ namespace ProjetoIntegredor.menu
 
                     Console.WriteLine("Escolha uma função: ");
                     Console.WriteLine("1 - Cadastrar Laboratório");
-                    Console.WriteLine("2 - Buscar Usuário por Número e Bloco");
+                    Console.WriteLine("2 - Buscar laboratório por Número e Bloco");
                     Console.WriteLine("3 - Listar Laboratórios");
                     Console.WriteLine("4 - Atualizar Laboratório");
                     Console.WriteLine("5 - Excluir Laboratório");
@@ -208,7 +458,7 @@ namespace ProjetoIntegredor.menu
 
                     try
                     {
-                        opcaoSelecionada = Validacao.ValidarInteiro(opcao);
+                        opcaoSelecionada = Validacao.ValidarInteiro(opcao!);
                     }
                     catch (ArgumentException ex)
                     {
@@ -228,10 +478,10 @@ namespace ProjetoIntegredor.menu
                             return ListarLaboratoriosInterface(laboratorioService);
 
                         case 4:
-
+                            return AtualizarLaboratorioInterface(usuarioLogado, laboratorioService);
 
                         case 5:
-
+                            return ExcluirLaboratórioInterface(usuarioLogado, laboratorioService);
 
                         case 0:
                             return "Operação cancelada.";
@@ -248,6 +498,7 @@ namespace ProjetoIntegredor.menu
                 return "Erro: Apenas diretores podem executar essa ação!";
             }
         }
+
 
         // ---------------------------------------------------------------------------------------------------------------------------
 
@@ -267,7 +518,6 @@ namespace ProjetoIntegredor.menu
         */
 
         // Outros
-
 
         // Formatar listagem de Laboratórios
         public static string FormatarLaboratorios(List<Laboratorio> laboratorios)

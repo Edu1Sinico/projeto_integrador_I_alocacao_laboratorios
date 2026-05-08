@@ -38,7 +38,7 @@ namespace ProjetoIntegredor.Servicos
         }
 
         // Atualizar
-        public Laboratorio? AtualizarLaboratorio(Usuario usuarioLogado, int id, int numLaboratorio, int qtdeComputador, int capacidadeMaxAluno, Bloco bloco)
+        public Laboratorio? AtualizarLaboratorio(Usuario usuarioLogado, int id, int numLaboratorio, int qtdeComputador, Bloco bloco)
         {
             AutorizacaoService.ValidarUsuario(usuarioLogado);
             AutorizacaoService.ValidarDiretor(usuarioLogado);

@@ -63,7 +63,7 @@ internal class Program
                             Console.WriteLine($"\n{mensagem}");
                             break;
                         case 2:
-                            mensagem = DiretorView.CrudLabInterface(usuarioLogado, labService);
+                            mensagem = LaboratorioView.CrudLabInterface(usuarioLogado, labService);
                             Console.WriteLine($"\n{mensagem}");
                             break;
                         case 3:

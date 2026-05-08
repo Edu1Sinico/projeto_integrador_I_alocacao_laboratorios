@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SistemaLoclab.Application")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+31f69615c5b5a774778204720ae48f6028a61916")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+87a85058e3c968804fe598f005f4ba1c9bd09874")]
 [assembly: System.Reflection.AssemblyProductAttribute("SistemaLoclab.Application")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SistemaLoclab.Application")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

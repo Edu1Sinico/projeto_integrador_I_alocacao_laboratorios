@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "twbjOj+1YSk=",
+  "dgSpecHash": "B+UhpahWd9o=",
   "success": true,
-  "projectFilePath": "C:\\atvde01Estrutura\\C# Code\\projeto_integrador_I_alocacao_laboratorios\\SistemaLocLab.API\\SistemaLocLab.API.csproj",
+  "projectFilePath": "C:\\Projeto_Sistema_De_Alocacao\\SistemaAlocLab\\SistemaLocLab.API\\SistemaLocLab.API.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\OPEHRMZXY3\\.nuget\\packages\\microsoft.aspnetcore.openapi\\10.0.7\\microsoft.aspnetcore.openapi.10.0.7.nupkg.sha512",
-    "C:\\Users\\OPEHRMZXY3\\.nuget\\packages\\microsoft.openapi\\2.0.0\\microsoft.openapi.2.0.0.nupkg.sha512"
+    "C:\\Users\\gusta\\.nuget\\packages\\microsoft.aspnetcore.openapi\\10.0.7\\microsoft.aspnetcore.openapi.10.0.7.nupkg.sha512",
+    "C:\\Users\\gusta\\.nuget\\packages\\microsoft.openapi\\2.0.0\\microsoft.openapi.2.0.0.nupkg.sha512"
   ],
   "logs": []
 }

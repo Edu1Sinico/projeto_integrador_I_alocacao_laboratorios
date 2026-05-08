@@ -9,7 +9,7 @@ using SistemaLocLab.Domain.Enum;
 
 namespace SistemaLocLab.Domain.Entities
 {
-    public class usuarios
+    public class Usuarios
     {
         //Guid garante que um ID seja exclusivo em qualquer computador ou rede
         public Guid ID {get;private set;}
@@ -27,12 +27,13 @@ namespace SistemaLocLab.Domain.Entities
         public DateTime DataCriacao { get; private set; }
 
         //construtor protegido, somente a classe e as subclasses podem acessa-lo
-        protected usuarios(){}
+        protected Usuarios(){}
 
 
         //Construtor com parametros
-        public usuarios( string nome, string email, string re, string SenhaHash, TipoUsuario tipo)
+        public Usuarios( string nome, string email, string re, string senhaHash, TipoUsuario tipo)
         {
+            Validacao(nome, email, re, senhaHash);
             ID = Guid.NewGuid();
 
             //.Trim() serve para remover os espaços em branco no começo e no final da string
@@ -43,7 +44,7 @@ namespace SistemaLocLab.Domain.Entities
 
             RE = re.Trim();
 
-            SenhaHash = SenhaHash;
+            SenhaHash = senhaHash;
 
             Tipo = tipo;
 

@@ -8,19 +8,19 @@
     "net10.0": []
   },
   "packageFolders": {
-    "C:\\Users\\OPEHRMZXY3\\.nuget\\packages\\": {}
+    "C:\\Users\\gusta\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\atvde01Estrutura\\C# Code\\projeto_integrador_I_alocacao_laboratorios\\SistemaLocLab.Domain\\SistemaLocLab.Domain.csproj",
+      "projectUniqueName": "C:\\Projeto_Sistema_De_Alocacao\\SistemaAlocLab\\SistemaLocLab.Domain\\SistemaLocLab.Domain.csproj",
       "projectName": "SistemaLocLab.Domain",
-      "projectPath": "C:\\atvde01Estrutura\\C# Code\\projeto_integrador_I_alocacao_laboratorios\\SistemaLocLab.Domain\\SistemaLocLab.Domain.csproj",
-      "packagesPath": "C:\\Users\\OPEHRMZXY3\\.nuget\\packages\\",
-      "outputPath": "C:\\atvde01Estrutura\\C# Code\\projeto_integrador_I_alocacao_laboratorios\\SistemaLocLab.Domain\\obj\\",
+      "projectPath": "C:\\Projeto_Sistema_De_Alocacao\\SistemaAlocLab\\SistemaLocLab.Domain\\SistemaLocLab.Domain.csproj",
+      "packagesPath": "C:\\Users\\gusta\\.nuget\\packages\\",
+      "outputPath": "C:\\Projeto_Sistema_De_Alocacao\\SistemaAlocLab\\SistemaLocLab.Domain\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\OPEHRMZXY3\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\gusta\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net10.0"
@@ -44,7 +44,7 @@
         "auditLevel": "low",
         "auditMode": "all"
       },
-      "SdkAnalysisLevel": "10.0.200"
+      "SdkAnalysisLevel": "10.0.100"
     },
     "frameworks": {
       "net10.0": {
@@ -65,7 +65,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.201/PortableRuntimeIdentifierGraph.json",
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.107/PortableRuntimeIdentifierGraph.json",
         "packagesToPrune": {
           "Microsoft.CSharp": "(,4.7.32767]",
           "Microsoft.VisualBasic": "(,10.4.32767]",

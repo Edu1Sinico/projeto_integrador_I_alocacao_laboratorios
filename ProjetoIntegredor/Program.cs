@@ -67,7 +67,9 @@ internal class Program
                             Console.WriteLine($"\n{mensagem}");
                             break;
                         case 3:
-                            
+                            mensagem = LaboratorioView.MenuVinSoftLabInterface(usuarioLogado, laboratorioService, softwareService);
+                            Console.WriteLine($"\n{mensagem}");
+
                             break;
                         case 4:
 

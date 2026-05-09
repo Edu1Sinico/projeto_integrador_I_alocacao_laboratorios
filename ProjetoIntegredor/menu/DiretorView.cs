@@ -368,7 +368,7 @@ namespace ProjetoIntegredor.menu
 
             foreach (var usuario in usuarios)
             {
-                resultado += $"\n(ID: {usuario.IdUsuario} - RE: {usuario.RE} - Nome: {usuario.Nome} - E-mail: {usuario.Email} - Tipo: {usuario.Tipo})";
+                resultado += $"(ID: {usuario.IdUsuario} - RE: {usuario.RE} - Nome: {usuario.Nome} - E-mail: {usuario.Email} - Tipo: {usuario.Tipo})\n";
             }
 
             return resultado;

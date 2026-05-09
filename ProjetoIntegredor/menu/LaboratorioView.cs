@@ -165,8 +165,11 @@ namespace ProjetoIntegredor.menu
 
                 if (laboratorioEncontrado != null)
                 {
+                    // Verifica se a lista de softwares vinculados com o laboratório está vazia, caso contrário, junta o software com sua versão e atribui em uma variável
+                    string softwares = laboratorioEncontrado.Softwares.Count == 0 ? "Nenhum software vinculado" : string.Join(", ", laboratorioEncontrado.Softwares.Select(s => $"{s.NomeSoftware} ({s.Versao})")); // string.Join("divisor","Selecionar os nome dos softwares e suas versões");
+
                     Console.WriteLine("\n====== LABORATÓRIO ENCONTRADO ======");
-                    return $"(ID: {laboratorioEncontrado.IdLaboratorio} - Número: {laboratorioEncontrado.NumLaboratorio} - Bloco: {laboratorioEncontrado.Bloco} - Qtde. de Computadores: {laboratorioEncontrado.QtdeComputador} - Capacidade Máxima de Alunos: {laboratorioEncontrado.CapacidadeMaxAluno} - Disponibilidade: {laboratorioEncontrado.StatusDisponibilidade})";
+                    return $"(ID: {laboratorioEncontrado.IdLaboratorio} - Número: {laboratorioEncontrado.NumLaboratorio} - Bloco: {laboratorioEncontrado.Bloco} - Qtde. de Computadores: {laboratorioEncontrado.QtdeComputador} - Capacidade Máxima de Alunos: {laboratorioEncontrado.CapacidadeMaxAluno} - Disponibilidade: {laboratorioEncontrado.StatusDisponibilidade} - Softwares Vinculados: [{softwares}])";
                 }
                 else
                     return "Laboratório não encontrado.";
@@ -629,7 +632,7 @@ namespace ProjetoIntegredor.menu
 
                         if (softwareEncontrado != null)
                         {
-                            var softLabVinculado = laboratorioService.AdicionarSoftwareLaboratorio(usuarioLogado, softwareEncontrado.IdSoftware, softwareEncontrado);
+                            var softLabVinculado = laboratorioService.AdicionarSoftwareLaboratorio(usuarioLogado, laboratorioEncontrado.IdLaboratorio, softwareEncontrado);
                             return $"Software {softwareEncontrado.NomeSoftware} vinculado com sucesso para o laboratório {softLabVinculado!.NumLaboratorio} do bloco {softLabVinculado!.Bloco}!";
                         }
                         else
@@ -653,7 +656,7 @@ namespace ProjetoIntegredor.menu
             return "";
         }
 
-        public static string MenuBuscasLaboratorioInterface(Usuario usuarioLogado, LaboratorioService laboratorioService, SoftwareService softwareService)
+        public static string MenuVinSoftLabInterface(Usuario usuarioLogado, LaboratorioService laboratorioService, SoftwareService softwareService)
         {
 
             int opcaoSelecionada;
@@ -718,7 +721,10 @@ namespace ProjetoIntegredor.menu
 
             foreach (var laboratorio in laboratorios)
             {
-                resultado += $"\n(ID: {laboratorio.IdLaboratorio} - Número: {laboratorio.NumLaboratorio} - Bloco: {laboratorio.Bloco} - Qtde. de Computadores: {laboratorio.QtdeComputador} - Capacidade Máxima de Alunos: {laboratorio.CapacidadeMaxAluno} - Disponibilidade: {laboratorio.StatusDisponibilidade})";
+                // Verifica se a lista de softwares vinculados com o laboratório está vazia, caso contrário, junta o software com sua versão e atribui em uma variável
+                string softwares = laboratorio.Softwares.Count == 0 ? "Nenhum software vinculado" : string.Join(", ", laboratorio.Softwares.Select(s => $"{s.NomeSoftware} ({s.Versao})")); // string.Join("divisor","Selecionar os nome dos softwares e suas versões");
+
+                resultado += $"(ID: {laboratorio.IdLaboratorio} - Número: {laboratorio.NumLaboratorio} - Bloco: {laboratorio.Bloco} - Qtde. de Computadores: {laboratorio.QtdeComputador} - Capacidade Máxima de Alunos: {laboratorio.CapacidadeMaxAluno} - Disponibilidade: {laboratorio.StatusDisponibilidade} - Softwares Vinculados: [{softwares}])\n";
             }
 
             return resultado;

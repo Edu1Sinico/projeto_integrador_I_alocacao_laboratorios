@@ -320,7 +320,7 @@ namespace ProjetoIntegredor.menu
 
             foreach (var software in softwares)
             {
-                resultado += $"\n(ID: {software.IdSoftware} - Nome: {software.NomeSoftware} - Versão: {software.Versao})";
+                resultado += $"(ID: {software.IdSoftware} - Nome: {software.NomeSoftware} - Versão: {software.Versao})";
             }
 
             return resultado;

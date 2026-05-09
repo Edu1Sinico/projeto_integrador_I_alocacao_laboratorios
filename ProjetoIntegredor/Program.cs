@@ -16,7 +16,7 @@ internal class Program
         usuarioService.CadastrarDiretor(); // Cadastra o diretor de forma temporária
 
         // Funcionalidades dos Labotatórios
-        LaboratorioService labService = new LaboratorioService();
+        LaboratorioService laboratorioService = new LaboratorioService();
 
         // Funcionalidades dos Softwares
         SoftwareService softwareService = new SoftwareService();
@@ -41,8 +41,8 @@ internal class Program
                     Console.WriteLine("2 - Funções de Laboratórios (Cadastrar, Buscar, Atualizar e Excluir)");
                     Console.WriteLine("3 - Vincular Software com Laboratório");
                     Console.WriteLine("4 - Aprovar/Recusar Alocação"); // Inserir histórico de alocações junto
-                    Console.WriteLine("5 - Listar Disciplinas");
-                    Console.WriteLine("6 - Listar Softwares");
+                    Console.WriteLine("5 - Listar e Buscar Disciplinas");
+                    Console.WriteLine("6 - Listar e Buscar Softwares");
                     Console.WriteLine("7 - Logout");
                     Console.WriteLine("0 - Sair");
                     Console.Write("\nOpção: ");
@@ -63,7 +63,7 @@ internal class Program
                             Console.WriteLine($"\n{mensagem}");
                             break;
                         case 2:
-                            mensagem = LaboratorioView.CrudLabInterface(usuarioLogado, labService);
+                            mensagem = LaboratorioView.CrudLabInterface(usuarioLogado, laboratorioService);
                             Console.WriteLine($"\n{mensagem}");
                             break;
                         case 3:
@@ -76,7 +76,8 @@ internal class Program
 
                             break;
                         case 6:
-
+                            mensagem = ResponsavelTiView.MenuBuscasSoftwareInterface(softwareService);
+                            Console.WriteLine($"\n{mensagem}");
                             break;
                         case 7:
                             usuarioAutenticado = false;
@@ -99,8 +100,8 @@ internal class Program
                     Console.WriteLine("2 - Vincular Software com a Disciplina");
                     Console.WriteLine("3 - Solicitar Alocação");
                     Console.WriteLine("4 - Histórico de Alocações");
-                    Console.WriteLine("5 - Listar Laboratórios");
-                    Console.WriteLine("6 - Listar Softwares");
+                    Console.WriteLine("5 - Listar e Buscar Laboratórios");
+                    Console.WriteLine("6 - Listar e Buscar Softwares");
                     Console.WriteLine("7 - Logout");
                     Console.WriteLine("0 - Sair");
                     Console.Write("\nOpção: ");
@@ -132,7 +133,8 @@ internal class Program
 
                             break;
                         case 6:
-
+                            mensagem = ResponsavelTiView.MenuBuscasSoftwareInterface(softwareService);
+                            Console.WriteLine($"\n{mensagem}");
                             break;
                         case 7:
                             usuarioAutenticado = false;
@@ -152,8 +154,8 @@ internal class Program
                 {
                     Console.WriteLine("Escolha uma opção:");
                     Console.WriteLine("1 - Funções de Software (Cadastrar, Buscar, Atualizar e Excluir)");
-                    Console.WriteLine("2 - Listar Laboratórios");
-                    Console.WriteLine("3 - Listar Disciplinas");
+                    Console.WriteLine("2 - Listar e Buscar Laboratórios");
+                    Console.WriteLine("3 - Listar e Buscar Disciplinas");
                     Console.WriteLine("4 - Logout");
                     Console.WriteLine("0 - Sair");
                     Console.Write("\nOpção: ");
@@ -170,14 +172,14 @@ internal class Program
                     switch (opcaoSelecionada)
                     {
                         case 1:
-                            mensagem = ResponsavelTiView.CadSoftwareInterface(usuarioLogado, softwareService);
+                            mensagem = ResponsavelTiView.CrudSoftwaresInterface(usuarioLogado, softwareService);
                             Console.WriteLine($"\n{mensagem}");
                             break;
                         case 2:
 
                             break;
                         case 3:
-                        
+
                             break;
                         case 4:
                             usuarioAutenticado = false;

@@ -67,7 +67,7 @@ namespace ProjetoIntegredor.Servicos
         {
             AutorizacaoService.ValidarUsuario(usuarioLogado);
             AutorizacaoService.ValidarDiretor(usuarioLogado);
-            return usuarios.ToList();
+            return usuarios?.ToList();
         }
 
         // Atualizar

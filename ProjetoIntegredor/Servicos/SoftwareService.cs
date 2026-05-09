@@ -28,10 +28,16 @@ namespace ProjetoIntegredor.Servicos
             return software;
         }
 
-        // Buscar
-        public Software? BuscarSoftwareNome(string nomeSoftware)
+        // Buscar por ID
+        public Software? BuscarSoftwareID(int idSoftware)
         {
-            return softwares.FirstOrDefault(s => s.NomeSoftware.Equals(nomeSoftware, StringComparison.OrdinalIgnoreCase));
+            return softwares.FirstOrDefault(s => s.IdSoftware.Equals(idSoftware));
+        }
+
+        // Buscar por nome
+        public List<Software>? BuscarSoftwareNome(string nomeSoftware)
+        {
+            return softwares.Where(s => s.NomeSoftware.Contains(nomeSoftware, StringComparison.OrdinalIgnoreCase)).ToList();
         }
 
         // Todos os softwares

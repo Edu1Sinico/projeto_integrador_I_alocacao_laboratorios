@@ -63,13 +63,7 @@ namespace ProjetoIntegredor.menu
 
             var softwareEncontrado = softwareService.BuscarSoftwareNome(nomeSoftware!);
 
-            if (softwareEncontrado != null)
-            {
-                Console.WriteLine("\n====== SOFTWARE ENCONTRADO ======");
-                return $"(ID: {softwareEncontrado.IdSoftware} - Nome: {softwareEncontrado.NomeSoftware} - Versão: {softwareEncontrado.Versao})";
-            }
-            else
-                return "Usuário não encontrado.";
+            return FormatarSoftware(softwareEncontrado!);
         }
 
         public static string ListarSoftwareInterface(SoftwareService softwareService)
@@ -82,6 +76,9 @@ namespace ProjetoIntegredor.menu
         // Menu de atualização dos softwares
         public static string AtualizarSoftwareInterface(Usuario usuarioLogado, SoftwareService softwareService)
         {
+
+            int idSoftware;
+
             if (usuarioLogado.Tipo == TipoUsuario.RT)
             {
                 while (true)
@@ -89,11 +86,21 @@ namespace ProjetoIntegredor.menu
                     Console.WriteLine("\n====== ATUALIZAR SOFTWARE ======\n");
                     Console.WriteLine("Digite 0 a qualquer momento para cancelar.\n");
 
-                    Console.Write("Informe o nome do software: ");
-                    string? nomeSoftware = Console.ReadLine();
-                    if (nomeSoftware == "0") return "Atualização cancelada.";
+                    Console.Write("Informe o ID do software: ");
+                    string? id = Console.ReadLine();
+                    if (id == "0") return "Atualização cancelada.";
 
-                    var softwareEncontrado = softwareService.BuscarSoftwareNome(nomeSoftware!);
+                    try
+                    {
+                        idSoftware = Validacao.ValidarInteiro(id!);
+                    }
+                    catch (ArgumentException ex)
+                    {
+                        Console.WriteLine($"\nErro: {ex.Message}");
+                        continue;
+                    }
+
+                    var softwareEncontrado = softwareService.BuscarSoftwareID(idSoftware!);
 
                     if (softwareEncontrado != null)
                     {
@@ -103,11 +110,11 @@ namespace ProjetoIntegredor.menu
                         Console.WriteLine("\nInforme os campos que deseja atualizar (deixe em branco os campos que não deseja alterar):\n");
 
                         Console.Write("Informe o novo nome do software: ");
-                        nomeSoftware = Console.ReadLine();
+                        string? nomeSoftware = Console.ReadLine();
                         if (nomeSoftware == "0") return "Atualização cancelada.";
                         if (string.IsNullOrWhiteSpace(nomeSoftware)) nomeSoftware = softwareEncontrado.NomeSoftware;
 
-                        Console.Write("Informe o nova versao do software: ");
+                        Console.Write("Informe o nova versão do software: ");
                         string? versao = Console.ReadLine();
                         if (versao == "0") return "Atualização cancelada.";
                         if (string.IsNullOrWhiteSpace(versao)) versao = softwareEncontrado.Versao;
@@ -140,6 +147,9 @@ namespace ProjetoIntegredor.menu
         // Menu de exclusão dos softwares
         public static string ExcluirSoftwareInterface(Usuario usuarioLogado, SoftwareService softwareService)
         {
+
+            int idSoftware;
+
             if (usuarioLogado.Tipo == TipoUsuario.RT)
             {
                 while (true)
@@ -147,11 +157,21 @@ namespace ProjetoIntegredor.menu
                     Console.WriteLine("\n====== EXCLUIR SOFTWARES ======\n");
                     Console.WriteLine("Digite 0 a qualquer momento para cancelar.\n");
 
-                    Console.Write("Informe o nome do software: ");
-                    string? nomeSoftware = Console.ReadLine();
-                    if (nomeSoftware == "0") return "Atualização cancelada.";
+                    Console.Write("Informe o ID do software: ");
+                    string? id = Console.ReadLine();
+                    if (id == "0") return "Atualização cancelada.";
 
-                    var softwareEncontrado = softwareService.BuscarSoftwareNome(nomeSoftware!);
+                    try
+                    {
+                        idSoftware = Validacao.ValidarInteiro(id!);
+                    }
+                    catch (ArgumentException ex)
+                    {
+                        Console.WriteLine($"\nErro: {ex.Message}");
+                        continue;
+                    }
+
+                    var softwareEncontrado = softwareService.BuscarSoftwareID(idSoftware!);
 
                     if (softwareEncontrado != null)
                     {
@@ -169,7 +189,7 @@ namespace ProjetoIntegredor.menu
                                 try
                                 {
                                     var softwareExcluido = softwareService.ExcluirSoftware(usuarioLogado, softwareEncontrado.IdSoftware);
-                                    return $"Usuário {softwareExcluido!.NomeSoftware} excluído com sucesso!";
+                                    return $"Software {softwareExcluido!.NomeSoftware} excluído com sucesso!";
                                 }
                                 catch (InvalidOperationException ex)
                                 {
@@ -320,7 +340,7 @@ namespace ProjetoIntegredor.menu
 
             foreach (var software in softwares)
             {
-                resultado += $"(ID: {software.IdSoftware} - Nome: {software.NomeSoftware} - Versão: {software.Versao})";
+                resultado += $"\n(ID: {software.IdSoftware} - Nome: {software.NomeSoftware} - Versão: {software.Versao})";
             }
 
             return resultado;

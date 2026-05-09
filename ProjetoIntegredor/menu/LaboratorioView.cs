@@ -54,35 +54,11 @@ namespace ProjetoIntegredor.menu
                         continue;
                     }
 
-                    Console.WriteLine("\nInforme o Bloco: ");
-                    Console.WriteLine("A");
-                    Console.WriteLine("B");
-                    Console.WriteLine("C");
-                    Console.WriteLine("D");
-
-                    Console.Write("\nOpção: ");
-                    string? opcao = Console.ReadLine()?.ToUpper();
-                    if (opcao == "0") return "Cadastro cancelado.";
-
-                    Bloco bloco;
-
-                    switch (opcao)
+                    // Verificar se o usuário escreveu o bloco corretamente.
+                    if (!TentarLerBloco(out Bloco bloco, out string mensagemBloco))
                     {
-                        case "A":
-                            bloco = Bloco.A;
-                            break;
-                        case "B":
-                            bloco = Bloco.B;
-                            break;
-                        case "C":
-                            bloco = Bloco.C;
-                            break;
-                        case "D":
-                            bloco = Bloco.D;
-                            break;
-                        default:
-                            Console.WriteLine("\nInforme um bloco válido!");
-                            continue;
+                        Console.WriteLine($"\n{mensagemBloco}");
+                        continue;
                     }
 
                     try
@@ -130,35 +106,11 @@ namespace ProjetoIntegredor.menu
                     continue;
                 }
 
-                Console.WriteLine("\nInforme o Bloco: ");
-                Console.WriteLine("A");
-                Console.WriteLine("B");
-                Console.WriteLine("C");
-                Console.WriteLine("D");
-
-                Console.Write("\nOpção: ");
-                string? opcao = Console.ReadLine()?.ToUpper();
-                if (opcao == "0") return "Cadastro cancelado.";
-
-                Bloco bloco;
-
-                switch (opcao)
+                // Verificar se o usuário escreveu o bloco corretamente.
+                if (!TentarLerBloco(out Bloco bloco, out string mensagemBloco))
                 {
-                    case "A":
-                        bloco = Bloco.A;
-                        break;
-                    case "B":
-                        bloco = Bloco.B;
-                        break;
-                    case "C":
-                        bloco = Bloco.C;
-                        break;
-                    case "D":
-                        bloco = Bloco.D;
-                        break;
-                    default:
-                        Console.WriteLine("\nInforme um bloco válido!");
-                        continue;
+                    Console.WriteLine($"\n{mensagemBloco}");
+                    continue;
                 }
 
                 var laboratorioEncontrado = laboratorioService.BuscarLaboratorioNumBloco(numLaboratorio!, bloco);
@@ -169,7 +121,7 @@ namespace ProjetoIntegredor.menu
                     string softwares = laboratorioEncontrado.Softwares.Count == 0 ? "Nenhum software vinculado" : string.Join(", ", laboratorioEncontrado.Softwares.Select(s => $"{s.NomeSoftware} ({s.Versao})")); // string.Join("divisor","Selecionar os nome dos softwares e suas versões");
 
                     Console.WriteLine("\n====== LABORATÓRIO ENCONTRADO ======");
-                    return $"(ID: {laboratorioEncontrado.IdLaboratorio} - Número: {laboratorioEncontrado.NumLaboratorio} - Bloco: {laboratorioEncontrado.Bloco} - Qtde. de Computadores: {laboratorioEncontrado.QtdeComputador} - Capacidade Máxima de Alunos: {laboratorioEncontrado.CapacidadeMaxAluno} - Disponibilidade: {laboratorioEncontrado.StatusDisponibilidade} - Softwares Vinculados: [{softwares}])";
+                    return $"(ID: {laboratorioEncontrado.IdLaboratorio} - Número: {laboratorioEncontrado.NumLaboratorio} - Bloco: {laboratorioEncontrado.Bloco} - Qtde. de Computadores: {laboratorioEncontrado.QtdeComputador} - Capacidade Máxima de Alunos: {laboratorioEncontrado.CapacidadeMaxAluno} - Disponibilidade: {laboratorioEncontrado.StatusDisponibilidade} - Softwares: [{softwares}])";
                 }
                 else
                     return "Laboratório não encontrado.";
@@ -211,35 +163,11 @@ namespace ProjetoIntegredor.menu
                         continue;
                     }
 
-                    Console.WriteLine("\nInforme o Bloco: ");
-                    Console.WriteLine("A");
-                    Console.WriteLine("B");
-                    Console.WriteLine("C");
-                    Console.WriteLine("D");
-
-                    Console.Write("\nOpção: ");
-                    string? opcao = Console.ReadLine()?.ToUpper();
-                    if (opcao == "0") return "Cadastro cancelado.";
-
-                    Bloco bloco;
-
-                    switch (opcao)
+                    // Verificar se o usuário escreveu o bloco corretamente.
+                    if (!TentarLerBloco(out Bloco bloco, out string mensagemBloco))
                     {
-                        case "A":
-                            bloco = Bloco.A;
-                            break;
-                        case "B":
-                            bloco = Bloco.B;
-                            break;
-                        case "C":
-                            bloco = Bloco.C;
-                            break;
-                        case "D":
-                            bloco = Bloco.D;
-                            break;
-                        default:
-                            Console.WriteLine("\nInforme um bloco válido!");
-                            continue;
+                        Console.WriteLine($"\n{mensagemBloco}");
+                        continue;
                     }
 
                     var laboratorioEncontrado = laboratorioService.BuscarLaboratorioNumBloco(numLaboratorio!, bloco!);
@@ -247,7 +175,6 @@ namespace ProjetoIntegredor.menu
                     if (laboratorioEncontrado != null)
                     {
                         numero = null;
-                        opcao = null;
 
                         Console.WriteLine("\n====== LABORATÓRIO ENCONTRADO PARA ATUALIZAÇÃO ======\n");
                         Console.WriteLine($"(ID: {laboratorioEncontrado.IdLaboratorio} - Número: {laboratorioEncontrado.NumLaboratorio} - Bloco: {laboratorioEncontrado.Bloco} - Qtde. de Computadores: {laboratorioEncontrado.QtdeComputador} - Capacidade Máxima de Alunos: {laboratorioEncontrado.CapacidadeMaxAluno} - Disponibilidade: {laboratorioEncontrado.StatusDisponibilidade})");
@@ -294,34 +221,11 @@ namespace ProjetoIntegredor.menu
                             }
                         }
 
-                        Console.WriteLine("\nInforme novo o Bloco: ");
-                        Console.WriteLine("A");
-                        Console.WriteLine("B");
-                        Console.WriteLine("C");
-                        Console.WriteLine("D");
-
-                        Console.Write("\nOpção: ");
-                        opcao = Console.ReadLine()?.ToUpper();
-                        if (opcao == "0") return "Cadastro cancelado.";
-                        if (string.IsNullOrWhiteSpace(opcao)) bloco = laboratorioEncontrado.Bloco;
-
-                        switch (opcao)
+                        // Verificar se o usuário escreveu o bloco corretamente.
+                        if (!TentarLerBloco(out bloco, out mensagemBloco))
                         {
-                            case "A":
-                                bloco = Bloco.A;
-                                break;
-                            case "B":
-                                bloco = Bloco.B;
-                                break;
-                            case "C":
-                                bloco = Bloco.C;
-                                break;
-                            case "D":
-                                bloco = Bloco.D;
-                                break;
-                            default:
-                                Console.WriteLine("\nInforme um bloco válido!");
-                                continue;
+                            Console.WriteLine($"\n{mensagemBloco}");
+                            continue;
                         }
 
                         try
@@ -353,6 +257,7 @@ namespace ProjetoIntegredor.menu
         {
 
             int numLaboratorio;
+            string opcao;
 
             if (usuarioLogado.Tipo == TipoUsuario.DI)
             {
@@ -375,35 +280,11 @@ namespace ProjetoIntegredor.menu
                         continue;
                     }
 
-                    Console.WriteLine("\nInforme o Bloco: ");
-                    Console.WriteLine("A");
-                    Console.WriteLine("B");
-                    Console.WriteLine("C");
-                    Console.WriteLine("D");
-
-                    Console.Write("\nOpção: ");
-                    string? opcao = Console.ReadLine()?.ToUpper();
-                    if (opcao == "0") return "Cadastro cancelado.";
-
-                    Bloco bloco;
-
-                    switch (opcao)
+                    // Verificar se o usuário escreveu o bloco corretamente.
+                    if (!TentarLerBloco(out Bloco bloco, out string mensagemBloco))
                     {
-                        case "A":
-                            bloco = Bloco.A;
-                            break;
-                        case "B":
-                            bloco = Bloco.B;
-                            break;
-                        case "C":
-                            bloco = Bloco.C;
-                            break;
-                        case "D":
-                            bloco = Bloco.D;
-                            break;
-                        default:
-                            Console.WriteLine("\nInforme um bloco válido!");
-                            continue;
+                        Console.WriteLine($"\n{mensagemBloco}");
+                        continue;
                     }
 
                     var laboratorioEncontrado = laboratorioService.BuscarLaboratorioNumBloco(numLaboratorio!, bloco!);
@@ -415,7 +296,7 @@ namespace ProjetoIntegredor.menu
 
                         Console.WriteLine("\nDeseja realmente excluir este usuário? (S - Sim | N - Não)");
                         Console.Write("\nOpção: ");
-                        opcao = Console.ReadLine()?.ToUpper();
+                        opcao = Console.ReadLine()!.ToUpper();
 
                         switch (opcao)
                         {
@@ -564,6 +445,7 @@ namespace ProjetoIntegredor.menu
         {
 
             int numLaboratorio;
+            int idSoftware;
 
             if (usuarioLogado.Tipo == TipoUsuario.DI)
             {
@@ -586,35 +468,11 @@ namespace ProjetoIntegredor.menu
                         continue;
                     }
 
-                    Console.WriteLine("\nInforme o Bloco: ");
-                    Console.WriteLine("A");
-                    Console.WriteLine("B");
-                    Console.WriteLine("C");
-                    Console.WriteLine("D");
-
-                    Console.Write("\nOpção: ");
-                    string? opcao = Console.ReadLine()?.ToUpper();
-                    if (opcao == "0") return "Operação cancelado.";
-
-                    Bloco bloco;
-
-                    switch (opcao)
+                    // Verificar se o usuário escreveu o bloco corretamente.
+                    if (!TentarLerBloco(out Bloco bloco, out string mensagemBloco))
                     {
-                        case "A":
-                            bloco = Bloco.A;
-                            break;
-                        case "B":
-                            bloco = Bloco.B;
-                            break;
-                        case "C":
-                            bloco = Bloco.C;
-                            break;
-                        case "D":
-                            bloco = Bloco.D;
-                            break;
-                        default:
-                            Console.WriteLine("\nInforme um bloco válido!");
-                            continue;
+                        Console.WriteLine($"\n{mensagemBloco}");
+                        continue;
                     }
 
                     var laboratorioEncontrado = laboratorioService.BuscarLaboratorioNumBloco(numLaboratorio!, bloco);
@@ -622,13 +480,23 @@ namespace ProjetoIntegredor.menu
                     if (laboratorioEncontrado != null)
                     {
                         Console.WriteLine("\n====== LABORATÓRIO ENCONTRADO ======");
-                        Console.WriteLine($"(ID: {laboratorioEncontrado.IdLaboratorio} - Número: {laboratorioEncontrado.NumLaboratorio} - Bloco: {laboratorioEncontrado.Bloco} - Qtde. de Computadores: {laboratorioEncontrado.QtdeComputador} - Capacidade Máxima de Alunos: {laboratorioEncontrado.CapacidadeMaxAluno} - Disponibilidade: {laboratorioEncontrado.StatusDisponibilidade})");
+                        Console.WriteLine($"\n(ID: {laboratorioEncontrado.IdLaboratorio} - Número: {laboratorioEncontrado.NumLaboratorio} - Bloco: {laboratorioEncontrado.Bloco} - Qtde. de Computadores: {laboratorioEncontrado.QtdeComputador} - Capacidade Máxima de Alunos: {laboratorioEncontrado.CapacidadeMaxAluno} - Disponibilidade: {laboratorioEncontrado.StatusDisponibilidade})");
 
-                        Console.Write("Informe o nome do software para ser vinculado: ");
-                        string? nomeSoftware = Console.ReadLine();
-                        if (nomeSoftware == "0") return "Operação cancelada.";
+                        Console.Write("\nInforme o ID do software: ");
+                        string? id = Console.ReadLine();
+                        if (id == "0") return "Atualização cancelada.";
 
-                        var softwareEncontrado = softwareService.BuscarSoftwareNome(nomeSoftware!);
+                        try
+                        {
+                            idSoftware = Validacao.ValidarInteiro(id!);
+                        }
+                        catch (ArgumentException ex)
+                        {
+                            Console.WriteLine($"\nErro: {ex.Message}");
+                            continue;
+                        }
+
+                        var softwareEncontrado = softwareService.BuscarSoftwareID(idSoftware!);
 
                         if (softwareEncontrado != null)
                         {
@@ -636,10 +504,11 @@ namespace ProjetoIntegredor.menu
                             return $"Software {softwareEncontrado.NomeSoftware} vinculado com sucesso para o laboratório {softLabVinculado!.NumLaboratorio} do bloco {softLabVinculado!.Bloco}!";
                         }
                         else
-                            return "Software não encontrado.";
+                            Console.WriteLine("\nSoftware não encontrado.");
                     }
                     else
-                        return "Laboratório não encontrado.";
+                        Console.WriteLine("\nLaboratório não encontrado.");
+                        continue;
 
                 }
 
@@ -724,10 +593,51 @@ namespace ProjetoIntegredor.menu
                 // Verifica se a lista de softwares vinculados com o laboratório está vazia, caso contrário, junta o software com sua versão e atribui em uma variável
                 string softwares = laboratorio.Softwares.Count == 0 ? "Nenhum software vinculado" : string.Join(", ", laboratorio.Softwares.Select(s => $"{s.NomeSoftware} ({s.Versao})")); // string.Join("divisor","Selecionar os nome dos softwares e suas versões");
 
-                resultado += $"(ID: {laboratorio.IdLaboratorio} - Número: {laboratorio.NumLaboratorio} - Bloco: {laboratorio.Bloco} - Qtde. de Computadores: {laboratorio.QtdeComputador} - Capacidade Máxima de Alunos: {laboratorio.CapacidadeMaxAluno} - Disponibilidade: {laboratorio.StatusDisponibilidade} - Softwares Vinculados: [{softwares}])\n";
+                resultado += $"\n(ID: {laboratorio.IdLaboratorio} - Número: {laboratorio.NumLaboratorio} - Bloco: {laboratorio.Bloco} - Qtde. de Computadores: {laboratorio.QtdeComputador} - Capacidade Máxima de Alunos: {laboratorio.CapacidadeMaxAluno} - Disponibilidade: {laboratorio.StatusDisponibilidade} - Softwares: [{softwares}])";
             }
 
             return resultado;
+        }
+
+        // Leitura de blocos
+        private static bool TentarLerBloco(out Bloco bloco, out string mensagem) // Retornará o bloco e uma mensagem
+        {
+            bloco = default;
+            mensagem = "";
+
+            Console.WriteLine("\nInforme o Bloco:");
+            Console.WriteLine("A");
+            Console.WriteLine("B");
+            Console.WriteLine("C");
+            Console.WriteLine("D");
+
+            Console.Write("\nOpção: ");
+            string? opcao = Console.ReadLine()?.ToUpper();
+
+            if (opcao == "0")
+            {
+                mensagem = "Operação cancelada.";
+                return false;
+            }
+
+            switch (opcao)
+            {
+                case "A":
+                    bloco = Bloco.A;
+                    return true;
+                case "B":
+                    bloco = Bloco.B;
+                    return true;
+                case "C":
+                    bloco = Bloco.C;
+                    return true;
+                case "D":
+                    bloco = Bloco.D;
+                    return true;
+                default:
+                    mensagem = "Informe um bloco válido!";
+                    return false;
+            }
         }
     }
 }

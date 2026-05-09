@@ -67,7 +67,7 @@ internal class Program
                             Console.WriteLine($"\n{mensagem}");
                             break;
                         case 3:
-
+                            
                             break;
                         case 4:
 
@@ -130,7 +130,8 @@ internal class Program
 
                             break;
                         case 5:
-
+                            mensagem = LaboratorioView.MenuBuscasLaboratorioInterface(laboratorioService);
+                            Console.WriteLine($"\n{mensagem}");
                             break;
                         case 6:
                             mensagem = ResponsavelTiView.MenuBuscasSoftwareInterface(softwareService);
@@ -176,7 +177,8 @@ internal class Program
                             Console.WriteLine($"\n{mensagem}");
                             break;
                         case 2:
-
+                            mensagem = LaboratorioView.MenuBuscasLaboratorioInterface(laboratorioService);
+                            Console.WriteLine($"\n{mensagem}");
                             break;
                         case 3:
 

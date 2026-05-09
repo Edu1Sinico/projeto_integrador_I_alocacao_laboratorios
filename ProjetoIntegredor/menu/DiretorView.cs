@@ -52,7 +52,7 @@ namespace ProjetoIntegredor.menu
 
                     try
                     {
-                        opcaoSelecionada = Validacao.ValidarInteiro(opcao);
+                        opcaoSelecionada = Validacao.ValidarInteiro(opcao!);
                     }
                     catch (ArgumentException ex)
                     {
@@ -207,7 +207,7 @@ namespace ProjetoIntegredor.menu
                         {
                             var usuarioAtualizado = usuarioService.AtualizarUsuario(usuarioLogado, usuarioEncotrado.IdUsuario, nome!, email!, senha!);
 
-                            return $"Usuário {usuarioAtualizado.Nome} atualizado com sucesso!";
+                            return $"Usuário {usuarioAtualizado!.Nome} atualizado com sucesso!";
                         }
                         catch (ArgumentException ex)
                         {
@@ -259,7 +259,7 @@ namespace ProjetoIntegredor.menu
                                 try
                                 {
                                     var usuarioExcluido = usuarioService.ExcluirUsuario(usuarioLogado, usuarioEncotrado.IdUsuario);
-                                    return $"Usuário {usuarioExcluido.Nome} excluído com sucesso!";
+                                    return $"Usuário {usuarioExcluido!.Nome} excluído com sucesso!";
                                 }
                                 catch (InvalidOperationException ex) // Tratando o erro se o usuário digitar o próprio ID para exclusão.
                                 {
@@ -313,7 +313,7 @@ namespace ProjetoIntegredor.menu
 
                     try
                     {
-                        opcaoSelecionada = Validacao.ValidarInteiro(opcao);
+                        opcaoSelecionada = Validacao.ValidarInteiro(opcao!);
                     }
                     catch (ArgumentException ex)
                     {

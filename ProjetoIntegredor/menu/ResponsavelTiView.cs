@@ -93,7 +93,7 @@ namespace ProjetoIntegredor.menu
                     string? nomeSoftware = Console.ReadLine();
                     if (nomeSoftware == "0") return "Atualização cancelada.";
 
-                    var softwareEncontrado = softwareService.BuscarSoftwareNome(nomeSoftware);
+                    var softwareEncontrado = softwareService.BuscarSoftwareNome(nomeSoftware!);
 
                     if (softwareEncontrado != null)
                     {
@@ -116,7 +116,7 @@ namespace ProjetoIntegredor.menu
                         {
                             var softwareAtualizado = softwareService.AtualizarSoftware(usuarioLogado, softwareEncontrado.IdSoftware, nomeSoftware!, versao!);
 
-                            return $"Software {softwareAtualizado.NomeSoftware} atualizado com sucesso!";
+                            return $"Software {softwareAtualizado!.NomeSoftware} atualizado com sucesso!";
                         }
                         catch (ArgumentException ex)
                         {
@@ -151,7 +151,7 @@ namespace ProjetoIntegredor.menu
                     string? nomeSoftware = Console.ReadLine();
                     if (nomeSoftware == "0") return "Atualização cancelada.";
 
-                    var softwareEncontrado = softwareService.BuscarSoftwareNome(nomeSoftware);
+                    var softwareEncontrado = softwareService.BuscarSoftwareNome(nomeSoftware!);
 
                     if (softwareEncontrado != null)
                     {
@@ -169,7 +169,7 @@ namespace ProjetoIntegredor.menu
                                 try
                                 {
                                     var softwareExcluido = softwareService.ExcluirSoftware(usuarioLogado, softwareEncontrado.IdSoftware);
-                                    return $"Usuário {softwareExcluido.NomeSoftware} excluído com sucesso!";
+                                    return $"Usuário {softwareExcluido!.NomeSoftware} excluído com sucesso!";
                                 }
                                 catch (InvalidOperationException ex)
                                 {
@@ -222,7 +222,7 @@ namespace ProjetoIntegredor.menu
 
                     try
                     {
-                        opcaoSelecionada = Validacao.ValidarInteiro(opcao);
+                        opcaoSelecionada = Validacao.ValidarInteiro(opcao!);
                     }
                     catch (ArgumentException ex)
                     {
@@ -269,7 +269,7 @@ namespace ProjetoIntegredor.menu
 
             while (true)
             {
-                Console.WriteLine("\n====== LISTAGEM E BUSCA DE SOFTWARE ======\n");
+                Console.WriteLine("\n====== LISTAGEM E BUSCA DE SOFTWARES ======\n");
                 Console.WriteLine("Digite 0 a qualquer momento para cancelar.\n");
 
                 Console.WriteLine("Escolha uma função: ");
@@ -282,7 +282,7 @@ namespace ProjetoIntegredor.menu
 
                 try
                 {
-                    opcaoSelecionada = Validacao.ValidarInteiro(opcao);
+                    opcaoSelecionada = Validacao.ValidarInteiro(opcao!);
                 }
                 catch (ArgumentException ex)
                 {

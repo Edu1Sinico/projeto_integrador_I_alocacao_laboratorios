@@ -254,34 +254,42 @@ namespace ProjetoIntegredor.menu
                         Console.Write("Informe o novo número do laboratório: ");
                         numero = Console.ReadLine();
                         if (numero == "0") return "Cadastro cancelado.";
-                        if (string.IsNullOrWhiteSpace(numero)) numLaboratorio = laboratorioEncontrado.NumLaboratorio; // Corrigir exceção dos números
-
-                        try
+                        if (string.IsNullOrWhiteSpace(numero))
                         {
-                            numLaboratorio = Validacao.ValidarInteiro(numero!);
+                            numLaboratorio = laboratorioEncontrado.NumLaboratorio;
                         }
-                        catch (ArgumentException ex)
+                        else
                         {
-                            Console.WriteLine($"\nErro: {ex.Message}");
-                            continue;
+                            try
+                            {
+                                numLaboratorio = Validacao.ValidarInteiro(numero!);
+                            }
+                            catch (ArgumentException ex)
+                            {
+                                Console.WriteLine($"\nErro: {ex.Message}");
+                                continue;
+                            }
                         }
 
                         Console.Write("Informe a nova quantidade de computadores: ");
                         string? qtde = Console.ReadLine();
                         if (qtde == "0") return "Cadastro cancelado.";
-                        if (string.IsNullOrWhiteSpace(qtde)) qtdeComputador = laboratorioEncontrado.QtdeComputador;
-
-                        // Verifica se o laboratório realmente digitou um número
-                        try
+                        if (string.IsNullOrWhiteSpace(qtde))
                         {
-                            qtdeComputador = Validacao.ValidarInteiro(qtde!);
+                            qtdeComputador = laboratorioEncontrado.QtdeComputador;
                         }
-                        catch (ArgumentException ex)
+                        else
                         {
-                            Console.WriteLine($"\nErro: {ex.Message}");
-                            continue;
+                            try
+                            {
+                                qtdeComputador = Validacao.ValidarInteiro(qtde!);
+                            }
+                            catch (ArgumentException ex)
+                            {
+                                Console.WriteLine($"\nErro: {ex.Message}");
+                                continue;
+                            }
                         }
-
 
                         Console.WriteLine("\nInforme novo o Bloco: ");
                         Console.WriteLine("A");
@@ -499,23 +507,204 @@ namespace ProjetoIntegredor.menu
             }
         }
 
+        public static string MenuBuscasLaboratorioInterface(LaboratorioService laboratorioService)
+        {
+
+            int opcaoSelecionada;
+
+            while (true)
+            {
+                Console.WriteLine("\n====== LISTAGEM E BUSCA DE LABORATÓRIOS ======\n");
+                Console.WriteLine("Digite 0 a qualquer momento para cancelar.\n");
+
+                Console.WriteLine("Escolha uma função: ");
+                Console.WriteLine("1 - Buscar laboratório por Número e Bloco");
+                Console.WriteLine("2 - Listar Laboratórios");
+                Console.WriteLine("0 - Cancelar Operação");
+
+                Console.Write("\nOpção: ");
+                string? opcao = Console.ReadLine();
+
+                try
+                {
+                    opcaoSelecionada = Validacao.ValidarInteiro(opcao!);
+                }
+                catch (ArgumentException ex)
+                {
+                    Console.WriteLine($"\nErro: {ex.Message}");
+                    continue;
+                }
+
+                switch (opcaoSelecionada)
+                {
+                    case 1:
+                        return BuscarLaboratorioNumBlocoInterface(laboratorioService);
+
+                    case 2:
+                        return ListarLaboratoriosInterface(laboratorioService);
+
+                    case 0:
+                        return "Operação cancelada.";
+
+                    default:
+                        Console.WriteLine("\nInforme uma opção válida!");
+                        break;
+                }
+            }
+        }
+
 
         // ---------------------------------------------------------------------------------------------------------------------------
 
-        // Vincular software com laboratório (Fazer uma opção de vincular ou remover software  )
-        /*        public static string VinSoftwareLabInterface(Usuario usuarioLogado, LaboratorioService laboratorioService, List<Laboratorio> laboratorios, List<Software> softwares)
-                {
-                    if (usuarioLogado.Tipo == TipoUsuario.DI)
-                    {
+        // Vincular software com laboratório
+        public static string VinSoftwareLabInterface(Usuario usuarioLogado, LaboratorioService laboratorioService, SoftwareService softwareService)
+        {
 
+            int numLaboratorio;
+
+            if (usuarioLogado.Tipo == TipoUsuario.DI)
+            {
+                while (true)
+                {
+                    Console.WriteLine("\n====== VINCULAR SOFTWARE LABORATÓRIO ======\n");
+                    Console.WriteLine("Digite 0 a qualquer momento para cancelar.\n");
+
+                    Console.Write("Informe o número do laboratório: ");
+                    string? numero = Console.ReadLine();
+                    if (numero == "0") return "Operação cancelado.";
+
+                    try
+                    {
+                        numLaboratorio = Validacao.ValidarInteiro(numero!);
+                    }
+                    catch (ArgumentException ex)
+                    {
+                        Console.WriteLine($"\nErro: {ex.Message}");
+                        continue;
+                    }
+
+                    Console.WriteLine("\nInforme o Bloco: ");
+                    Console.WriteLine("A");
+                    Console.WriteLine("B");
+                    Console.WriteLine("C");
+                    Console.WriteLine("D");
+
+                    Console.Write("\nOpção: ");
+                    string? opcao = Console.ReadLine()?.ToUpper();
+                    if (opcao == "0") return "Operação cancelado.";
+
+                    Bloco bloco;
+
+                    switch (opcao)
+                    {
+                        case "A":
+                            bloco = Bloco.A;
+                            break;
+                        case "B":
+                            bloco = Bloco.B;
+                            break;
+                        case "C":
+                            bloco = Bloco.C;
+                            break;
+                        case "D":
+                            bloco = Bloco.D;
+                            break;
+                        default:
+                            Console.WriteLine("\nInforme um bloco válido!");
+                            continue;
+                    }
+
+                    var laboratorioEncontrado = laboratorioService.BuscarLaboratorioNumBloco(numLaboratorio!, bloco);
+
+                    if (laboratorioEncontrado != null)
+                    {
+                        Console.WriteLine("\n====== LABORATÓRIO ENCONTRADO ======");
+                        Console.WriteLine($"(ID: {laboratorioEncontrado.IdLaboratorio} - Número: {laboratorioEncontrado.NumLaboratorio} - Bloco: {laboratorioEncontrado.Bloco} - Qtde. de Computadores: {laboratorioEncontrado.QtdeComputador} - Capacidade Máxima de Alunos: {laboratorioEncontrado.CapacidadeMaxAluno} - Disponibilidade: {laboratorioEncontrado.StatusDisponibilidade})");
+
+                        Console.Write("Informe o nome do software para ser vinculado: ");
+                        string? nomeSoftware = Console.ReadLine();
+                        if (nomeSoftware == "0") return "Operação cancelada.";
+
+                        var softwareEncontrado = softwareService.BuscarSoftwareNome(nomeSoftware!);
+
+                        if (softwareEncontrado != null)
+                        {
+                            var softLabVinculado = laboratorioService.AdicionarSoftwareLaboratorio(usuarioLogado, softwareEncontrado.IdSoftware, softwareEncontrado);
+                            return $"Software {softwareEncontrado.NomeSoftware} vinculado com sucesso para o laboratório {softLabVinculado!.NumLaboratorio} do bloco {softLabVinculado!.Bloco}!";
+                        }
+                        else
+                            return "Software não encontrado.";
                     }
                     else
-                    {
-                        return "Erro: Apenas diretores podem executar essa ação!";
-                    }
-                } 
+                        return "Laboratório não encontrado.";
 
-        */
+                }
+
+            }
+            else
+            {
+                return "Erro: Apenas diretores podem executar essa ação!";
+            }
+        }
+
+        // Menu para desvincular o software com o laboratório
+        public static string DesvinSoftwareLabInterface(Usuario usuarioLogado, LaboratorioService laboratorioService, SoftwareService softwareService)
+        {
+            return "";
+        }
+
+        public static string MenuBuscasLaboratorioInterface(Usuario usuarioLogado, LaboratorioService laboratorioService, SoftwareService softwareService)
+        {
+
+            int opcaoSelecionada;
+            if (usuarioLogado.Tipo == TipoUsuario.DI)
+            {
+                while (true)
+                {
+                    Console.WriteLine("\n====== FUNÇÕES DE VINCULAR SOFTWARES COM LABORATÓRIOS ======\n");
+                    Console.WriteLine("Digite 0 a qualquer momento para cancelar.\n");
+
+                    Console.WriteLine("Escolha uma função: ");
+                    Console.WriteLine("1 - Vincular Softwares com Laboratório");
+                    Console.WriteLine("2 - Remover Vinculo Entre Software e Laboratorio ");
+                    Console.WriteLine("0 - Cancelar Operação");
+
+                    Console.Write("\nOpção: ");
+                    string? opcao = Console.ReadLine();
+
+                    try
+                    {
+                        opcaoSelecionada = Validacao.ValidarInteiro(opcao!);
+                    }
+                    catch (ArgumentException ex)
+                    {
+                        Console.WriteLine($"\nErro: {ex.Message}");
+                        continue;
+                    }
+
+                    switch (opcaoSelecionada)
+                    {
+                        case 1:
+                            return VinSoftwareLabInterface(usuarioLogado, laboratorioService, softwareService);
+
+                        case 2:
+
+
+                        case 0:
+                            return "Operação cancelada.";
+
+                        default:
+                            Console.WriteLine("\nInforme uma opção válida!");
+                            break;
+                    }
+                }
+            }
+            else
+            {
+                return "Erro: Apenas diretores podem executar essa ação!";
+            }
+        }
+
 
         // Outros
 

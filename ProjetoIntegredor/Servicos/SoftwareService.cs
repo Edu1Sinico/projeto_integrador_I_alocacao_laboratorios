@@ -37,7 +37,7 @@ namespace ProjetoIntegredor.Servicos
         // Todos os softwares
         public List<Software> BuscarSoftwares()
         {
-            return softwares?.ToList();
+            return softwares.ToList();
         }
 
         // Atualizar

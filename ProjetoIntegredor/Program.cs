@@ -21,6 +21,9 @@ internal class Program
         // Funcionalidades dos Softwares
         SoftwareService softwareService = new SoftwareService();
 
+        // Funcionalidades das Disciplinas
+        DisciplinaService disciplinaService = new DisciplinaService();
+
         while (sistemaAtivo)
         {
             // Definindo as telas
@@ -75,7 +78,8 @@ internal class Program
 
                             break;
                         case 5:
-
+                            mensagem = CoordenadorView.MenuBuscasDisciplinaInterface(disciplinaService);
+                            Console.WriteLine($"\n{mensagem}");
                             break;
                         case 6:
                             mensagem = ResponsavelTiView.MenuBuscasSoftwareInterface(softwareService);
@@ -91,7 +95,7 @@ internal class Program
                             Console.WriteLine("\nSistema encerrado.\n");
                             break;
                         default:
-                            Console.WriteLine("\nInforme um usuário válido!");
+                            Console.WriteLine("\nInforme uma opção válida!");
                             break;
                     }
                 }
@@ -99,12 +103,11 @@ internal class Program
                 {
                     Console.WriteLine("Escolha uma opção:");
                     Console.WriteLine("1 - Funções de Disciplina (Cadastrar, Buscar, Atualizar e Excluir)");
-                    Console.WriteLine("2 - Vincular Software com a Disciplina");
+                    Console.WriteLine("2 - Vincular/Desvincular Software com a Disciplina");
                     Console.WriteLine("3 - Solicitar Alocação");
-                    Console.WriteLine("4 - Histórico de Alocações");
-                    Console.WriteLine("5 - Listar e Buscar Laboratórios");
-                    Console.WriteLine("6 - Listar e Buscar Softwares");
-                    Console.WriteLine("7 - Logout");
+                    Console.WriteLine("4 - Listar e Buscar Laboratórios");
+                    Console.WriteLine("5 - Listar e Buscar Softwares");
+                    Console.WriteLine("6 - Logout");
                     Console.WriteLine("0 - Sair");
                     Console.Write("\nOpção: ");
 
@@ -120,26 +123,25 @@ internal class Program
                     switch (opcaoSelecionada)
                     {
                         case 1:
-
+                            mensagem = CoordenadorView.CrudDisciplinasInterface(usuarioLogado, disciplinaService);
+                            Console.WriteLine($"\n{mensagem}");
                             break;
                         case 2:
-
+                            mensagem = CoordenadorView.VinSoftwareDiscInterface(usuarioLogado, disciplinaService, softwareService);
+                            Console.WriteLine($"\n{mensagem}");
                             break;
                         case 3:
 
                             break;
                         case 4:
-
-                            break;
-                        case 5:
                             mensagem = LaboratorioView.MenuBuscasLaboratorioInterface(laboratorioService);
                             Console.WriteLine($"\n{mensagem}");
                             break;
-                        case 6:
+                        case 5:
                             mensagem = ResponsavelTiView.MenuBuscasSoftwareInterface(softwareService);
                             Console.WriteLine($"\n{mensagem}");
                             break;
-                        case 7:
+                        case 6:
                             usuarioAutenticado = false;
                             Console.WriteLine("\nLogout realizado com sucesso!");
                             break;
@@ -149,7 +151,7 @@ internal class Program
                             Console.WriteLine("\nSistema encerrado.\n");
                             break;
                         default:
-                            Console.WriteLine("\nInforme um usuário válido!");
+                            Console.WriteLine("\nInforme uma opção válida!");
                             break;
                     }
                 }
@@ -183,7 +185,8 @@ internal class Program
                             Console.WriteLine($"\n{mensagem}");
                             break;
                         case 3:
-
+                            mensagem = CoordenadorView.MenuBuscasDisciplinaInterface(disciplinaService);
+                            Console.WriteLine($"\n{mensagem}");
                             break;
                         case 4:
                             usuarioAutenticado = false;
@@ -195,7 +198,7 @@ internal class Program
                             Console.WriteLine("\nSistema encerrado.\n");
                             break;
                         default:
-                            Console.WriteLine("\nInforme um usuário válido!");
+                            Console.WriteLine("\nInforme uma opção válida!");
                             break;
                     }
                 }

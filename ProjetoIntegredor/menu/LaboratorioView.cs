@@ -11,7 +11,7 @@ namespace ProjetoIntegredor.menu
     public class LaboratorioView
     {
         // Menu de Cadastro de Labotatórios
-        public static string CadLabInterface(Usuario usuarioLogado, LaboratorioService LaboratorioService)
+        public static string CadastrarLaboratorioInterface(Usuario usuarioLogado, LaboratorioService LaboratorioService)
         {
             int numLaboratorio;
             int qtdeComputador;
@@ -28,7 +28,7 @@ namespace ProjetoIntegredor.menu
                     string? numero = Console.ReadLine();
                     if (numero == "0") return "Cadastro cancelado.";
 
-                    // Verifica se o laboratório realmente digitou um número
+                    // Verifica se o usuário realmente digitou um número
                     try
                     {
                         numLaboratorio = Validacao.ValidarInteiro(numero!);
@@ -43,7 +43,7 @@ namespace ProjetoIntegredor.menu
                     string? qtde = Console.ReadLine();
                     if (qtde == "0") return "Cadastro cancelado.";
 
-                    // Verifica se o laboratório realmente digitou um número
+                    // Verifica se o usuário realmente digitou um número
                     try
                     {
                         qtdeComputador = Validacao.ValidarInteiro(qtde!);
@@ -361,7 +361,7 @@ namespace ProjetoIntegredor.menu
                     switch (opcaoSelecionada)
                     {
                         case 1:
-                            return CadLabInterface(usuarioLogado, laboratorioService);
+                            return CadastrarLaboratorioInterface(usuarioLogado, laboratorioService);
 
                         case 2:
                             return BuscarLaboratorioNumBlocoInterface(laboratorioService);
@@ -452,7 +452,7 @@ namespace ProjetoIntegredor.menu
             {
                 while (true)
                 {
-                    Console.WriteLine("\n====== VINCULAR SOFTWARE LABORATÓRIO ======\n");
+                    Console.WriteLine("\n====== VINCULAR SOFTWARE COM LABORATÓRIO ======\n");
                     Console.WriteLine("Digite 0 a qualquer momento para cancelar.\n");
 
                     Console.Write("Informe o número do laboratório: ");

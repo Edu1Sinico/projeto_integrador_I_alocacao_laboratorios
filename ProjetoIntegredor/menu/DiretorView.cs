@@ -12,7 +12,7 @@ namespace ProjetoIntegredor.menu
     public class DiretorView
     {
         // Menu de cadastro do usuário
-        public static string CadUsuarioInterface(Usuario usuarioLogado, UsuarioService usuarioService)
+        public static string CadastrarUsuarioInterface(Usuario usuarioLogado, UsuarioService usuarioService)
         {
 
             int opcaoSelecionada;
@@ -331,7 +331,7 @@ namespace ProjetoIntegredor.menu
                     switch (opcaoSelecionada)
                     {
                         case 1:
-                            return CadUsuarioInterface(usuarioLogado, usuarioService);
+                            return CadastrarUsuarioInterface(usuarioLogado, usuarioService);
 
                         case 2:
                             return BuscarUsuarioReInterface(usuarioLogado, usuarioService);

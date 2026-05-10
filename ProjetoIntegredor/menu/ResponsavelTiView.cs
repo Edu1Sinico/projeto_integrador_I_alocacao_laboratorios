@@ -12,7 +12,7 @@ namespace ProjetoIntegredor.menu
     public class ResponsavelTiView
     {
         // Menu de Cadastro dos softwares
-        public static string CadSoftwareInterface(Usuario usuarioLogado, SoftwareService softwareService)
+        public static string CadastrarSoftwareInterface(Usuario usuarioLogado, SoftwareService softwareService)
         {
             if (usuarioLogado.Tipo == TipoUsuario.RT)
             {
@@ -132,7 +132,7 @@ namespace ProjetoIntegredor.menu
                         }
                         catch (ArgumentException ex)
                         {
-                            return $"Erro ao atualizar Software: {ex.Message}";
+                            return $"Erro ao atualizar software: {ex.Message}";
                         }
                         catch (UnauthorizedAccessException ex)
                         {
@@ -258,7 +258,7 @@ namespace ProjetoIntegredor.menu
                     switch (opcaoSelecionada)
                     {
                         case 1:
-                            return CadSoftwareInterface(usuarioLogado, softwareService);
+                            return CadastrarSoftwareInterface(usuarioLogado, softwareService);
 
                         case 2:
                             return BuscarSoftwareNomeInterface(softwareService);

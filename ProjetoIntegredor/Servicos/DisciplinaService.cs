@@ -12,7 +12,7 @@ namespace ProjetoIntegredor.Servicos
         List<Disciplina> disciplinas = new();
 
         // Cadastrar
-        public Disciplina CadastrarDisciplina(Usuario usuarioLogado, string nomeDisciplina, int qtdeAlunos, Software software)
+        public Disciplina CadastrarDisciplina(Usuario usuarioLogado, string nomeDisciplina, int qtdeAlunos)
         {
             AutorizacaoService.ValidarUsuario(usuarioLogado);
             AutorizacaoService.ValidarCoordenador(usuarioLogado);
@@ -21,7 +21,6 @@ namespace ProjetoIntegredor.Servicos
                 throw new ArgumentException("Disciplina já cadastrada!");
 
             var disciplina = new Disciplina(Validacao.NormalizarTexto(nomeDisciplina), qtdeAlunos);
-            disciplina.AdicionarSoftware(software);
             disciplinas.Add(disciplina);
             return disciplina;
         }
@@ -75,6 +74,9 @@ namespace ProjetoIntegredor.Servicos
 
             var disciplina = disciplinas.FirstOrDefault(d => d.IdDisciplina == idDisciplina);
 
+            if (disciplina!.Softwares.Any(s => s.IdSoftware == software.IdSoftware))
+                throw new ArgumentException("Este software já está vinculado com a disciplina!");
+
             if (disciplina == null)
                 return null;
 
@@ -90,6 +92,9 @@ namespace ProjetoIntegredor.Servicos
             AutorizacaoService.ValidarCoordenador(usuarioLogado);
 
             var disciplina = disciplinas.FirstOrDefault(d => d.IdDisciplina == idDisciplina);
+
+            if (!disciplina!.Softwares.Any(s => s.IdSoftware == software.IdSoftware))
+                throw new ArgumentException("Este software não está vinculado com a disciplina!");
 
             if (disciplina == null)
                 return null;

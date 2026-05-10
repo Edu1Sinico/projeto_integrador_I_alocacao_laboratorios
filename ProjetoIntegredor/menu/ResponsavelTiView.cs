@@ -24,10 +24,12 @@ namespace ProjetoIntegredor.menu
                     Console.Write("Informe o nome do software: ");
                     string? nomeSoftware = Console.ReadLine();
                     if (nomeSoftware == "0") return "Cadastro cancelado.";
+                    nomeSoftware = Validacao.NormalizarTexto(nomeSoftware!);
 
                     Console.Write("Informe a versão do software: ");
                     string? versao = Console.ReadLine();
                     if (versao == "0") return "Cadastro cancelado.";
+                    versao = Validacao.NormalizarTexto(versao!);
 
                     try
                     {
@@ -60,6 +62,7 @@ namespace ProjetoIntegredor.menu
             Console.Write("Informe o nome do software: ");
             string? nomeSoftware = Console.ReadLine();
             if (nomeSoftware == "0") return "Busca cancelada.";
+            nomeSoftware = Validacao.NormalizarTexto(nomeSoftware!);
 
             var softwareEncontrado = softwareService.BuscarSoftwareNome(nomeSoftware!);
 
@@ -113,11 +116,13 @@ namespace ProjetoIntegredor.menu
                         string? nomeSoftware = Console.ReadLine();
                         if (nomeSoftware == "0") return "Atualização cancelada.";
                         if (string.IsNullOrWhiteSpace(nomeSoftware)) nomeSoftware = softwareEncontrado.NomeSoftware;
+                        nomeSoftware = Validacao.NormalizarTexto(nomeSoftware!);
 
                         Console.Write("Informe o nova versão do software: ");
                         string? versao = Console.ReadLine();
                         if (versao == "0") return "Atualização cancelada.";
                         if (string.IsNullOrWhiteSpace(versao)) versao = softwareEncontrado.Versao;
+                        versao = Validacao.NormalizarTexto(versao!);
 
                         try
                         {
@@ -181,7 +186,7 @@ namespace ProjetoIntegredor.menu
                         Console.WriteLine("\nDeseja realmente excluir este software? (S - Sim | N - Não)");
                         Console.Write("\nOpção: ");
 
-                        string? opcao = Console.ReadLine()?.ToUpper();
+                        string? opcao = Console.ReadLine()?.ToUpper().Trim();
 
                         switch (opcao)
                         {
@@ -238,7 +243,7 @@ namespace ProjetoIntegredor.menu
                     Console.WriteLine("0 - Cancelar Operação");
 
                     Console.Write("\nOpção: ");
-                    string? opcao = Console.ReadLine();
+                    string? opcao = Console.ReadLine()?.Trim();
 
                     try
                     {
@@ -298,7 +303,7 @@ namespace ProjetoIntegredor.menu
                 Console.WriteLine("0 - Cancelar Operação");
 
                 Console.Write("\nOpção: ");
-                string? opcao = Console.ReadLine();
+                string? opcao = Console.ReadLine()?.Trim();
 
                 try
                 {

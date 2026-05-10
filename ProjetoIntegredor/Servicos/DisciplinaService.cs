@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ProjetoIntegredor.menu;
 using ProjetoIntegredor.model;
 
 namespace ProjetoIntegredor.Servicos
@@ -16,10 +17,10 @@ namespace ProjetoIntegredor.Servicos
             AutorizacaoService.ValidarUsuario(usuarioLogado);
             AutorizacaoService.ValidarCoordenador(usuarioLogado);
 
-            if (disciplinas.Any(s => s.NomeDisciplina.Equals(nomeDisciplina, StringComparison.OrdinalIgnoreCase)))
+            if (disciplinas.Any(s => s.NomeDisciplina.Equals(Validacao.NormalizarTexto(nomeDisciplina), StringComparison.OrdinalIgnoreCase)))
                 throw new ArgumentException("Disciplina já cadastrada!");
 
-            var disciplina = new Disciplina(nomeDisciplina, qtdeAlunos);
+            var disciplina = new Disciplina(Validacao.NormalizarTexto(nomeDisciplina), qtdeAlunos);
             disciplina.AdicionarSoftware(software);
             disciplinas.Add(disciplina);
             return disciplina;
@@ -28,7 +29,7 @@ namespace ProjetoIntegredor.Servicos
         // Buscar
         public Disciplina? BuscarDisciplinaNome(string nomeDisciplina)
         {
-            return disciplinas.FirstOrDefault(s => s.NomeDisciplina.Equals(nomeDisciplina, StringComparison.OrdinalIgnoreCase));
+            return disciplinas.FirstOrDefault(s => s.NomeDisciplina.Equals(Validacao.NormalizarTexto(nomeDisciplina), StringComparison.OrdinalIgnoreCase));
         }
 
         // Todos as disciplinas
@@ -47,7 +48,7 @@ namespace ProjetoIntegredor.Servicos
             if (disciplina == null)
                 return null;
 
-            disciplina.NomeDisciplina = nomeDisciplina;
+            disciplina.NomeDisciplina = Validacao.NormalizarTexto(nomeDisciplina);
             disciplina.QtdeAlunos = qtdeAlunos;
 
             return disciplina;

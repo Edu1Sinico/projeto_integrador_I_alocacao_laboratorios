@@ -25,7 +25,7 @@ namespace ProjetoIntegredor.menu
                 Console.WriteLine("3 - Responsável de TI");
                 Console.Write("\nOpção: ");
 
-                string? opcao = Console.ReadLine();
+                string? opcao = Console.ReadLine()?.Trim();
 
                 // Verifica a conversão do tipo
                 if (!int.TryParse(opcao, out int opcaoSelecionada))

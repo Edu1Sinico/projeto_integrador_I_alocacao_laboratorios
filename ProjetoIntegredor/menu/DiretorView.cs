@@ -28,10 +28,12 @@ namespace ProjetoIntegredor.menu
                     Console.Write("Informe o RE do usuário: ");
                     string? re = Console.ReadLine();
                     if (re == "0") return "Cadastro cancelado.";
+                    re = Validacao.NormalizarTexto(re!);
 
                     Console.Write("Informe o nome do usuário: ");
                     string? nome = Console.ReadLine();
                     if (nome == "0") return "Cadastro cancelado.";
+                    nome = Validacao.NormalizarTexto(nome!);
 
                     Console.Write("Informe a senha do usuário: ");
                     string? senha = Console.ReadLine();
@@ -47,7 +49,7 @@ namespace ProjetoIntegredor.menu
                     Console.WriteLine("3 - Responsável de TI");
 
                     Console.Write("\nOpção: ");
-                    string? opcao = Console.ReadLine();
+                    string? opcao = Console.ReadLine()!.Trim();
                     if (opcao == "0") return "Cadastro cancelado.";
 
                     try
@@ -80,7 +82,7 @@ namespace ProjetoIntegredor.menu
 
                     try
                     {
-                        var usuarioCadastrado = usuarioService.CadastrarUsuario(usuarioLogado, re!, nome!, senha!, email!, tipoUsuario); // "!" Permite cadastrar mesmo sabendo que o valor pode ser nulo
+                        var usuarioCadastrado = usuarioService.CadastrarUsuario(usuarioLogado, re!, nome!, senha!, email!.Trim().ToLower(), tipoUsuario); // "!" Permite cadastrar mesmo sabendo que o valor pode ser nulo
 
                         return $"Usuário {usuarioCadastrado.Nome} cadastrado com sucesso!";
                     }
@@ -111,6 +113,7 @@ namespace ProjetoIntegredor.menu
                 Console.Write("Informe o RE do usuário: ");
                 string? re = Console.ReadLine();
                 if (re == "0") return "Busca cancelada.";
+                re = Validacao.NormalizarTexto(re!);
 
                 var usuarioEncotrado = usuarioService.BuscarUsuarioRE(usuarioLogado, re!);
 
@@ -139,6 +142,7 @@ namespace ProjetoIntegredor.menu
                 Console.Write("Informe o nome do usuário: ");
                 string? nome = Console.ReadLine();
                 if (nome == "0") return "Busca cancelada.";
+                nome = Validacao.NormalizarTexto(nome!);
 
                 var usuariosEncotrados = usuarioService.BuscarUsuarioNome(usuarioLogado, nome!);
 
@@ -178,6 +182,7 @@ namespace ProjetoIntegredor.menu
                     Console.Write("Informe o RE do usuário: ");
                     string? re = Console.ReadLine();
                     if (re == "0") return "Atualização cancelada.";
+                    re = Validacao.NormalizarTexto(re!);
 
                     var usuarioEncotrado = usuarioService.BuscarUsuarioRE(usuarioLogado, re!);
 
@@ -192,6 +197,7 @@ namespace ProjetoIntegredor.menu
                         string? nome = Console.ReadLine();
                         if (nome == "0") return "Atualização cancelada.";
                         if (string.IsNullOrWhiteSpace(nome)) nome = usuarioEncotrado.Nome; // Caso o valor esteja vazio, ele mantem o valor original.
+                        nome = Validacao.NormalizarTexto(nome!);
 
                         Console.Write("Informe o novo e-mail do usuário: ");
                         string? email = Console.ReadLine();
@@ -205,7 +211,7 @@ namespace ProjetoIntegredor.menu
 
                         try
                         {
-                            var usuarioAtualizado = usuarioService.AtualizarUsuario(usuarioLogado, usuarioEncotrado.IdUsuario, nome!, email!, senha!);
+                            var usuarioAtualizado = usuarioService.AtualizarUsuario(usuarioLogado, usuarioEncotrado.IdUsuario, nome!, email!.Trim().ToLower(), senha!.Trim());
 
                             return $"Usuário {usuarioAtualizado!.Nome} atualizado com sucesso!";
                         }
@@ -241,6 +247,7 @@ namespace ProjetoIntegredor.menu
                     Console.Write("Informe o RE do usuário: ");
                     string? re = Console.ReadLine();
                     if (re == "0") return "Exclusão cancelada.";
+                    re = Validacao.NormalizarTexto(re!);
 
                     var usuarioEncotrado = usuarioService.BuscarUsuarioRE(usuarioLogado, re!);
 
@@ -251,7 +258,7 @@ namespace ProjetoIntegredor.menu
 
                         Console.WriteLine("\nDeseja realmente excluir este usuário? (S - Sim | N - Não)");
                         Console.Write("\nOpção: ");
-                        string? opcao = Console.ReadLine()?.ToUpper();
+                        string? opcao = Console.ReadLine()?.ToUpper().Trim();
 
                         switch (opcao)
                         {
@@ -309,7 +316,7 @@ namespace ProjetoIntegredor.menu
                     Console.WriteLine("0 - Cancelar Operação");
 
                     Console.Write("\nOpção: ");
-                    string? opcao = Console.ReadLine();
+                    string? opcao = Console.ReadLine()!.Trim();
 
                     try
                     {

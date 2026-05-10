@@ -346,7 +346,7 @@ namespace ProjetoIntegredor.menu
                     Console.WriteLine("0 - Cancelar Operação");
 
                     Console.Write("\nOpção: ");
-                    string? opcao = Console.ReadLine();
+                    string? opcao = Console.ReadLine()?.Trim();
 
                     try
                     {
@@ -407,7 +407,7 @@ namespace ProjetoIntegredor.menu
                 Console.WriteLine("0 - Cancelar Operação");
 
                 Console.Write("\nOpção: ");
-                string? opcao = Console.ReadLine();
+                string? opcao = Console.ReadLine()?.Trim();
 
                 try
                 {
@@ -446,6 +446,7 @@ namespace ProjetoIntegredor.menu
 
             int numLaboratorio;
             int idSoftware;
+            int opcaoSelecionada;
 
             if (usuarioLogado.Tipo == TipoUsuario.DI)
             {
@@ -484,7 +485,7 @@ namespace ProjetoIntegredor.menu
 
                         Console.Write("\nInforme o ID do software: ");
                         string? id = Console.ReadLine();
-                        if (id == "0") return "Atualização cancelada.";
+                        if (id == "0") return "Operação cancelada.";
 
                         try
                         {
@@ -500,15 +501,65 @@ namespace ProjetoIntegredor.menu
 
                         if (softwareEncontrado != null)
                         {
-                            var softLabVinculado = laboratorioService.AdicionarSoftwareLaboratorio(usuarioLogado, laboratorioEncontrado.IdLaboratorio, softwareEncontrado);
-                            return $"Software {softwareEncontrado.NomeSoftware} vinculado com sucesso para o laboratório {softLabVinculado!.NumLaboratorio} do bloco {softLabVinculado!.Bloco}!";
+                            Console.WriteLine("\nEscolha uma função: ");
+                            Console.WriteLine("1 - Vincular Softwares com Laboratório");
+                            Console.WriteLine("2 - Remover Vinculo Entre Software e Laboratório ");
+                            Console.WriteLine("0 - Cancelar Operação");
+
+                            Console.Write("\nOpção: ");
+                            string? opcao = Console.ReadLine()?.Trim();
+
+                            try
+                            {
+                                opcaoSelecionada = Validacao.ValidarInteiro(opcao!);
+                            }
+                            catch (ArgumentException ex)
+                            {
+                                Console.WriteLine($"\nErro: {ex.Message}");
+                                continue;
+                            }
+
+                            switch (opcaoSelecionada)
+                            {
+                                case 1:
+                                    try
+                                    {
+                                        var softLabVinculado = laboratorioService.AdicionarSoftwareLaboratorio(usuarioLogado, laboratorioEncontrado.IdLaboratorio, softwareEncontrado);
+                                        return $"Software {softwareEncontrado.NomeSoftware} vinculado com sucesso para o laboratório {softLabVinculado!.NumLaboratorio} do bloco {softLabVinculado!.Bloco}!";
+                                    }
+                                    catch (ArgumentException ex)
+                                    {
+                                        return $"Erro: {ex.Message}";
+                                    }
+
+
+                                case 2:
+                                    try
+                                    {
+                                        var SoftLabDesvinculado = laboratorioService.RemoverSoftwareLaboratorio(usuarioLogado, laboratorioEncontrado.IdLaboratorio, softwareEncontrado);
+                                        return $"Software {softwareEncontrado.NomeSoftware} desvinculado com sucesso para o laboratório {SoftLabDesvinculado!.NumLaboratorio} do bloco {SoftLabDesvinculado!.Bloco}!";
+                                    }
+                                    catch (ArgumentException ex)
+                                    {
+                                        return $"Erro: {ex.Message}";
+                                    }
+
+                                case 0:
+                                    return "Operação cancelada.";
+
+                                default:
+                                    Console.WriteLine("\nInforme uma opção válida!");
+                                    break;
+                            }
                         }
                         else
                             Console.WriteLine("\nSoftware não encontrado.");
                     }
                     else
+                    {
                         Console.WriteLine("\nLaboratório não encontrado.");
                         continue;
+                    }
 
                 }
 
@@ -518,65 +569,6 @@ namespace ProjetoIntegredor.menu
                 return "Erro: Apenas diretores podem executar essa ação!";
             }
         }
-
-        // Menu para desvincular o software com o laboratório
-        public static string DesvinSoftwareLabInterface(Usuario usuarioLogado, LaboratorioService laboratorioService, SoftwareService softwareService)
-        {
-            return "";
-        }
-
-        public static string MenuVinSoftLabInterface(Usuario usuarioLogado, LaboratorioService laboratorioService, SoftwareService softwareService)
-        {
-
-            int opcaoSelecionada;
-            if (usuarioLogado.Tipo == TipoUsuario.DI)
-            {
-                while (true)
-                {
-                    Console.WriteLine("\n====== FUNÇÕES DE VINCULAR SOFTWARES COM LABORATÓRIOS ======\n");
-                    Console.WriteLine("Digite 0 a qualquer momento para cancelar.\n");
-
-                    Console.WriteLine("Escolha uma função: ");
-                    Console.WriteLine("1 - Vincular Softwares com Laboratório");
-                    Console.WriteLine("2 - Remover Vinculo Entre Software e Laboratorio ");
-                    Console.WriteLine("0 - Cancelar Operação");
-
-                    Console.Write("\nOpção: ");
-                    string? opcao = Console.ReadLine();
-
-                    try
-                    {
-                        opcaoSelecionada = Validacao.ValidarInteiro(opcao!);
-                    }
-                    catch (ArgumentException ex)
-                    {
-                        Console.WriteLine($"\nErro: {ex.Message}");
-                        continue;
-                    }
-
-                    switch (opcaoSelecionada)
-                    {
-                        case 1:
-                            return VinSoftwareLabInterface(usuarioLogado, laboratorioService, softwareService);
-
-                        case 2:
-
-
-                        case 0:
-                            return "Operação cancelada.";
-
-                        default:
-                            Console.WriteLine("\nInforme uma opção válida!");
-                            break;
-                    }
-                }
-            }
-            else
-            {
-                return "Erro: Apenas diretores podem executar essa ação!";
-            }
-        }
-
 
         // Outros
 
@@ -612,7 +604,7 @@ namespace ProjetoIntegredor.menu
             Console.WriteLine("D");
 
             Console.Write("\nOpção: ");
-            string? opcao = Console.ReadLine()?.ToUpper();
+            string? opcao = Console.ReadLine()?.ToUpper().Trim();
 
             if (opcao == "0")
             {

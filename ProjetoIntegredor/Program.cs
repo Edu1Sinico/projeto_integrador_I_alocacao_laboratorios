@@ -39,7 +39,7 @@ internal class Program
                     Console.WriteLine("Escolha uma opção:");
                     Console.WriteLine("1 - Funções de Usuários (Cadastrar, Buscar, Atualizar e Excluir)");
                     Console.WriteLine("2 - Funções de Laboratórios (Cadastrar, Buscar, Atualizar e Excluir)");
-                    Console.WriteLine("3 - Vincular Software com Laboratório");
+                    Console.WriteLine("3 - Vincular/Desvincular Software com Laboratório");
                     Console.WriteLine("4 - Aprovar/Recusar Alocação"); // Inserir histórico de alocações junto
                     Console.WriteLine("5 - Listar e Buscar Disciplinas");
                     Console.WriteLine("6 - Listar e Buscar Softwares");
@@ -67,7 +67,7 @@ internal class Program
                             Console.WriteLine($"\n{mensagem}");
                             break;
                         case 3:
-                            mensagem = LaboratorioView.MenuVinSoftLabInterface(usuarioLogado, laboratorioService, softwareService);
+                            mensagem = LaboratorioView.VinSoftwareLabInterface(usuarioLogado, laboratorioService, softwareService);
                             Console.WriteLine($"\n{mensagem}");
 
                             break;

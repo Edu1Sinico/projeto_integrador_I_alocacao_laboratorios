@@ -4,6 +4,7 @@ using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 using ProjetoIntegredor.dominio.enums;
+using ProjetoIntegredor.menu;
 using ProjetoIntegredor.model;
 
 namespace ProjetoIntegredor.Servicos
@@ -37,8 +38,8 @@ namespace ProjetoIntegredor.Servicos
                 throw new ArgumentException("RE já cadastrado!");
 
             // Realiza o cadastro e define uma senha para ele
-            var usuario = new Usuario(re, nome, email.ToLower(), tipo);
-            usuario.DefinirSenha(senha);
+            var usuario = new Usuario(Validacao.NormalizarTexto(re), Validacao.NormalizarTexto(nome), email.ToLower(), tipo);
+            usuario.DefinirSenha(senha.Trim());
 
             usuarios.Add(usuario);
             return usuario;
@@ -49,7 +50,7 @@ namespace ProjetoIntegredor.Servicos
         {
             AutorizacaoService.ValidarUsuario(usuarioLogado);
             AutorizacaoService.ValidarDiretor(usuarioLogado);
-            return usuarios.FirstOrDefault(u => u.RE == re);
+            return usuarios.FirstOrDefault(u => u.RE == Validacao.NormalizarTexto(re));
         }
 
         // Pode haver mais de um usuário com o mesmo nome
@@ -58,7 +59,7 @@ namespace ProjetoIntegredor.Servicos
             AutorizacaoService.ValidarUsuario(usuarioLogado);
             AutorizacaoService.ValidarDiretor(usuarioLogado);
             return usuarios
-                .Where(u => u.Nome.Contains(nome, StringComparison.OrdinalIgnoreCase))
+                .Where(u => u.Nome.Contains(Validacao.NormalizarTexto(nome), StringComparison.OrdinalIgnoreCase))
                 .ToList();
         }
 
@@ -80,12 +81,12 @@ namespace ProjetoIntegredor.Servicos
             if (usuario == null)
                 return null;
 
-            usuario.Nome = nome; // atualizar nome
-            usuario.Email = email;  // atualizar e-mail
+            usuario.Nome = Validacao.NormalizarTexto(nome); // atualizar nome
+            usuario.Email = email.ToLower().Trim();  // atualizar e-mail
 
 
             if (!string.IsNullOrWhiteSpace(senha))
-                usuario.DefinirSenha(senha); // atualizar senha de forma opcional
+                usuario.DefinirSenha(senha.Trim()); // atualizar senha de forma opcional
 
             return usuario;
         }
@@ -120,7 +121,7 @@ namespace ProjetoIntegredor.Servicos
             if (usuario.Tipo != tipo)
                 throw new ArgumentException("Tipo de usuário inválido!");
 
-            if (!usuario.ValidarSenha(senha))
+            if (!usuario.ValidarSenha(senha.Trim()))
                 throw new ArgumentException("Senha incorreta!");
 
             return usuario;

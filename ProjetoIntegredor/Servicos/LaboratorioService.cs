@@ -80,10 +80,14 @@ namespace ProjetoIntegredor.Servicos
 
             var laboratorio = laboratorios.FirstOrDefault(l => l.IdLaboratorio == idLaboratorio);
 
+            // Verifica se existe algum software dentro do laboratório que já tenha sido vinculado
+            if (laboratorio!.Softwares.Any(s => s.IdSoftware == software.IdSoftware))
+                throw new ArgumentException("Este software já está vinculado com o laboratório!");
+
             if (laboratorio == null)
                 return null;
 
-            laboratorio.AdicionarSoftware(software);
+            laboratorio!.AdicionarSoftware(software);
 
             return laboratorio;
         }
@@ -95,6 +99,10 @@ namespace ProjetoIntegredor.Servicos
             AutorizacaoService.ValidarDiretor(usuarioLogado);
 
             var laboratorio = laboratorios.FirstOrDefault(l => l.IdLaboratorio == idLaboratorio);
+
+            // Verifica se existe algum software dentro do laboratório que já tenha sido desvinculado
+            if (!laboratorio!.Softwares.Any(s => s.IdSoftware == software.IdSoftware))
+                throw new ArgumentException("Este software não está vinculado com o laboratório!");
 
             if (laboratorio == null)
                 return null;

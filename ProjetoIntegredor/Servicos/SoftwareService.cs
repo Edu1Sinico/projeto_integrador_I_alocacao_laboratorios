@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ProjetoIntegredor.dominio.enums;
+using ProjetoIntegredor.menu;
 using ProjetoIntegredor.model;
 
 namespace ProjetoIntegredor.Servicos
@@ -23,7 +24,7 @@ namespace ProjetoIntegredor.Servicos
             if (softwares.Any(s => s.NomeSoftware.Equals(nomeSoftware, StringComparison.OrdinalIgnoreCase))) // Procura o software e igonora os cases
                 throw new ArgumentException("Software já cadastrado!");
 
-            var software = new Software(nomeSoftware, versao.ToLower());
+            var software = new Software(Validacao.NormalizarTexto(nomeSoftware), Validacao.NormalizarTexto(versao).ToLower());
             softwares.Add(software);
             return software;
         }
@@ -37,7 +38,7 @@ namespace ProjetoIntegredor.Servicos
         // Buscar por nome
         public List<Software>? BuscarSoftwareNome(string nomeSoftware)
         {
-            return softwares.Where(s => s.NomeSoftware.Contains(nomeSoftware, StringComparison.OrdinalIgnoreCase)).ToList();
+            return softwares.Where(s => s.NomeSoftware.Contains(Validacao.NormalizarTexto(nomeSoftware), StringComparison.OrdinalIgnoreCase)).ToList();
         }
 
         // Todos os softwares
@@ -56,8 +57,8 @@ namespace ProjetoIntegredor.Servicos
             if (software == null)
                 return null;
 
-            software.NomeSoftware = nomeSoftware;
-            software.Versao = versao;
+            software.NomeSoftware = Validacao.NormalizarTexto(nomeSoftware);
+            software.Versao = Validacao.NormalizarTexto(versao).ToLower();
 
             return software;
         }

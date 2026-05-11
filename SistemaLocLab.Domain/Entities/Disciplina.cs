@@ -5,6 +5,7 @@ namespace SistemaLocLab.Domain.Entities
 {
     public class Disciplina
     {
+        //Encapsulamento
         public Guid IdDisciplina { get; private set; }
         public string NomeDisciplina { get; private set; }
         public int QtdeAlunos { get; private set; }
@@ -16,9 +17,7 @@ namespace SistemaLocLab.Domain.Entities
         public List<Alocacao> Alocacoes
         { get; private set; } = new();
         protected Disciplina() { }
-        public Disciplina(
-        string nomeDisciplina,
-        int qtdeAlunos)
+        public Disciplina(string nomeDisciplina, int qtdeAlunos)
         {
             Validacao(nomeDisciplina, qtdeAlunos);
             IdDisciplina = Guid.NewGuid();
@@ -27,17 +26,14 @@ namespace SistemaLocLab.Domain.Entities
             DataCriacao = DateTime.Now;
         }
 
-        public void Atualizar(
-        string nomeDisciplina,
-        int qtdeAlunos)
+        public void Atualizar(string nomeDisciplina, int qtdeAlunos)
         {
             Validacao(nomeDisciplina, qtdeAlunos);
             NomeDisciplina = nomeDisciplina.Trim();
             QtdeAlunos = qtdeAlunos;
             DataAtualizacao = DateTime.Now;
         }
-        public void VincularSoftware(
-        Software software)
+        public void VincularSoftware(Software software)
         {
             if (software == null)
                 throw new ArgumentException(

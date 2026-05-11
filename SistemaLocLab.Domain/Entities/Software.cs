@@ -78,7 +78,7 @@ namespace SistemaLocLab.Domain.Entities
 
             Laboratorios.Add(laboratorio);
         }
-
+        //Mesma logica do metodo VincularLaboratorio (adiciona um software a uma disciplina)
         public void VincularDisciplina(
     Disciplina disciplina)
         {
@@ -129,10 +129,6 @@ namespace SistemaLocLab.Domain.Entities
             if (string.IsNullOrWhiteSpace(versao))
                 throw new ArgumentException(
                     "Versão obrigatória.");
-
-            if (versao.Length > 30)
-                throw new ArgumentException(
-                    "Versão muito grande.");
         }
     }
 }

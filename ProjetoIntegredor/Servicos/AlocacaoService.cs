@@ -16,6 +16,9 @@ namespace ProjetoIntegredor.Servicos
             AutorizacaoService.ValidarUsuario(usuario);
             AutorizacaoService.ValidarCoordenador(usuario);
 
+            if (lab.StatusDisponibilidade == Disponibilidade.I)
+                throw new ArgumentException("Este laboratório está indisponível para uso.");
+
             // Validar se já existe alguma locação para determinada sala em um dia e horário específicos
             if (ValidarConflitoHorario(lab, data, horaInicio, horaFim))
                 throw new ArgumentException("Essa sala já está alocada para esta data!");

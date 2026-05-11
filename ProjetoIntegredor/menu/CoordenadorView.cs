@@ -81,7 +81,7 @@ namespace ProjetoIntegredor.menu
             {
                 string softwares = disciplinaEncotrada.Softwares.Count == 0 ? "Nenhum software vinculado" : string.Join(", ", disciplinaEncotrada.Softwares.Select(s => $"{s.NomeSoftware} ({s.Versao})"));
 
-                Console.WriteLine("\n====== LABORATÓRIO ENCONTRADO ======");
+                Console.WriteLine("\n====== DISCIPLINA ENCONTRADA ======");
                 return $"(ID: {disciplinaEncotrada.IdDisciplina} - Disciplina: {disciplinaEncotrada.NomeDisciplina} - Qtde. de Alunos: {disciplinaEncotrada.QtdeAlunos} - Softwares: [{softwares}])";
             }
             else
@@ -110,7 +110,7 @@ namespace ProjetoIntegredor.menu
 
                     Console.Write("Informe o nome da disciplina: ");
                     string? nomeDisciplina = Console.ReadLine();
-                    if (nomeDisciplina == "0") return "Cadastro cancelado.";
+                    if (nomeDisciplina == "0") return "Operação cancelado.";
                     nomeDisciplina = Validacao.NormalizarTexto(nomeDisciplina!);
 
                     var disciplinaEncotrada = disciplinaService.BuscarDisciplinaNome(nomeDisciplina!);
@@ -185,7 +185,7 @@ namespace ProjetoIntegredor.menu
 
                     Console.Write("Informe o nome da disciplina: ");
                     string? nomeDisciplina = Console.ReadLine();
-                    if (nomeDisciplina == "0") return "Cadastro cancelado.";
+                    if (nomeDisciplina == "0") return "Operação cancelado.";
                     nomeDisciplina = Validacao.NormalizarTexto(nomeDisciplina!);
 
                     var disciplinaEncotrada = disciplinaService.BuscarDisciplinaNome(nomeDisciplina!);

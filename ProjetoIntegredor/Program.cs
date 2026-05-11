@@ -43,7 +43,7 @@ internal class Program
                     Console.WriteLine("1 - Funções de Usuários (Cadastrar, Buscar, Atualizar e Excluir)");
                     Console.WriteLine("2 - Funções de Laboratórios (Cadastrar, Buscar, Atualizar e Excluir)");
                     Console.WriteLine("3 - Vincular/Desvincular Software com Laboratório");
-                    Console.WriteLine("4 - Aprovar/Recusar Alocação"); // Inserir histórico de alocações junto
+                    Console.WriteLine("4 - Funções de Alocação (Diretor)");
                     Console.WriteLine("5 - Listar e Buscar Disciplinas");
                     Console.WriteLine("6 - Listar e Buscar Softwares");
                     Console.WriteLine("7 - Logout");
@@ -104,7 +104,7 @@ internal class Program
                     Console.WriteLine("Escolha uma opção:");
                     Console.WriteLine("1 - Funções de Disciplina (Cadastrar, Buscar, Atualizar e Excluir)");
                     Console.WriteLine("2 - Vincular/Desvincular Software com a Disciplina");
-                    Console.WriteLine("3 - Solicitar Alocação");
+                    Console.WriteLine("3 - Funções de Alocação (Coordenador)");
                     Console.WriteLine("4 - Listar e Buscar Laboratórios");
                     Console.WriteLine("5 - Listar e Buscar Softwares");
                     Console.WriteLine("6 - Logout");

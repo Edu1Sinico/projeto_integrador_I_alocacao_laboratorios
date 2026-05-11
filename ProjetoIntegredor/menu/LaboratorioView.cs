@@ -55,7 +55,7 @@ namespace ProjetoIntegredor.menu
                     }
 
                     // Verificar se o usuário escreveu o bloco corretamente.
-                    if (!TentarLerBloco(out Bloco bloco, out string mensagemBloco))
+                    if (!Validacao.TentarLerBloco(out Bloco bloco, out string mensagemBloco))
                     {
                         Console.WriteLine($"\n{mensagemBloco}");
                         continue;
@@ -107,7 +107,7 @@ namespace ProjetoIntegredor.menu
                 }
 
                 // Verificar se o usuário escreveu o bloco corretamente.
-                if (!TentarLerBloco(out Bloco bloco, out string mensagemBloco))
+                if (!Validacao.TentarLerBloco(out Bloco bloco, out string mensagemBloco))
                 {
                     Console.WriteLine($"\n{mensagemBloco}");
                     continue;
@@ -164,7 +164,7 @@ namespace ProjetoIntegredor.menu
                     }
 
                     // Verificar se o usuário escreveu o bloco corretamente.
-                    if (!TentarLerBloco(out Bloco bloco, out string mensagemBloco))
+                    if (!Validacao.TentarLerBloco(out Bloco bloco, out string mensagemBloco))
                     {
                         Console.WriteLine($"\n{mensagemBloco}");
                         continue;
@@ -222,7 +222,7 @@ namespace ProjetoIntegredor.menu
                         }
 
                         // Verificar se o usuário escreveu o bloco corretamente.
-                        if (!TentarLerBloco(out bloco, out mensagemBloco))
+                        if (!Validacao.TentarLerBloco(out bloco, out mensagemBloco))
                         {
                             Console.WriteLine($"\n{mensagemBloco}");
                             continue;
@@ -281,7 +281,7 @@ namespace ProjetoIntegredor.menu
                     }
 
                     // Verificar se o usuário escreveu o bloco corretamente.
-                    if (!TentarLerBloco(out Bloco bloco, out string mensagemBloco))
+                    if (!Validacao.TentarLerBloco(out Bloco bloco, out string mensagemBloco))
                     {
                         Console.WriteLine($"\n{mensagemBloco}");
                         continue;
@@ -470,7 +470,7 @@ namespace ProjetoIntegredor.menu
                     }
 
                     // Verificar se o usuário escreveu o bloco corretamente.
-                    if (!TentarLerBloco(out Bloco bloco, out string mensagemBloco))
+                    if (!Validacao.TentarLerBloco(out Bloco bloco, out string mensagemBloco))
                     {
                         Console.WriteLine($"\n{mensagemBloco}");
                         continue;
@@ -589,47 +589,6 @@ namespace ProjetoIntegredor.menu
             }
 
             return resultado;
-        }
-
-        // Leitura de blocos
-        private static bool TentarLerBloco(out Bloco bloco, out string mensagem) // Retornará o bloco e uma mensagem
-        {
-            bloco = default;
-            mensagem = "";
-
-            Console.WriteLine("\nInforme o Bloco:");
-            Console.WriteLine("A");
-            Console.WriteLine("B");
-            Console.WriteLine("C");
-            Console.WriteLine("D");
-
-            Console.Write("\nOpção: ");
-            string? opcao = Console.ReadLine()?.ToUpper().Trim();
-
-            if (opcao == "0")
-            {
-                mensagem = "Operação cancelada.";
-                return false;
-            }
-
-            switch (opcao)
-            {
-                case "A":
-                    bloco = Bloco.A;
-                    return true;
-                case "B":
-                    bloco = Bloco.B;
-                    return true;
-                case "C":
-                    bloco = Bloco.C;
-                    return true;
-                case "D":
-                    bloco = Bloco.D;
-                    return true;
-                default:
-                    mensagem = "Informe um bloco válido!";
-                    return false;
-            }
         }
     }
 }

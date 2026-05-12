@@ -125,6 +125,7 @@ namespace ProjetoIntegredor.menu
                         Console.Write("Informe o novo nome da disciplina: ");
                         nomeDisciplina = Console.ReadLine();
                         if (nomeDisciplina == "0") return "Operação cancelado.";
+                        if (string.IsNullOrWhiteSpace(nomeDisciplina)) nomeDisciplina = disciplinaEncotrada.NomeDisciplina;
                         nomeDisciplina = Validacao.NormalizarTexto(nomeDisciplina!);
 
                         Console.Write("Informe a nova quantidade de alunos: ");

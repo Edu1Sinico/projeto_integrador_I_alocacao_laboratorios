@@ -28,3 +28,18 @@ C:\Users\Aluno\Documents\projeto_integrador_I_alocacao_laboratorios\ProjetoInteg
 C:\Users\Aluno\Documents\projeto_integrador_I_alocacao_laboratorios\ProjetoIntegredor\obj\Debug\net8.0\ProjetoIntegredor.pdb
 C:\Users\Aluno\Documents\projeto_integrador_I_alocacao_laboratorios\ProjetoIntegredor\obj\Debug\net8.0\ProjetoIntegredor.genruntimeconfig.cache
 C:\Users\Aluno\Documents\projeto_integrador_I_alocacao_laboratorios\ProjetoIntegredor\obj\Debug\net8.0\ref\ProjetoIntegredor.dll
+c:\Users\B 789\Downloads\projeto_integrador_I_alocacao_laboratorios\sistema_portal_alocacao_terminal\ProjetoIntegredor\bin\Debug\net8.0\ProjetoIntegredor.exe
+C:\Users\B 789\Downloads\projeto_integrador_I_alocacao_laboratorios\sistema_portal_alocacao_terminal\ProjetoIntegredor\bin\Debug\net8.0\ProjetoIntegredor.deps.json
+C:\Users\B 789\Downloads\projeto_integrador_I_alocacao_laboratorios\sistema_portal_alocacao_terminal\ProjetoIntegredor\bin\Debug\net8.0\ProjetoIntegredor.runtimeconfig.json
+c:\Users\B 789\Downloads\projeto_integrador_I_alocacao_laboratorios\sistema_portal_alocacao_terminal\ProjetoIntegredor\bin\Debug\net8.0\ProjetoIntegredor.dll
+c:\Users\B 789\Downloads\projeto_integrador_I_alocacao_laboratorios\sistema_portal_alocacao_terminal\ProjetoIntegredor\bin\Debug\net8.0\ProjetoIntegredor.pdb
+c:\Users\B 789\Downloads\projeto_integrador_I_alocacao_laboratorios\sistema_portal_alocacao_terminal\ProjetoIntegredor\obj\Debug\net8.0\ProjetoIntegredor.GeneratedMSBuildEditorConfig.editorconfig
+c:\Users\B 789\Downloads\projeto_integrador_I_alocacao_laboratorios\sistema_portal_alocacao_terminal\ProjetoIntegredor\obj\Debug\net8.0\ProjetoIntegredor.AssemblyInfoInputs.cache
+c:\Users\B 789\Downloads\projeto_integrador_I_alocacao_laboratorios\sistema_portal_alocacao_terminal\ProjetoIntegredor\obj\Debug\net8.0\ProjetoIntegredor.AssemblyInfo.cs
+c:\Users\B 789\Downloads\projeto_integrador_I_alocacao_laboratorios\sistema_portal_alocacao_terminal\ProjetoIntegredor\obj\Debug\net8.0\ProjetoIntegredor.csproj.CoreCompileInputs.cache
+c:\Users\B 789\Downloads\projeto_integrador_I_alocacao_laboratorios\sistema_portal_alocacao_terminal\ProjetoIntegredor\obj\Debug\net8.0\ProjetoIntegredor.sourcelink.json
+c:\Users\B 789\Downloads\projeto_integrador_I_alocacao_laboratorios\sistema_portal_alocacao_terminal\ProjetoIntegredor\obj\Debug\net8.0\ProjetoIntegredor.dll
+c:\Users\B 789\Downloads\projeto_integrador_I_alocacao_laboratorios\sistema_portal_alocacao_terminal\ProjetoIntegredor\obj\Debug\net8.0\refint\ProjetoIntegredor.dll
+c:\Users\B 789\Downloads\projeto_integrador_I_alocacao_laboratorios\sistema_portal_alocacao_terminal\ProjetoIntegredor\obj\Debug\net8.0\ProjetoIntegredor.pdb
+C:\Users\B 789\Downloads\projeto_integrador_I_alocacao_laboratorios\sistema_portal_alocacao_terminal\ProjetoIntegredor\obj\Debug\net8.0\ProjetoIntegredor.genruntimeconfig.cache
+C:\Users\B 789\Downloads\projeto_integrador_I_alocacao_laboratorios\sistema_portal_alocacao_terminal\ProjetoIntegredor\obj\Debug\net8.0\ref\ProjetoIntegredor.dll

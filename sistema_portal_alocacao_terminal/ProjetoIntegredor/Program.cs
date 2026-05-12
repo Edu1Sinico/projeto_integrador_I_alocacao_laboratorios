@@ -32,6 +32,14 @@ internal class Program
             // Definindo as telas
             Usuario? usuarioLogado = LoginView.LoginInterface(usuarioService);
 
+            // Verifica se o usuário escolheu encerrar o sistema
+            if (usuarioLogado == null)
+            {
+                sistemaAtivo = false;
+                Console.WriteLine("\nSistema encerrado.\n");
+                continue;
+            }
+
             Console.WriteLine($"\nBem-vindo, {usuarioLogado.Nome}!");
 
             bool usuarioAutenticado = true; // controla a autenticação

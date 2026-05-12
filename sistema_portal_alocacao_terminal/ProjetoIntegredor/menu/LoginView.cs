@@ -11,7 +11,7 @@ namespace ProjetoIntegredor.menu
     public class LoginView
     {
         // Menu de Login do sistema
-        public static Usuario LoginInterface(UsuarioService usuarioService)
+        public static Usuario? LoginInterface(UsuarioService usuarioService)
         {
             Usuario? usuarioLogado = null; // Declara o usuário que estará logado no sistema
 
@@ -23,6 +23,7 @@ namespace ProjetoIntegredor.menu
                 Console.WriteLine("1 - Diretor");
                 Console.WriteLine("2 - Coordenador");
                 Console.WriteLine("3 - Responsável de TI");
+                Console.WriteLine("0 - Sair");
                 Console.Write("\nOpção: ");
 
                 string? opcao = Console.ReadLine()?.Trim();
@@ -48,6 +49,8 @@ namespace ProjetoIntegredor.menu
                     case 3:
                         tipoUsuario = TipoUsuario.RT;
                         break;
+                    case 0:
+                        return null;
                     default:
                         Console.WriteLine("\nInforme um usuário válido!");
                         continue;

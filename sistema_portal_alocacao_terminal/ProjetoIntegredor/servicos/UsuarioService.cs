@@ -20,7 +20,7 @@ namespace ProjetoIntegredor.Servicos
             if (usuarios.Any(u => u.RE == "123"))
                 return;
 
-            var diretor = new Usuario("123", "Marcos", "marcosdiretor@einstein.com.br", TipoUsuario.DI);
+            var diretor = new Usuario("123", "Marcos", "marcosdiretor@einsteinlimeira.com.br", TipoUsuario.DI);
             diretor.DefinirSenha("123456");
             usuarios.Add(diretor);
         }

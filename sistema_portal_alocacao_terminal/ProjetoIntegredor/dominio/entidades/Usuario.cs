@@ -50,8 +50,8 @@ namespace ProjetoIntegredor.model
             set
             {
                 // Valida se o valor não é nulo ou vázio string.IsNullOrEmpty(value)
-                if (string.IsNullOrEmpty(value) || !value.Contains("@"))
-                    throw new ArgumentException("E-mail inválido!");
+                if (string.IsNullOrEmpty(value) || !value.Contains("@einsteinlimeira.com.br") )
+                    throw new ArgumentException("E-mail institucional inválido!");
                 email = value;
             }
         }

@@ -26,9 +26,7 @@ namespace SistemaLocLab.Domain.Entities
         protected Laboratorios() { }
 
         //Construtor
-        public Laboratorios(
-            int numeroLaboratorio,
-            int qtdeComputador)
+        public Laboratorios(int numeroLaboratorio, int qtdeComputador)
         {
             Validacao(numeroLaboratorio, qtdeComputador);
 
@@ -38,13 +36,10 @@ namespace SistemaLocLab.Domain.Entities
 
             this.qtdeComputador = qtdeComputador;
 
-            capacidadeMaxAluno =
-                CalcularCapacidade(qtdeComputador);
+            capacidadeMaxAluno = CalcularCapacidade(qtdeComputador);
         }
 //Metodo de padronização para dar update nos dados dos atributos
-        public void Atualizar(
-            int numeroLaboratorio,
-            int qtdeComputador)
+        public void Atualizar(int numeroLaboratorio, int qtdeComputador)
         {
             Validacao(numeroLaboratorio, qtdeComputador);
 
@@ -52,8 +47,7 @@ namespace SistemaLocLab.Domain.Entities
 
             this.qtdeComputador = qtdeComputador;
 
-            capacidadeMaxAluno =
-                CalcularCapacidade(qtdeComputador);
+            capacidadeMaxAluno = CalcularCapacidade(qtdeComputador);
         }
 
         //Metodo para validar se a sala comporta ou não a quantidade de alunos informada
@@ -69,9 +63,7 @@ namespace SistemaLocLab.Domain.Entities
         }
 
         //Metodos de validação 
-        private void Validacao(
-            int numeroLaboratorio,
-            int qtdeComputador)
+        private void Validacao(int numeroLaboratorio, int qtdeComputador)
         {
             ValidacaoNumero(numeroLaboratorio);
 
@@ -87,8 +79,7 @@ namespace SistemaLocLab.Domain.Entities
         }
 
         
-        private void ValidacaoComputadores(
-            int qtdeComputador)
+        private void ValidacaoComputadores(int qtdeComputador)
         {
             if (qtdeComputador <= 0)
                 throw new ArgumentException(

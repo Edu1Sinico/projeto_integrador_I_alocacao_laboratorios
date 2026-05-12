@@ -67,9 +67,7 @@ namespace SistemaLocLab.Domain.Entities
             ValidacaoLaboratorio(laboratorio);
             ValidacaoDisciplina(disciplina);
             ValidacaoUsuario(usuario);
-            ValidacaoCapacidade(
-            laboratorio,
-            disciplina);
+            ValidacaoCapacidade(laboratorio, disciplina);
         }
         private void ValidacaoData(DateTime data)
         {
@@ -77,43 +75,34 @@ namespace SistemaLocLab.Domain.Entities
                 throw new ArgumentException(
                 "Não é possível realizar alocações em datas passadas.");
         }
-        private void ValidacaoHorario(
-        TimeSpan horaInicio,
-        TimeSpan horaFim)
+        private void ValidacaoHorario(TimeSpan horaInicio, TimeSpan horaFim)
         {
             if (horaInicio >= horaFim)
                 throw new ArgumentException(
                 "Horário inicial deve ser menor que o horário final.");
         }
-        private void ValidacaoLaboratorio(
-        Laboratorios laboratorio)
+        private void ValidacaoLaboratorio(Laboratorios laboratorio)
         {
 
             if (laboratorio == null)
                 throw new ArgumentException(
                 "Laboratório inválido.");
         }
-        private void ValidacaoDisciplina(
-        Disciplina disciplina)
+        private void ValidacaoDisciplina(Disciplina disciplina)
         {
             if (disciplina == null)
                 throw new ArgumentException(
                 "Disciplina inválida.");
         }
-        private void ValidacaoUsuario(
-        Usuarios usuario)
+        private void ValidacaoUsuario(Usuarios usuario)
         {
             if (usuario == null)
                 throw new ArgumentException(
                 "Usuário inválido.");
         }
-        private void ValidacaoCapacidade(
-        Laboratorios laboratorio,
-        Disciplina disciplina)
+        private void ValidacaoCapacidade(Laboratorios laboratorio, Disciplina disciplina)
         {
-            bool comporta =
-            laboratorio.PodeComportar(
-            disciplina.QtdeAlunos);
+            bool comporta =laboratorio.PodeComportar(disciplina.QtdeAlunos);
             if (!comporta)
                 throw new Exception("Laboratório não suporta a quantidade de alunos da disciplina.");
         }

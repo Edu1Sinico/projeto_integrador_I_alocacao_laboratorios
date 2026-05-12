@@ -38,24 +38,17 @@ namespace SistemaLocLab.Domain.Entities
             if (software == null)
                 throw new ArgumentException(
                 "Software inválido.");
-            bool jaExiste =
-            Softwares.Any(
-            x => x.IdSoftware ==
-            software.IdSoftware);
+            bool jaExiste = Softwares.Any(x => x.IdSoftware == software.IdSoftware);
             if (jaExiste)
-                throw new Exception(
-                "Software já vinculado à disciplina.");
+                throw new Exception("Software já vinculado à disciplina.");
             Softwares.Add(software);
         }
-        private void Validacao(
-        string nomeDisciplina,
-        int qtdeAlunos)
+        private void Validacao(string nomeDisciplina, int qtdeAlunos)
         {
             ValidacaoNome(nomeDisciplina);
             ValidacaoQuantidadeAlunos(qtdeAlunos);
         }
-        private void ValidacaoNome(
-        string nomeDisciplina)
+        private void ValidacaoNome(string nomeDisciplina)
         {
             if (string.IsNullOrWhiteSpace(nomeDisciplina))
                 throw new ArgumentException(
@@ -68,8 +61,7 @@ namespace SistemaLocLab.Domain.Entities
                 throw new ArgumentException(
                 "Nome da disciplina muito grande.");
         }
-        private void ValidacaoQuantidadeAlunos(
-        int qtdeAlunos)
+        private void ValidacaoQuantidadeAlunos(int qtdeAlunos)
         {
             if (qtdeAlunos <= 0)
                 throw new ArgumentException(

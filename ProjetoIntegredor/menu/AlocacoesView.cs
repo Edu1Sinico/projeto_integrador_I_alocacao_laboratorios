@@ -164,10 +164,14 @@ namespace ProjetoIntegredor.menu
         {
             if (usuarioLogado.Tipo == TipoUsuario.DI)
             {
+                while (true)
+                {
+                    
+                }
             }
             else
             {
-
+                return "Erro: Apenas diretores podem executar essa ação!";
             }
         }
 
@@ -176,10 +180,14 @@ namespace ProjetoIntegredor.menu
         {
             if (usuarioLogado.Tipo == TipoUsuario.DI)
             {
+                while (true)
+                {
+
+                }
             }
             else
             {
-
+                return "Erro: Apenas diretores podem executar essa ação!";
             }
         }
 

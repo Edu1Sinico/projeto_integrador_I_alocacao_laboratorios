@@ -19,7 +19,12 @@ namespace ProjetoIntegredor.Servicos
             if (lab.StatusDisponibilidade == Disponibilidade.I)
                 throw new ArgumentException("Este laboratório está indisponível para uso.");
 
-            // Validar se já existe alguma locação para determinada sala em um dia e horário específicos
+            if (ValidarDataPassada(data))
+                throw new ArgumentException("Não é possível solicitar alocação para uma data já passado.");
+
+            if (!ValidarSoftwaresCompativeis(lab, disc))
+                throw new ArgumentException("O laboratório não possui todos os softwares necessários para esta disciplina.");
+
             if (ValidarConflitoHorario(lab, data, horaInicio, horaFim))
                 throw new ArgumentException("Essa sala já está alocada para esta data!");
 
@@ -64,6 +69,7 @@ namespace ProjetoIntegredor.Servicos
         // Validar conflito de horários
         private bool ValidarConflitoHorario(Laboratorio lab, DateOnly data, TimeOnly horaInicio, TimeOnly horaFim)
         {
+            // Validar se já existe alguma locação para determinada sala em um dia e horário específicos
             return alocacoes.Any(a =>
                 a.Laboratorio == lab &&
                 a.Data == data &&
@@ -72,11 +78,37 @@ namespace ProjetoIntegredor.Servicos
             );
         }
 
+        // Validar data atual
+        private bool ValidarDataPassada(DateOnly data)
+        {
+            DateOnly dataAtual = DateOnly.FromDateTime(DateTime.Now);
+
+            return data < dataAtual;
+        }
+
+        // Validar horário noturno
+        private bool ValidarHorarioNoturno(TimeOnly horaInicio, TimeOnly horaFim)
+        {
+            TimeOnly horarioMinimo = new TimeOnly(19, 0);
+            TimeOnly horarioMaximo = new TimeOnly(22, 30);
+
+            return horaInicio >= horarioMinimo && horaFim <= horarioMaximo;
+        }
+
         // Validar capacidade
-        public bool ValidarCapacidade(Laboratorio lab, Disciplina disc)
+        private bool ValidarCapacidade(Laboratorio lab, Disciplina disc)
         {
             return lab.CapacidadeMaxAluno >= disc.QtdeAlunos;
         }
+
+        // Validar Softwares compativeis com o laboratório e disciplina
+        private bool ValidarSoftwaresCompativeis(Laboratorio lab, Disciplina disc)
+        {
+            // Verificar se na disciplina existe algum software que já esteja em um laboratório
+            return disc.Softwares.Any(softwareDisciplina => lab.Softwares.Any(softwareLab => softwareLab.IdSoftware == softwareDisciplina.IdSoftware));
+        }
+
+        // Criar um método de buscar por ID
 
         // Histórico de alocações
         public List<Alocacao> HistoricoAlocacao()

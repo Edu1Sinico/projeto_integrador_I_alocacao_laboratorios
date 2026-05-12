@@ -24,6 +24,9 @@ internal class Program
         // Funcionalidades das Disciplinas
         DisciplinaService disciplinaService = new DisciplinaService();
 
+        // Funcionalidades das Alocacações
+        AlocacaoService alocacaoService = new AlocacaoService();
+
         while (sistemaAtivo)
         {
             // Definindo as telas
@@ -131,7 +134,8 @@ internal class Program
                             Console.WriteLine($"\n{mensagem}");
                             break;
                         case 3:
-
+                            mensagem = AlocacoesView.MenuAlocacoesInterface(usuarioLogado, alocacaoService, disciplinaService, laboratorioService);
+                            Console.WriteLine($"\n{mensagem}");
                             break;
                         case 4:
                             mensagem = LaboratorioView.MenuBuscasLaboratorioInterface(laboratorioService);

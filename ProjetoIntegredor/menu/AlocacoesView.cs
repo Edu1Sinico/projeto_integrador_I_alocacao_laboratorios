@@ -22,7 +22,7 @@ namespace ProjetoIntegredor.menu
             {
                 while (true)
                 {
-                    Console.WriteLine("\n====== SOLICITAR ALOCAÇÃO DE LABORATÓRI ======\n");
+                    Console.WriteLine("\n====== SOLICITAR ALOCAÇÃO DE LABORATÓRIO ======\n");
                     Console.WriteLine("Digite 0 a qualquer momento para cancelar.\n");
 
                     Console.Write("Informe o número do laboratório: ");
@@ -53,10 +53,10 @@ namespace ProjetoIntegredor.menu
 
                         string softwares = laboratorioEncontrado.Softwares.Count == 0 ? "Nenhum software vinculado" : string.Join(", ", laboratorioEncontrado.Softwares.Select(s => $"{s.NomeSoftware} ({s.Versao})")); // string.Join("divisor","Selecionar os nome dos softwares e suas versões");
 
-                        Console.WriteLine("\n====== LABORATÓRIO ENCONTRADO PARA ALOCAÇÃO ======");
+                        Console.WriteLine("\n====== LABORATÓRIO ENCONTRADO PARA ALOCAÇÃO ======\n");
                         Console.WriteLine($"(ID: {laboratorioEncontrado.IdLaboratorio} - Número: {laboratorioEncontrado.NumLaboratorio} - Bloco: {laboratorioEncontrado.Bloco} - Qtde. de Computadores: {laboratorioEncontrado.QtdeComputador} - Capacidade Máxima de Alunos: {laboratorioEncontrado.CapacidadeMaxAluno} - Disponibilidade: {laboratorioEncontrado.StatusDisponibilidade} - Softwares: [{softwares}])");
 
-                        Console.Write("Informe o nome da disciplina: ");
+                        Console.Write("\nInforme o nome da disciplina: ");
                         string? nomeDisciplina = Console.ReadLine();
                         if (nomeDisciplina == "0") return "Operação cancelado.";
                         nomeDisciplina = Validacao.NormalizarTexto(nomeDisciplina!);
@@ -67,10 +67,10 @@ namespace ProjetoIntegredor.menu
                         {
                             softwares = disciplinaEncotrada.Softwares.Count == 0 ? "Nenhum software vinculado" : string.Join(", ", disciplinaEncotrada.Softwares.Select(s => $"{s.NomeSoftware} ({s.Versao})"));
 
-                            Console.WriteLine("\n====== DISCIPLINA ENCONTRADA PARA ALOCAÇÃO ======");
+                            Console.WriteLine("\n====== DISCIPLINA ENCONTRADA PARA ALOCAÇÃO ======\n");
                             Console.WriteLine($"(ID: {disciplinaEncotrada.IdDisciplina} - Disciplina: {disciplinaEncotrada.NomeDisciplina} - Qtde. de Alunos: {disciplinaEncotrada.QtdeAlunos} - Softwares: [{softwares}])");
 
-                            Console.Write("Informe a data para alocação: ");
+                            Console.Write("\nInforme a data para alocação: ");
                             string? data = Console.ReadLine();
                             if (data == "0") return "Operação cancelado.";
 
@@ -104,7 +104,7 @@ namespace ProjetoIntegredor.menu
 
                             try
                             {
-                                horarioFim = Validacao.ValidarHora(horaInicio!);
+                                horarioFim = Validacao.ValidarHora(horaFim!);
                             }
                             catch (ArgumentException ex)
                             {
@@ -127,7 +127,7 @@ namespace ProjetoIntegredor.menu
                                     }
                                     catch (ArgumentException ex)
                                     {
-                                        Console.WriteLine($"Erro: {ex.Message}");
+                                        Console.WriteLine($"\nErro: {ex.Message}");
                                         break;
                                     }
                                 case "N":
@@ -159,6 +159,30 @@ namespace ProjetoIntegredor.menu
             }
         }
 
+        // Menu de Aprovação da Alocação
+        public static string AprovarAlocacaoInterface(Usuario usuarioLogado, AlocacaoService alocacaoService)
+        {
+            if (usuarioLogado.Tipo == TipoUsuario.DI)
+            {
+            }
+            else
+            {
+
+            }
+        }
+
+        // Menu de Aprovação da Alocação
+        public static string ReprovarAlocacaoInterface(Usuario usuarioLogado, AlocacaoService alocacaoService)
+        {
+            if (usuarioLogado.Tipo == TipoUsuario.DI)
+            {
+            }
+            else
+            {
+
+            }
+        }
+
         // Menu de histórico de alocações
         public static string HistoricoAlocacaoInterface(AlocacaoService alocacaoService)
         {
@@ -167,13 +191,60 @@ namespace ProjetoIntegredor.menu
             return FormatarAlocacoes(alocacoes);
         }
 
+        // menu de funções de alocações (coordenador)
+        public static string MenuAlocacoesInterface(Usuario usuarioLogado, AlocacaoService alocacaoService, DisciplinaService disciplinaService, LaboratorioService laboratorioService)
+        {
+
+            int opcaoSelecionada;
+
+            while (true)
+            {
+                Console.WriteLine("\n====== FUNÇÕES DE ALOCAÇÃO (COORDENADOR) ======\n");
+                Console.WriteLine("Digite 0 a qualquer momento para cancelar.\n");
+
+                Console.WriteLine("Escolha uma função: ");
+                Console.WriteLine("1 - Solicitar Alocação");
+                Console.WriteLine("2 - Histórico de Alocações");
+                Console.WriteLine("0 - Cancelar Operação");
+
+                Console.Write("\nOpção: ");
+                string? opcao = Console.ReadLine()?.Trim();
+
+                try
+                {
+                    opcaoSelecionada = Validacao.ValidarInteiro(opcao!);
+                }
+                catch (ArgumentException ex)
+                {
+                    Console.WriteLine($"\nErro: {ex.Message}");
+                    continue;
+                }
+
+                switch (opcaoSelecionada)
+                {
+                    case 1:
+                        return SolicitarAlocacaoInterface(usuarioLogado, alocacaoService, disciplinaService, laboratorioService);
+
+                    case 2:
+                        return HistoricoAlocacaoInterface(alocacaoService);
+
+                    case 0:
+                        return "Operação cancelada.";
+
+                    default:
+                        Console.WriteLine("\nInforme uma opção válida!");
+                        break;
+                }
+            }
+        }
+
         // Outros métodos
 
         // Formatar histórico de alocações
         public static string FormatarAlocacoes(List<Alocacao> alocacoes)
         {
             if (alocacoes == null || alocacoes.Count == 0)
-                return "Nenhuma alocação encontrado.";
+                return "Nenhuma alocação encontrada.";
 
             string resultado = "\n====== ALOCAÇÕES ENCONTRADOS ======\n";
 

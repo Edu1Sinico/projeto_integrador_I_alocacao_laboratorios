@@ -22,6 +22,9 @@ namespace ProjetoIntegredor.Servicos
             if (ValidarDataPassada(data))
                 throw new ArgumentException("Não é possível solicitar alocação para uma data já passado.");
 
+            if (!ValidarHorarioNoturno(horaInicio, horaFim))
+                throw new ArgumentException("As alocações devem ocorrer entre 19:00 e 22:30.");
+
             if (!ValidarSoftwaresCompativeis(lab, disc))
                 throw new ArgumentException("O laboratório não possui todos os softwares necessários para esta disciplina.");
 
@@ -104,6 +107,9 @@ namespace ProjetoIntegredor.Servicos
         // Validar Softwares compativeis com o laboratório e disciplina
         private bool ValidarSoftwaresCompativeis(Laboratorio lab, Disciplina disc)
         {
+            if (!disc.Softwares.Any())
+                return true;
+
             // Verificar se na disciplina existe algum software que já esteja em um laboratório
             return disc.Softwares.Any(softwareDisciplina => lab.Softwares.Any(softwareLab => softwareLab.IdSoftware == softwareDisciplina.IdSoftware));
         }
@@ -115,6 +121,13 @@ namespace ProjetoIntegredor.Servicos
         {
             return alocacoes.ToList();
         }
+
+        // Buscar por ID
+        public Alocacao? BuscarAlocacaoID(int IdAlocacao)
+        {
+            return alocacoes.FirstOrDefault(a => a.IdAlocacao.Equals(IdAlocacao));
+        }
+
 
     }
 }

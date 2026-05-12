@@ -159,30 +159,63 @@ namespace ProjetoIntegredor.menu
             }
         }
 
-        // Menu de Aprovação da Alocação
-        public static string AprovarAlocacaoInterface(Usuario usuarioLogado, AlocacaoService alocacaoService)
+        // Menu de Aprovação/Recusar da Alocação
+        public static string AprovamentoAlocacaoInterface(Usuario usuarioLogado, AlocacaoService alocacaoService)
         {
+
+            int idAlocacao;
+
             if (usuarioLogado.Tipo == TipoUsuario.DI)
             {
                 while (true)
                 {
-                    
-                }
-            }
-            else
-            {
-                return "Erro: Apenas diretores podem executar essa ação!";
-            }
-        }
+                    Console.WriteLine("\n====== APROVAR OU REPROVAR ALOCAÇÃO ======\n");
+                    Console.WriteLine("Digite 0 a qualquer momento para cancelar.\n");
 
-        // Menu de Aprovação da Alocação
-        public static string ReprovarAlocacaoInterface(Usuario usuarioLogado, AlocacaoService alocacaoService)
-        {
-            if (usuarioLogado.Tipo == TipoUsuario.DI)
-            {
-                while (true)
-                {
+                    Console.Write("Informe o ID da alocação: ");
+                    string? id = Console.ReadLine();
+                    if (id == "0") return "Operação cancelada.";
 
+                    try
+                    {
+                        idAlocacao = Validacao.ValidarInteiro(id!);
+                    }
+                    catch (ArgumentException ex)
+                    {
+                        Console.WriteLine($"\nErro: {ex.Message}");
+                        continue;
+                    }
+
+                    var alocacaoEncontrada = alocacaoService.BuscarAlocacaoID(idAlocacao!);
+
+                    if (alocacaoEncontrada != null)
+                    {
+                        Console.WriteLine("\n====== ALOCAÇÃO ENCONTRADA PARA APROVAÇÃO OU REPROVAÇÃO ======\n");
+                        Console.WriteLine($"(ID: {alocacaoEncontrada.IdAlocacao} - Laboratório: [Número: {alocacaoEncontrada.Laboratorio.NumLaboratorio} - Bloco: {alocacaoEncontrada.Laboratorio.Bloco}] - Disciplina: {alocacaoEncontrada.Disciplina.NomeDisciplina} - Solicitação do Usuário: {alocacaoEncontrada.Usuario.Nome} - Data da Alocação: {alocacaoEncontrada.Data} - Horário Inicial: {alocacaoEncontrada.HoraInicio} - Horário Final: {alocacaoEncontrada.HoraFim} - Aprovação: {alocacaoEncontrada.StatusAprovacao})");
+
+                        Console.WriteLine("\nO que você gostaria de fazer? (A - Aprovar | R - Recusar)");
+                        Console.Write("\nOpção: ");
+
+                        string? opcao = Console.ReadLine()?.ToUpper().Trim();
+
+                        switch (opcao)
+                        {
+                            case "A":
+                                alocacaoService.AprovarAlocacao(usuarioLogado, alocacaoEncontrada);
+                                return "Alocação aprovada com sucesso!";
+
+                            case "R":
+                                alocacaoService.ReprovarAlocacao(usuarioLogado, alocacaoEncontrada);
+                                return "Alocação reprovada com sucesso!";
+
+
+                            default:
+                                Console.WriteLine("\nInforme uma opção válida!");
+                                continue;
+                        }
+                    }
+                    else
+                        return "Alocação não encontrada.";
                 }
             }
             else
@@ -232,6 +265,53 @@ namespace ProjetoIntegredor.menu
                 {
                     case 1:
                         return SolicitarAlocacaoInterface(usuarioLogado, alocacaoService, disciplinaService, laboratorioService);
+
+                    case 2:
+                        return HistoricoAlocacaoInterface(alocacaoService);
+
+                    case 0:
+                        return "Operação cancelada.";
+
+                    default:
+                        Console.WriteLine("\nInforme uma opção válida!");
+                        break;
+                }
+            }
+        }
+
+        // menu de funções de alocações (Diretor)
+        public static string MenuAprovacoesInterface(Usuario usuarioLogado, AlocacaoService alocacaoService)
+        {
+
+            int opcaoSelecionada;
+
+            while (true)
+            {
+                Console.WriteLine("\n====== FUNÇÕES DE ALOCAÇÃO (DIRETOR) ======\n");
+                Console.WriteLine("Digite 0 a qualquer momento para cancelar.\n");
+
+                Console.WriteLine("Escolha uma função: ");
+                Console.WriteLine("1 - Aprovar/Recusar Alocação");
+                Console.WriteLine("2 - Histórico de Alocações");
+                Console.WriteLine("0 - Cancelar Operação");
+
+                Console.Write("\nOpção: ");
+                string? opcao = Console.ReadLine()?.Trim();
+
+                try
+                {
+                    opcaoSelecionada = Validacao.ValidarInteiro(opcao!);
+                }
+                catch (ArgumentException ex)
+                {
+                    Console.WriteLine($"\nErro: {ex.Message}");
+                    continue;
+                }
+
+                switch (opcaoSelecionada)
+                {
+                    case 1:
+                        return AprovamentoAlocacaoInterface(usuarioLogado, alocacaoService);
 
                     case 2:
                         return HistoricoAlocacaoInterface(alocacaoService);

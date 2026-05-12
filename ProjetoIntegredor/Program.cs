@@ -75,10 +75,10 @@ internal class Program
                         case 3:
                             mensagem = LaboratorioView.VinSoftwareLabInterface(usuarioLogado, laboratorioService, softwareService);
                             Console.WriteLine($"\n{mensagem}");
-
                             break;
                         case 4:
-
+                            mensagem = AlocacoesView.MenuAprovacoesInterface(usuarioLogado, alocacaoService);
+                            Console.WriteLine($"\n{mensagem}");
                             break;
                         case 5:
                             mensagem = CoordenadorView.MenuBuscasDisciplinaInterface(disciplinaService);

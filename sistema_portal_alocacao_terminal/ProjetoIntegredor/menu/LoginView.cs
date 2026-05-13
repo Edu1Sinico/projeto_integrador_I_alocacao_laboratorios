@@ -76,5 +76,28 @@ namespace ProjetoIntegredor.menu
 
             return usuarioLogado;
         }
+
+        // Após o primeiro acesso, o usuário deve obrigatoriamente alterar sua senha
+        public static string NovaSenhaInterface(Usuario usuarioLogado, UsuarioService usuarioService)
+        {
+            while (true)
+            {
+                Console.WriteLine("\n====== ALTERAR SENHA ======\n");
+
+                Console.Write("Informe a nova senha: ");
+                string? novaSenha = Console.ReadLine();
+
+                try
+                {
+                    usuarioService.RecuperarSenha(usuarioLogado.RE, novaSenha);
+                    return "Senha alterada com sucesso!";
+                }
+                catch (ArgumentException ex)
+                {
+                    Console.WriteLine($"\nErro: {ex.Message}");
+                    continue;
+                }
+            }
+        }
     }
 }

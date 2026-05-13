@@ -40,6 +40,12 @@ internal class Program
                 continue;
             }
 
+            if (usuarioLogado.DeveAlterarSenha)
+            {
+                mensagem = LoginView.NovaSenhaInterface(usuarioLogado, usuarioService);
+                Console.WriteLine($"\n{mensagem}");
+            }
+
             Console.WriteLine($"\nBem-vindo, {usuarioLogado.Nome}!");
 
             bool usuarioAutenticado = true; // controla a autenticação

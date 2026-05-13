@@ -17,6 +17,7 @@ namespace ProjetoIntegredor.model
         private string senhaHash;
         private string email;
         public TipoUsuario Tipo { get; private set; }
+        public bool DeveAlterarSenha { get; private set; } = true;
 
         // Validação de RE
         public string RE
@@ -50,7 +51,7 @@ namespace ProjetoIntegredor.model
             set
             {
                 // Valida se o valor não é nulo ou vázio string.IsNullOrEmpty(value)
-                if (string.IsNullOrEmpty(value) || !value.Contains("@einsteinlimeira.com.br") )
+                if (string.IsNullOrEmpty(value) || !value.Contains("@einsteinlimeira.com.br"))
                     throw new ArgumentException("E-mail institucional inválido!");
                 email = value;
             }
@@ -62,7 +63,13 @@ namespace ProjetoIntegredor.model
         public void DefinirSenha(string senha)
         {
             if (string.IsNullOrEmpty(senha))
-                throw new ArgumentException("Senha inválida!");
+                throw new ArgumentException("A senha não pode estar vazia!");
+
+            if (senha.Contains(" "))
+                throw new ArgumentException("A senha não pode conter espaços!");
+
+            if (senha.Length < 8)
+                throw new ArgumentException("A senha deve conter no mínimo 8 caracteres!");
 
             senhaHash = GerarHash(senha);
         }
@@ -82,6 +89,12 @@ namespace ProjetoIntegredor.model
             }
         }
 
+        // Primeiro cadastro após o primeiro acesso
+        public void MarcarSenhaAlterada()
+        {
+            DeveAlterarSenha = false;
+        }
+
         // Construtor
         public Usuario(string re, string nome, string email, TipoUsuario tipo)
         {
@@ -90,6 +103,7 @@ namespace ProjetoIntegredor.model
             Nome = nome;
             Email = email;
             Tipo = tipo;
+            
         }
     }
 }

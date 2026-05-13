@@ -21,7 +21,7 @@ namespace ProjetoIntegredor.Servicos
                 return;
 
             var diretor = new Usuario("123", "Marcos", "marcosdiretor@einsteinlimeira.com.br", TipoUsuario.DI);
-            diretor.DefinirSenha("123456");
+            diretor.DefinirSenha("12345678");
             usuarios.Add(diretor);
         }
 
@@ -136,6 +136,7 @@ namespace ProjetoIntegredor.Servicos
                 return false;
 
             usuario.DefinirSenha(novaSenha);
+            usuario.MarcarSenhaAlterada(); // Após ser alterado para "true", o usuário não precisa trocar mais a senha após logar novamente.
             return true;
         }
 

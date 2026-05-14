@@ -50,16 +50,7 @@ namespace SistemaLocLab.Domain.Entities
             HoraInicio = horaInicio;
             HoraFim = horaFim;
         }
-        public bool ExisteConflito(Alocacao outraAlocacao)
-        {
-            if (outraAlocacao == null)
-                return false;
-            bool mesmoLaboratorio = LaboratorioId == outraAlocacao.LaboratorioId;
-            bool mesmaData = Data.Date == outraAlocacao.Data.Date;
-            bool conflitoHorario = HoraInicio < outraAlocacao.HoraFim && HoraFim > outraAlocacao.HoraInicio;
-
-            return mesmoLaboratorio && mesmaData && conflitoHorario;
-        }
+        
         private void Validacao(DateTime data,TimeSpan horaInicio,TimeSpan horaFim,Laboratorios laboratorio,Disciplina disciplina,Usuarios usuario)
         {
             ValidacaoData(data);

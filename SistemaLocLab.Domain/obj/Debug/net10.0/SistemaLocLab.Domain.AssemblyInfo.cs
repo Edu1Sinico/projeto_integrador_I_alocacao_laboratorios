@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SistemaLocLab.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9785f2a25568aac122dc639d461efe12c069dbf2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6b369c3c5349dd73b423cb95c9bde67ea8b509f1")]
 [assembly: System.Reflection.AssemblyProductAttribute("SistemaLocLab.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SistemaLocLab.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

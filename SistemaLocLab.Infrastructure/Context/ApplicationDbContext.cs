@@ -29,5 +29,6 @@ namespace SistemaLocLab.Infrastructure.Context
             modelBuilder.ApplyConfigurationsFromAssembly(
                 typeof(ApplicationDbContext).Assembly);
         }
+        
     }
 }

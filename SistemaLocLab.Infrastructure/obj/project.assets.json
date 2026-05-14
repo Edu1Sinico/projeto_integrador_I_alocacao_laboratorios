@@ -865,6 +865,40 @@
           "lib/netstandard2.0/Mono.TextTemplating.dll": {}
         }
       },
+      "Npgsql/10.0.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Logging.Abstractions": "10.0.0"
+        },
+        "compile": {
+          "lib/net10.0/Npgsql.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net10.0/Npgsql.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Npgsql.EntityFrameworkCore.PostgreSQL/10.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "[10.0.4, 11.0.0)",
+          "Microsoft.EntityFrameworkCore.Relational": "[10.0.4, 11.0.0)",
+          "Npgsql": "10.0.2"
+        },
+        "compile": {
+          "lib/net10.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net10.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "System.ClientModel/1.5.1": {
         "type": "package",
         "dependencies": {
@@ -2453,6 +2487,40 @@
         "mono.texttemplating.nuspec"
       ]
     },
+    "Npgsql/10.0.2": {
+      "sha512": "q5RfBI+wywJSFUNDE1L4ZbHEHCFTblo8Uf6A6oe4feOUFYiUQXyAf9GBh5qEZpvJaHiEbpBPkQumjEhXCJxdrg==",
+      "type": "package",
+      "path": "npgsql/10.0.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "lib/net10.0/Npgsql.dll",
+        "lib/net10.0/Npgsql.xml",
+        "lib/net8.0/Npgsql.dll",
+        "lib/net8.0/Npgsql.xml",
+        "lib/net9.0/Npgsql.dll",
+        "lib/net9.0/Npgsql.xml",
+        "npgsql.10.0.2.nupkg.sha512",
+        "npgsql.nuspec",
+        "postgresql.png"
+      ]
+    },
+    "Npgsql.EntityFrameworkCore.PostgreSQL/10.0.1": {
+      "sha512": "P6EwH0Q4xkaA264iNZDqCPhWt8pscfUGxXazDQg4noBfqjoOlk4hKWfvBjF9ZX3R/9JybRmmJfmxr2iBMj0EpA==",
+      "type": "package",
+      "path": "npgsql.entityframeworkcore.postgresql/10.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "lib/net10.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll",
+        "lib/net10.0/Npgsql.EntityFrameworkCore.PostgreSQL.xml",
+        "npgsql.entityframeworkcore.postgresql.10.0.1.nupkg.sha512",
+        "npgsql.entityframeworkcore.postgresql.nuspec",
+        "postgresql.png"
+      ]
+    },
     "System.ClientModel/1.5.1": {
       "sha512": "k2jKSO0X45IqhVOT9iQB4xralNN9foRQsRvXBTyRpAVxyzCJlG895T9qYrQWbcJ6OQXxOouJQ37x5nZH5XKK+A==",
       "type": "package",
@@ -2823,24 +2891,25 @@
       "Microsoft.EntityFrameworkCore >= 10.0.8",
       "Microsoft.EntityFrameworkCore.SqlServer >= 10.0.8",
       "Microsoft.EntityFrameworkCore.Tools >= 10.0.8",
+      "Npgsql.EntityFrameworkCore.PostgreSQL >= 10.0.1",
       "SistemaLocLab.Domain >= 1.0.0",
       "SistemaLoclab.Application >= 1.0.0"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\gusta\\.nuget\\packages\\": {}
+    "C:\\Users\\OPEHRMZXY3\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Projeto_Sistema_De_Alocacao\\SistemaAlocLab\\SistemaLocLab.Infrastructure\\SistemaLocLab.Infrastructure.csproj",
+      "projectUniqueName": "C:\\atvde01Estrutura\\C# Code\\projeto_integrador_I_alocacao_laboratorios\\SistemaLocLab.Infrastructure\\SistemaLocLab.Infrastructure.csproj",
       "projectName": "SistemaLocLab.Infrastructure",
-      "projectPath": "C:\\Projeto_Sistema_De_Alocacao\\SistemaAlocLab\\SistemaLocLab.Infrastructure\\SistemaLocLab.Infrastructure.csproj",
-      "packagesPath": "C:\\Users\\gusta\\.nuget\\packages\\",
-      "outputPath": "C:\\Projeto_Sistema_De_Alocacao\\SistemaAlocLab\\SistemaLocLab.Infrastructure\\obj\\",
+      "projectPath": "C:\\atvde01Estrutura\\C# Code\\projeto_integrador_I_alocacao_laboratorios\\SistemaLocLab.Infrastructure\\SistemaLocLab.Infrastructure.csproj",
+      "packagesPath": "C:\\Users\\OPEHRMZXY3\\.nuget\\packages\\",
+      "outputPath": "C:\\atvde01Estrutura\\C# Code\\projeto_integrador_I_alocacao_laboratorios\\SistemaLocLab.Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\gusta\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\OPEHRMZXY3\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net10.0"
@@ -2852,11 +2921,11 @@
         "net10.0": {
           "targetAlias": "net10.0",
           "projectReferences": {
-            "C:\\Projeto_Sistema_De_Alocacao\\SistemaAlocLab\\SistemaLocLab.Application\\SistemaLoclab.Application.csproj": {
-              "projectPath": "C:\\Projeto_Sistema_De_Alocacao\\SistemaAlocLab\\SistemaLocLab.Application\\SistemaLoclab.Application.csproj"
+            "C:\\atvde01Estrutura\\C# Code\\projeto_integrador_I_alocacao_laboratorios\\SistemaLocLab.Application\\SistemaLoclab.Application.csproj": {
+              "projectPath": "C:\\atvde01Estrutura\\C# Code\\projeto_integrador_I_alocacao_laboratorios\\SistemaLocLab.Application\\SistemaLoclab.Application.csproj"
             },
-            "C:\\Projeto_Sistema_De_Alocacao\\SistemaAlocLab\\SistemaLocLab.Domain\\SistemaLocLab.Domain.csproj": {
-              "projectPath": "C:\\Projeto_Sistema_De_Alocacao\\SistemaAlocLab\\SistemaLocLab.Domain\\SistemaLocLab.Domain.csproj"
+            "C:\\atvde01Estrutura\\C# Code\\projeto_integrador_I_alocacao_laboratorios\\SistemaLocLab.Domain\\SistemaLocLab.Domain.csproj": {
+              "projectPath": "C:\\atvde01Estrutura\\C# Code\\projeto_integrador_I_alocacao_laboratorios\\SistemaLocLab.Domain\\SistemaLocLab.Domain.csproj"
             }
           }
         }
@@ -2871,7 +2940,7 @@
         "auditLevel": "low",
         "auditMode": "all"
       },
-      "SdkAnalysisLevel": "10.0.100"
+      "SdkAnalysisLevel": "10.0.200"
     },
     "frameworks": {
       "net10.0": {
@@ -2890,6 +2959,10 @@
             "suppressParent": "All",
             "target": "Package",
             "version": "[10.0.8, )"
+          },
+          "Npgsql.EntityFrameworkCore.PostgreSQL": {
+            "target": "Package",
+            "version": "[10.0.1, )"
           }
         },
         "imports": [
@@ -2908,7 +2981,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.107/PortableRuntimeIdentifierGraph.json",
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.201/PortableRuntimeIdentifierGraph.json",
         "packagesToPrune": {
           "Microsoft.CSharp": "(,4.7.32767]",
           "Microsoft.VisualBasic": "(,10.4.32767]",

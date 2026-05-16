@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using SistemaLocLab.Infrastructure.Context;
+using SistemaLocLab.Infrastructure.Repositories.Interfaces;
+using SistemaLocLab.Infrastructure.Repositories.Implementations;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +13,20 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseNpgsql(
         builder.Configuration.GetConnectionString(
             "DefaultConnection")));
+
+// ======================================
+// REPOSITORIES
+// ======================================
+
+builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
+
+builder.Services.AddScoped<ILaboratorioRepository, LaboratorioRepository>();
+
+builder.Services.AddScoped<ISoftwareRepository, SoftwareRepository>();
+
+builder.Services.AddScoped<IDisciplinaRepository, DisciplinaRepository>();
+
+builder.Services.AddScoped<IAlocacaoRepository, AlocacaoRepository>();
 
 // ======================================
 // SERVICES

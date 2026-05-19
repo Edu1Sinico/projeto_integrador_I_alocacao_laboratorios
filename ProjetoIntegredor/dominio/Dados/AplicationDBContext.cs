@@ -16,6 +16,8 @@ namespace ProjetoIntegredor.dominio.Dados
     {
         
     }
+
+    public DbSet<Usuario> Usuarios { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             //Configuração da entidade Alocação
@@ -47,7 +49,6 @@ namespace ProjetoIntegredor.dominio.Dados
                 entidade.HasKey(x => x.IdUsuario);
             });
              
-            
         }
 
     }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Proj_inter_sistem_alocacao\\projeto_integrador_I_alocacao_laboratorios\\ProjetoIntegredor\\ProjetoIntegredor.csproj": {}
+    "C:\\projeto_integrador_I_alocacao_laboratorios-branchEduardo\\ProjetoIntegredor\\ProjetoIntegredor.csproj": {}
   },
   "projects": {
-    "C:\\Proj_inter_sistem_alocacao\\projeto_integrador_I_alocacao_laboratorios\\ProjetoIntegredor\\ProjetoIntegredor.csproj": {
+    "C:\\projeto_integrador_I_alocacao_laboratorios-branchEduardo\\ProjetoIntegredor\\ProjetoIntegredor.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Proj_inter_sistem_alocacao\\projeto_integrador_I_alocacao_laboratorios\\ProjetoIntegredor\\ProjetoIntegredor.csproj",
+        "projectUniqueName": "C:\\projeto_integrador_I_alocacao_laboratorios-branchEduardo\\ProjetoIntegredor\\ProjetoIntegredor.csproj",
         "projectName": "ProjetoIntegredor",
-        "projectPath": "C:\\Proj_inter_sistem_alocacao\\projeto_integrador_I_alocacao_laboratorios\\ProjetoIntegredor\\ProjetoIntegredor.csproj",
+        "projectPath": "C:\\projeto_integrador_I_alocacao_laboratorios-branchEduardo\\ProjetoIntegredor\\ProjetoIntegredor.csproj",
         "packagesPath": "C:\\Users\\Migue\\.nuget\\packages\\",
-        "outputPath": "C:\\Proj_inter_sistem_alocacao\\projeto_integrador_I_alocacao_laboratorios\\ProjetoIntegredor\\obj\\",
+        "outputPath": "C:\\projeto_integrador_I_alocacao_laboratorios-branchEduardo\\ProjetoIntegredor\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Migue\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -42,6 +42,16 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[9.0.6, )"
+            },
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
+              "target": "Package",
+              "version": "[9.0.4, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -54,11 +64,14 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.420/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.421/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

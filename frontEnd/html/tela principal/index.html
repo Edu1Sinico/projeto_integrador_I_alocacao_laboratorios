@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portal de Alocação</title>
+  <link rel="icon" type="image/png" href="../img/icon_E.png">
+  <link rel="stylesheet" href="index_style.css"> <!-- CCS da pagina -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+    rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+    rel="stylesheet">
+  <script src="../JS/Customheader.js" defer></script>
+  <script src="../JS/Customfooter.js" defer></script>
+</head>
+
+<body>
+  <custom-header></custom-header>
+  <main>
+    <form>
+      <div>
+        <div class="search-box">
+          <input type="text" placeholder="Pesquise o laboratório que deseja alocar">
+          <div class="search-img"><img src="../img/search.png" alt="search"></div>
+        </div>
+        <div id="linha-search"></div>
+
+        <div id="date-time">
+          <div class="search-box">
+            <input type="date">
+            <div class="search-img"><img src="../img/calendar.png" alt="date"></div>
+          </div>
+          <div class="search-box">
+            <input type="time">
+            <div class="search-img"><img src="../img/time.png" alt="time"></div>
+          </div>
+        </div>
+        <div class="container-filtros">
+          <div class="box-filtro-icone">
+            <svg class="icone-filtro" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M4.25 5.61C4.25 5.06 4.7 4.5 5.25 4.5H18.75C19.3 4.5 19.75 5.06 19.75 5.61V7.03C19.75 7.43 19.55 7.83 19.25 8.13L14.25 13.13V18.5C14.25 18.9 14.05 19.25 13.7 19.4L10.7 20.9C10.25 21.1 9.75 20.8 9.75 20.3V13.13L4.75 8.13C4.45 7.83 4.25 7.43 4.25 7.03V5.61Z"
+                fill="#FFC107" />
+            </svg>
+          </div>
+
+          <div class="controles-filtros">
+            <div class="grupo-campo">
+              <label for="select-bloco">Bloco</label>
+              <select id="select-bloco" name="bloco">
+                <option value="" disabled selected hidden>Selecione...</option>
+                <option value="A">Bloco A</option>
+                <option value="B">Bloco B</option>
+                <option value="C">Bloco C</option>
+                <option value="D">Bloco D</option>
+              </select>
+            </div>
+
+            <div class="grupo-campo">
+              <label for="select-status">Status</label>
+              <select id="select-status" name="status">
+                <option value="" disabled selected hidden>Selecione...</option>
+                <option value="disponivel">Disponível</option>
+                <option value="indisponivel">Indisponível</option>
+                <option value="pendente">Pendente</option>
+              </select>
+            </div>
+
+            <div class="grupo-campo">
+              <label for="input-computadores">Qtd. Computadores</label>
+              <input type="number" id="input-computadores" name="computadores" min="0" placeholder="Ex: 20">
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+    <h3>Aloque um laboratório</h3>
+    <section>
+      <div class="cards-grid">
+
+        <!-- CARD 1 -->
+        <div class="lab-card disponivel">
+          <div class="topo">
+            <h2>LAB 01</h2>
+          </div>
+
+          <div class="info-card">
+            <p>Bloco D</p>
+          </div>
+
+          <button id="modalOverlay" class="trigger-btn">Mais</button>
+        </div>
+
+        <div class="modal-overlay">
+          <div class="modal-container">
+            <div class="modal-header">Laboratorio 13</div>
+
+            <div class="modal-body">
+              <p>Local: Bloco D</p>
+              <p>Capacidade máxima de alunos: 40</p>
+              <p>Quantidade de computadores: 20</p>
+              <p>Softwares cadastrados: AutoCad, IntelliJ, VS code, Android Studio</p>
+            </div>
+
+            <div class="modal-form">
+              <div class="input-group">
+                <input type="text" placeholder="  /  /  ">
+                <span class="icon-box calendar-icon"></span>
+              </div>
+              <div class="input-group">
+                <input type="text" placeholder="  :  ">
+                <span class="icon-box clock-icon"></span>
+              </div>
+            </div>
+
+            <button id="closeModalBtn" class="modal-btn">Alocar</button>
+          </div>
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="lab-card indisponivel">
+          <div class="topo">
+            <h2>LAB 02</h2>
+          </div>
+
+          <div class="info-card">
+            <p>Bloco D</p>
+          </div>
+
+          <button class="trigger-btn">Mais</button>
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="lab-card pendente">
+          <div class="topo">
+            <h2>LAB 03</h2>
+          </div>
+
+          <div class="info-card">
+            <p>Bloco D</p>
+          </div>
+
+          <button class="trigger-btn">Mais</button>
+        </div>
+
+        <!-- CARD 4 -->
+        <div class="lab-card disponivel">
+          <div class="topo">
+            <h2>LAB 04</h2>
+          </div>
+
+          <div class="info-card">
+            <p>Bloco D</p>
+          </div>
+
+          <button class="trigger-btn">Mais</button>
+        </div>
+
+        <!-- CARD 5 -->
+        <div class="lab-card indisponivel">
+          <div class="topo">
+            <h2>LAB 05</h2>
+          </div>
+
+          <div class="info-card">
+            <p>Bloco D</p>
+          </div>
+
+          <button class="trigger-btn">Mais</button>
+        </div>
+
+        <!-- CARD 6 -->
+        <div class="lab-card disponivel">
+          <div class="topo">
+            <h2>LAB 06</h2>
+          </div>
+
+          <div class="info-card">
+            <p>Bloco D</p>
+          </div>
+
+          <button class="trigger-btn">Mais</button>
+        </div>
+
+        <!-- CARD 7 -->
+        <div class="lab-card indisponivel">
+          <div class="topo">
+            <h2>LAB 07</h2>
+          </div>
+
+          <div class="info-card">
+            <p>Bloco D</p>
+          </div>
+
+          <button class="trigger-btn">Mais</button>
+        </div>
+
+        <!-- CARD 8 -->
+        <div class="lab-card pendente">
+          <div class="topo">
+            <h2>LAB 08</h2>
+          </div>
+
+          <div class="info-card">
+            <p>Bloco D</p>
+          </div>
+
+          <button class="trigger-btn">Mais</button>
+        </div>
+
+        <!-- CARD 9 -->
+        <div class="lab-card disponivel">
+          <div class="topo">
+            <h2>LAB 09</h2>
+          </div>
+
+          <div class="info-card">
+            <p>Bloco D</p>
+          </div>
+
+          <button class="trigger-btn">Mais</button>
+        </div>
+
+        <!-- CARD 10 -->
+        <div class="lab-card indisponivel">
+          <div class="topo">
+            <h2>LAB 10</h2>
+          </div>
+
+          <div class="info-card">
+            <p>Bloco D</p>
+          </div>
+
+          <button class="trigger-btn">Mais</button>
+        </div>
+
+        <script>src = "mais-script.js"</script>
+
+      </div>
+    </section>
+  </main>
+</body>
+
+</html>

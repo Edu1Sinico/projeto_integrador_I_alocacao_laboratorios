@@ -1,0 +1,12 @@
+C:\Projeto_Sistema_De_Alocacao\SistemaAlocLab\SistemaLocLab.Domain\bin\Debug\net10.0\SistemaLocLab.Domain.deps.json
+C:\Projeto_Sistema_De_Alocacao\SistemaAlocLab\SistemaLocLab.Domain\bin\Debug\net10.0\SistemaLocLab.Domain.dll
+C:\Projeto_Sistema_De_Alocacao\SistemaAlocLab\SistemaLocLab.Domain\bin\Debug\net10.0\SistemaLocLab.Domain.pdb
+C:\Projeto_Sistema_De_Alocacao\SistemaAlocLab\SistemaLocLab.Domain\obj\Debug\net10.0\SistemaLocLab.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projeto_Sistema_De_Alocacao\SistemaAlocLab\SistemaLocLab.Domain\obj\Debug\net10.0\SistemaLocLab.Domain.AssemblyInfoInputs.cache
+C:\Projeto_Sistema_De_Alocacao\SistemaAlocLab\SistemaLocLab.Domain\obj\Debug\net10.0\SistemaLocLab.Domain.AssemblyInfo.cs
+C:\Projeto_Sistema_De_Alocacao\SistemaAlocLab\SistemaLocLab.Domain\obj\Debug\net10.0\SistemaLocLab.Domain.csproj.CoreCompileInputs.cache
+C:\Projeto_Sistema_De_Alocacao\SistemaAlocLab\SistemaLocLab.Domain\obj\Debug\net10.0\SistemaLocLab.Domain.sourcelink.json
+C:\Projeto_Sistema_De_Alocacao\SistemaAlocLab\SistemaLocLab.Domain\obj\Debug\net10.0\SistemaLocLab.Domain.dll
+C:\Projeto_Sistema_De_Alocacao\SistemaAlocLab\SistemaLocLab.Domain\obj\Debug\net10.0\refint\SistemaLocLab.Domain.dll
+C:\Projeto_Sistema_De_Alocacao\SistemaAlocLab\SistemaLocLab.Domain\obj\Debug\net10.0\SistemaLocLab.Domain.pdb
+C:\Projeto_Sistema_De_Alocacao\SistemaAlocLab\SistemaLocLab.Domain\obj\Debug\net10.0\ref\SistemaLocLab.Domain.dll

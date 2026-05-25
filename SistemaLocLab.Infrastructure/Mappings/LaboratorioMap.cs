@@ -4,22 +4,23 @@ using SistemaLocLab.Domain.Entities;
 
 namespace SistemaLocLab.Infrastructure.Mappings
 {
-    public class LaboratorioMap : IEntityTypeConfiguration<Laboratorio>
+    public class LaboratorioMap :
+        IEntityTypeConfiguration<Laboratorios>
     {
         public void Configure(
-            EntityTypeBuilder<Laboratorio> builder)
+            EntityTypeBuilder<Laboratorios> builder)
         {
             builder.ToTable("Laboratorios");
 
-            builder.HasKey(x => x.IdLaboratorio);
+            builder.HasKey(x => x.IDLaboratorio);
 
             builder.Property(x => x.NumeroLaboratorio)
                 .IsRequired();
 
-            builder.Property(x => x.QuantidadeComputadores)
+            builder.Property(x => x.qtdeComputador)
                 .IsRequired();
 
-            builder.Property(x => x.CapacidadeMaximaAlunos)
+            builder.Property(x => x.capacidadeMaxAluno)
                 .IsRequired();
 
             builder.HasMany(x => x.Alocacoes)

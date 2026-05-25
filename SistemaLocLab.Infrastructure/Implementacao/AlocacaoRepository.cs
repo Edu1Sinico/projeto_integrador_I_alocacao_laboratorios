@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using SistemaLocLab.Infrastructure.Context;
 namespace SistemaLocLab.Infrastructure.Repositories.Implementations
 {
     public class AlocacaoRepository : IAlocacaoRepository

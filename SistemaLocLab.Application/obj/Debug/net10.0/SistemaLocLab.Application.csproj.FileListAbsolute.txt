@@ -1,0 +1,16 @@
+C:\Projeto_Sistema_De_Alocacao\SistemaAlocLab\SistemaLoclab.Application\bin\Debug\net10.0\SistemaLocLab.Application.deps.json
+C:\Projeto_Sistema_De_Alocacao\SistemaAlocLab\SistemaLoclab.Application\bin\Debug\net10.0\SistemaLocLab.Application.dll
+C:\Projeto_Sistema_De_Alocacao\SistemaAlocLab\SistemaLoclab.Application\bin\Debug\net10.0\SistemaLocLab.Application.pdb
+C:\Projeto_Sistema_De_Alocacao\SistemaAlocLab\SistemaLoclab.Application\bin\Debug\net10.0\SistemaLocLab.Domain.dll
+C:\Projeto_Sistema_De_Alocacao\SistemaAlocLab\SistemaLoclab.Application\bin\Debug\net10.0\SistemaLocLab.Domain.pdb
+C:\Projeto_Sistema_De_Alocacao\SistemaAlocLab\SistemaLoclab.Application\obj\Debug\net10.0\SistemaLocLab.Application.csproj.AssemblyReference.cache
+C:\Projeto_Sistema_De_Alocacao\SistemaAlocLab\SistemaLoclab.Application\obj\Debug\net10.0\SistemaLocLab.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projeto_Sistema_De_Alocacao\SistemaAlocLab\SistemaLoclab.Application\obj\Debug\net10.0\SistemaLocLab.Application.AssemblyInfoInputs.cache
+C:\Projeto_Sistema_De_Alocacao\SistemaAlocLab\SistemaLoclab.Application\obj\Debug\net10.0\SistemaLocLab.Application.AssemblyInfo.cs
+C:\Projeto_Sistema_De_Alocacao\SistemaAlocLab\SistemaLoclab.Application\obj\Debug\net10.0\SistemaLocLab.Application.csproj.CoreCompileInputs.cache
+C:\Projeto_Sistema_De_Alocacao\SistemaAlocLab\SistemaLoclab.Application\obj\Debug\net10.0\SistemaLocLab.Application.sourcelink.json
+C:\Projeto_Sistema_De_Alocacao\SistemaAlocLab\SistemaLoclab.Application\obj\Debug\net10.0\SistemaL.56847D1E.Up2Date
+C:\Projeto_Sistema_De_Alocacao\SistemaAlocLab\SistemaLoclab.Application\obj\Debug\net10.0\SistemaLocLab.Application.dll
+C:\Projeto_Sistema_De_Alocacao\SistemaAlocLab\SistemaLoclab.Application\obj\Debug\net10.0\refint\SistemaLocLab.Application.dll
+C:\Projeto_Sistema_De_Alocacao\SistemaAlocLab\SistemaLoclab.Application\obj\Debug\net10.0\SistemaLocLab.Application.pdb
+C:\Projeto_Sistema_De_Alocacao\SistemaAlocLab\SistemaLoclab.Application\obj\Debug\net10.0\ref\SistemaLocLab.Application.dll

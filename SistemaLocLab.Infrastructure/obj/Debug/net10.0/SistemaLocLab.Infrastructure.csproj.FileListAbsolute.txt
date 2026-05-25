@@ -1,0 +1,6 @@
+C:\Projeto_Sistema_De_Alocacao\SistemaAlocLab\SistemaLocLab.Infrastructure\obj\Debug\net10.0\SistemaLocLab.Infrastructure.csproj.AssemblyReference.cache
+C:\Projeto_Sistema_De_Alocacao\SistemaAlocLab\SistemaLocLab.Infrastructure\obj\Debug\net10.0\SistemaLocLab.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projeto_Sistema_De_Alocacao\SistemaAlocLab\SistemaLocLab.Infrastructure\obj\Debug\net10.0\SistemaLocLab.Infrastructure.AssemblyInfoInputs.cache
+C:\Projeto_Sistema_De_Alocacao\SistemaAlocLab\SistemaLocLab.Infrastructure\obj\Debug\net10.0\SistemaLocLab.Infrastructure.AssemblyInfo.cs
+C:\Projeto_Sistema_De_Alocacao\SistemaAlocLab\SistemaLocLab.Infrastructure\obj\Debug\net10.0\SistemaLocLab.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Projeto_Sistema_De_Alocacao\SistemaAlocLab\SistemaLocLab.Infrastructure\obj\Debug\net10.0\SistemaLocLab.Infrastructure.sourcelink.json

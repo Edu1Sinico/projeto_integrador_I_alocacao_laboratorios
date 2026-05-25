@@ -4,14 +4,15 @@ using SistemaLocLab.Domain.Entities;
 
 namespace SistemaLocLab.Infrastructure.Mappings
 {
-    public class UsuarioMap : IEntityTypeConfiguration<Usuario>
+    public class UsuarioMap :
+        IEntityTypeConfiguration<Usuarios>
     {
         public void Configure(
-            EntityTypeBuilder<Usuario> builder)
+            EntityTypeBuilder<Usuarios> builder)
         {
-            builder.ToTable("Usuarios");
+            builder.ToTable("Usuario");
 
-            builder.HasKey(x => x.Id);
+            builder.HasKey(x => x.ID);
 
             builder.Property(x => x.Nome)
                 .IsRequired()

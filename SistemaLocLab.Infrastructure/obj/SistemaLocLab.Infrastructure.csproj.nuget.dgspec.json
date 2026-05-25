@@ -4,12 +4,12 @@
     "C:\\Projeto_Sistema_De_Alocacao\\SistemaAlocLab\\SistemaLocLab.Infrastructure\\SistemaLocLab.Infrastructure.csproj": {}
   },
   "projects": {
-    "C:\\Projeto_Sistema_De_Alocacao\\SistemaAlocLab\\SistemaLocLab.Application\\SistemaLoclab.Application.csproj": {
+    "C:\\Projeto_Sistema_De_Alocacao\\SistemaAlocLab\\SistemaLocLab.Application\\SistemaLocLab.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projeto_Sistema_De_Alocacao\\SistemaAlocLab\\SistemaLocLab.Application\\SistemaLoclab.Application.csproj",
-        "projectName": "SistemaLoclab.Application",
-        "projectPath": "C:\\Projeto_Sistema_De_Alocacao\\SistemaAlocLab\\SistemaLocLab.Application\\SistemaLoclab.Application.csproj",
+        "projectUniqueName": "C:\\Projeto_Sistema_De_Alocacao\\SistemaAlocLab\\SistemaLocLab.Application\\SistemaLocLab.Application.csproj",
+        "projectName": "SistemaLocLab.Application",
+        "projectPath": "C:\\Projeto_Sistema_De_Alocacao\\SistemaAlocLab\\SistemaLocLab.Application\\SistemaLocLab.Application.csproj",
         "packagesPath": "C:\\Users\\gusta\\.nuget\\packages\\",
         "outputPath": "C:\\Projeto_Sistema_De_Alocacao\\SistemaAlocLab\\SistemaLocLab.Application\\obj\\",
         "projectStyle": "PackageReference",
@@ -696,8 +696,8 @@
           "net10.0": {
             "targetAlias": "net10.0",
             "projectReferences": {
-              "C:\\Projeto_Sistema_De_Alocacao\\SistemaAlocLab\\SistemaLocLab.Application\\SistemaLoclab.Application.csproj": {
-                "projectPath": "C:\\Projeto_Sistema_De_Alocacao\\SistemaAlocLab\\SistemaLocLab.Application\\SistemaLoclab.Application.csproj"
+              "C:\\Projeto_Sistema_De_Alocacao\\SistemaAlocLab\\SistemaLocLab.Application\\SistemaLocLab.Application.csproj": {
+                "projectPath": "C:\\Projeto_Sistema_De_Alocacao\\SistemaAlocLab\\SistemaLocLab.Application\\SistemaLocLab.Application.csproj"
               },
               "C:\\Projeto_Sistema_De_Alocacao\\SistemaAlocLab\\SistemaLocLab.Domain\\SistemaLocLab.Domain.csproj": {
                 "projectPath": "C:\\Projeto_Sistema_De_Alocacao\\SistemaAlocLab\\SistemaLocLab.Domain\\SistemaLocLab.Domain.csproj"

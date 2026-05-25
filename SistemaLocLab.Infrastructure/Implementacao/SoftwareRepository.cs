@@ -1,7 +1,13 @@
 using Microsoft.EntityFrameworkCore;
+using SistemaLocLab.Domain.Entities;
+using SistemaLocLab.Infrastructure.Context;
+using SistemaLocLab.Infrastructure.Repositories.Interfaces;
+using SistemaLocLab.Infrastructure.Context;
+
 namespace SistemaLocLab.Infrastructure.Repositories.Implementations
 {
-    public class SoftwareRepository : ISoftwareRepository
+    public class SoftwareRepository :
+        ISoftwareRepository
     {
         private readonly ApplicationDbContext _context;
 
@@ -14,8 +20,7 @@ namespace SistemaLocLab.Infrastructure.Repositories.Implementations
         public async Task AdicionarAsync(
             Software software)
         {
-            await _context.Softwares
-                .AddAsync(software);
+            await _context.Softwares.AddAsync(software);
 
             await _context.SaveChangesAsync();
         }
@@ -34,24 +39,23 @@ namespace SistemaLocLab.Infrastructure.Repositories.Implementations
                 await ObterPorIdAsync(id);
 
             if (software == null)
-                throw new Exception(
-                    "Software não encontrado.");
+                return;
 
             _context.Softwares.Remove(software);
 
             await _context.SaveChangesAsync();
         }
 
-        public async Task<Software?> ObterPorIdAsync(Guid id)
+        public async Task<Software?>
+            ObterPorIdAsync(Guid id)
         {
             return await _context.Softwares
-                .Include(x => x.Laboratorios)
-                .Include(x => x.Disciplinas)
-                .FirstOrDefaultAsync(x =>
-                    x.IdSoftware == id);
+                .FirstOrDefaultAsync(
+                    x => x.IdSoftware == id);
         }
 
-        public async Task<IEnumerable<Software>> ObterTodosAsync()
+        public async Task<IEnumerable<Software>>
+            ObterTodosAsync()
         {
             return await _context.Softwares
                 .ToListAsync();

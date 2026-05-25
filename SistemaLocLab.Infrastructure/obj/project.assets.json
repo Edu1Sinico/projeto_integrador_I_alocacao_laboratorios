@@ -1148,17 +1148,17 @@
           "buildTransitive/net8.0/_._": {}
         }
       },
-      "SistemaLoclab.Application/1.0.0": {
+      "SistemaLocLab.Application/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v10.0",
         "dependencies": {
           "SistemaLocLab.Domain": "1.0.0"
         },
         "compile": {
-          "bin/placeholder/SistemaLoclab.Application.dll": {}
+          "bin/placeholder/SistemaLocLab.Application.dll": {}
         },
         "runtime": {
-          "bin/placeholder/SistemaLoclab.Application.dll": {}
+          "bin/placeholder/SistemaLocLab.Application.dll": {}
         }
       },
       "SistemaLocLab.Domain/1.0.0": {
@@ -2875,10 +2875,10 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "SistemaLoclab.Application/1.0.0": {
+    "SistemaLocLab.Application/1.0.0": {
       "type": "project",
-      "path": "../SistemaLocLab.Application/SistemaLoclab.Application.csproj",
-      "msbuildProject": "../SistemaLocLab.Application/SistemaLoclab.Application.csproj"
+      "path": "../SistemaLocLab.Application/SistemaLocLab.Application.csproj",
+      "msbuildProject": "../SistemaLocLab.Application/SistemaLocLab.Application.csproj"
     },
     "SistemaLocLab.Domain/1.0.0": {
       "type": "project",
@@ -2892,8 +2892,8 @@
       "Microsoft.EntityFrameworkCore.SqlServer >= 10.0.8",
       "Microsoft.EntityFrameworkCore.Tools >= 10.0.8",
       "Npgsql.EntityFrameworkCore.PostgreSQL >= 10.0.1",
-      "SistemaLocLab.Domain >= 1.0.0",
-      "SistemaLoclab.Application >= 1.0.0"
+      "SistemaLocLab.Application >= 1.0.0",
+      "SistemaLocLab.Domain >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -2921,8 +2921,8 @@
         "net10.0": {
           "targetAlias": "net10.0",
           "projectReferences": {
-            "C:\\Projeto_Sistema_De_Alocacao\\SistemaAlocLab\\SistemaLocLab.Application\\SistemaLoclab.Application.csproj": {
-              "projectPath": "C:\\Projeto_Sistema_De_Alocacao\\SistemaAlocLab\\SistemaLocLab.Application\\SistemaLoclab.Application.csproj"
+            "C:\\Projeto_Sistema_De_Alocacao\\SistemaAlocLab\\SistemaLocLab.Application\\SistemaLocLab.Application.csproj": {
+              "projectPath": "C:\\Projeto_Sistema_De_Alocacao\\SistemaAlocLab\\SistemaLocLab.Application\\SistemaLocLab.Application.csproj"
             },
             "C:\\Projeto_Sistema_De_Alocacao\\SistemaAlocLab\\SistemaLocLab.Domain\\SistemaLocLab.Domain.csproj": {
               "projectPath": "C:\\Projeto_Sistema_De_Alocacao\\SistemaAlocLab\\SistemaLocLab.Domain\\SistemaLocLab.Domain.csproj"

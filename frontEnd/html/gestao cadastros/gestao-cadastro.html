@@ -6,36 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestão de Cadastros</title>
     <link rel="stylesheet" href="gestao-cadastros_style.css">
+    <script src="../JS/Customheader.js" defer></script>
+    <script src="../JS/Customfooter.js" defer></script>
 </head>
 
 <body>
-    <header>
-        <figure class="img-box">
-    <img src="../img/icon_E.png" alt="logo" class="img-size">
-</figure>
-
-<nav>
-    <a class="link" href="index.html">Início</a>
-    <a class="link" href="gestao-cadastro.html">Gestão de Cadastros</a>
-    <a class="link" href="ajuda.html">Ajuda</a>
-</nav>
-<div id="conta-section">
-    <a class="conta-fig" href="configuracoes.html">
-        <figure>
-            <img src="../img/Config.png" alt="config" class="img-size">
-        </figure>
-    </a>
-    <a class="conta-fig" href="conta.html">
-        <figure>
-            <img src="../img/conta.png" alt="conta" class="img-size">
-        </figure>
-    </a>
-</div>
-    </header>
+    <custom-header></custom-header>
     <main>
         <h1>Gestão de cadastros</h1>
         <div class="cadastro-counteiner">
             <div class="table-counteiner">
+                
                 <h2>Laboratorios de informatica</h2>
                 <table border="1">
                     <thead>
@@ -44,6 +25,7 @@
                             <th>nome</th>
                             <th>quantidade de computadores</th>
                             <th>quantidade de acentos</th>
+                            <th>ações</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -52,24 +34,56 @@
                             <td>Laboratório 13</td>
                             <td>50</td>
                             <td>100</td>
+                            <td>
+                                <button>
+                                    editar
+                                </button>
+                                <button>
+                                    excluir
+                                </button>
+                            </td>
                         </tr>
                         <tr>
                             <td>01</td>
                             <td>Laboratório 14</td>
                             <td>50</td>
                             <td>100</td>
+                            <td>
+                                <button>
+                                    editar
+                                </button>
+                                <button>
+                                    excluir
+                                </button>
+                            </td>
                         </tr>
                         <tr>
                             <td>01</td>
                             <td>Laboratório 15</td>
                             <td>50</td>
                             <td>100</td>
+                            <td>
+                                <button>
+                                    editar
+                                </button>
+                                <button>
+                                    excluir
+                                </button>
+                            </td>
                         </tr>
                         <tr>
                             <td>01</td>
                             <td>Laboratório 16</td>
                             <td>50</td>
                             <td>100</td>
+                            <td>
+                                <button>
+                                    editar
+                                </button>
+                                <button>
+                                    excluir
+                                </button>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
@@ -157,6 +171,7 @@
     </main>
     <div id="footer"></div>
     <script src="components/components.js"></script>
+    <custom-footer></custom-footer>
 </body>
 
 </html>

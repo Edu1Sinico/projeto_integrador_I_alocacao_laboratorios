@@ -15,7 +15,7 @@ namespace SistemaLocLab.Infrastructure.Mappings
             builder.HasKey(x => x.IDLaboratorio);
 
             builder.Property(x => x.NumeroLaboratorio)
-                .IsRequired();
+            .IsRequired();
 
             builder.Property(x => x.qtdeComputador)
                 .IsRequired();

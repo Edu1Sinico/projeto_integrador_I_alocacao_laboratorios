@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Projeto_Sistema_De_Alocacao\\SistemaAlocLab\\SistemaLocLab.Application\\SistemaLocLab.Application.csproj": {}
+    "C:\\Projeto_Sistema_De_Alocacao\\SistemaAlocLab\\SistemaLocLab.Application\\SistemaLoclab.Application.csproj": {}
   },
   "projects": {
-    "C:\\Projeto_Sistema_De_Alocacao\\SistemaAlocLab\\SistemaLocLab.Application\\SistemaLocLab.Application.csproj": {
+    "C:\\Projeto_Sistema_De_Alocacao\\SistemaAlocLab\\SistemaLocLab.Application\\SistemaLoclab.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projeto_Sistema_De_Alocacao\\SistemaAlocLab\\SistemaLocLab.Application\\SistemaLocLab.Application.csproj",
-        "projectName": "SistemaLocLab.Application",
-        "projectPath": "C:\\Projeto_Sistema_De_Alocacao\\SistemaAlocLab\\SistemaLocLab.Application\\SistemaLocLab.Application.csproj",
+        "projectUniqueName": "C:\\Projeto_Sistema_De_Alocacao\\SistemaAlocLab\\SistemaLocLab.Application\\SistemaLoclab.Application.csproj",
+        "projectName": "SistemaLoclab.Application",
+        "projectPath": "C:\\Projeto_Sistema_De_Alocacao\\SistemaAlocLab\\SistemaLocLab.Application\\SistemaLoclab.Application.csproj",
         "packagesPath": "C:\\Users\\gusta\\.nuget\\packages\\",
         "outputPath": "C:\\Projeto_Sistema_De_Alocacao\\SistemaAlocLab\\SistemaLocLab.Application\\obj\\",
         "projectStyle": "PackageReference",

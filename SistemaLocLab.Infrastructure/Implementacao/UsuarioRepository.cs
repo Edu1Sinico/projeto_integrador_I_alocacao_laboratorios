@@ -3,7 +3,6 @@ using SistemaLocLab.Domain.Entities;
 using SistemaLocLab.Infrastructure.Context;
 using SistemaLocLab.Infrastructure.Repositories.Interfaces;
 
-
 namespace SistemaLocLab.Infrastructure.Repositories.Implementations
 {
     public class UsuarioRepository : IUsuarioRepository
@@ -19,7 +18,8 @@ namespace SistemaLocLab.Infrastructure.Repositories.Implementations
         public async Task AdicionarAsync(
             Usuarios usuario)
         {
-            await _context.Usuarios.AddAsync(usuario);
+            await _context.Usuarios
+                .AddAsync(usuario);
 
             await _context.SaveChangesAsync();
         }
@@ -27,7 +27,8 @@ namespace SistemaLocLab.Infrastructure.Repositories.Implementations
         public async Task AtualizarAsync(
             Usuarios usuario)
         {
-            _context.Usuarios.Update(usuario);
+            _context.Usuarios
+                .Update(usuario);
 
             await _context.SaveChangesAsync();
         }
@@ -41,7 +42,8 @@ namespace SistemaLocLab.Infrastructure.Repositories.Implementations
                 throw new Exception(
                     "Usuário não encontrado.");
 
-            _context.Usuarios.Remove(usuario);
+            _context.Usuarios
+                .Remove(usuario);
 
             await _context.SaveChangesAsync();
         }
@@ -49,7 +51,8 @@ namespace SistemaLocLab.Infrastructure.Repositories.Implementations
         public async Task<Usuarios?> ObterPorIdAsync(Guid id)
         {
             return await _context.Usuarios
-                .FirstOrDefaultAsync(x => x.ID == id);
+                .FirstOrDefaultAsync(x =>
+                    x.ID == id);
         }
 
         public async Task<Usuarios?> ObterPorEmailAsync(
@@ -57,7 +60,21 @@ namespace SistemaLocLab.Infrastructure.Repositories.Implementations
         {
             return await _context.Usuarios
                 .FirstOrDefaultAsync(x =>
-                    x.Email == email.ToLower());
+                    x.Email == email);
         }
-}
+
+        public async Task<IEnumerable<Usuarios>> ObterTodosAsync()
+        {
+            return await _context.Usuarios
+                .ToListAsync();
+        }
+
+        public async Task<bool> ExisteEmailAsync(
+            string email)
+        {
+            return await _context.Usuarios
+                .AnyAsync(x =>
+                    x.Email == email);
+        }
+    }
 }

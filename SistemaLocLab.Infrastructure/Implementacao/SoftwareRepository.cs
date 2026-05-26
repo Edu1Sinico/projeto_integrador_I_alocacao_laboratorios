@@ -2,7 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using SistemaLocLab.Domain.Entities;
 using SistemaLocLab.Infrastructure.Context;
 using SistemaLocLab.Infrastructure.Repositories.Interfaces;
-using SistemaLocLab.Infrastructure.Context;
+
 
 namespace SistemaLocLab.Infrastructure.Repositories.Implementations
 {

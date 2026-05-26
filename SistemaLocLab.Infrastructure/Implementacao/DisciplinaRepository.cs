@@ -1,5 +1,8 @@
 using Microsoft.EntityFrameworkCore;
+using SistemaLocLab.Domain.Entities;
 using SistemaLocLab.Infrastructure.Context;
+using SistemaLocLab.Infrastructure.Repositories.Interfaces;
+
 namespace SistemaLocLab.Infrastructure.Repositories.Implementations
 {
     public class DisciplinaRepository : IDisciplinaRepository
@@ -24,7 +27,8 @@ namespace SistemaLocLab.Infrastructure.Repositories.Implementations
         public async Task AtualizarAsync(
             Disciplina disciplina)
         {
-            _context.Disciplinas.Update(disciplina);
+            _context.Disciplinas
+                .Update(disciplina);
 
             await _context.SaveChangesAsync();
         }
@@ -38,7 +42,8 @@ namespace SistemaLocLab.Infrastructure.Repositories.Implementations
                 throw new Exception(
                     "Disciplina não encontrada.");
 
-            _context.Disciplinas.Remove(disciplina);
+            _context.Disciplinas
+                .Remove(disciplina);
 
             await _context.SaveChangesAsync();
         }

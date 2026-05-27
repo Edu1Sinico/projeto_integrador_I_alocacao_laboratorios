@@ -7,11 +7,11 @@ namespace SistemaLocLab.Application.Interfaces
 {
     public interface ISoftwareService
     {
-        List<SoftwareDTO> ObterSoftwares();
-        SoftwareDTO ObterSoftwareId (int id);
-        List<SoftwareDTO> BuscarSoftwaresNome(string nome);
-        SoftwareDTO CriarSoftware(CreateSoftwareDTO dto);
-        SoftwareDTO AtualizarSoftware(int id, UpdateSoftwareDTO dto);
-        bool RemoverSoftware(int id);
+        Task<List<SoftwareDTO>> ObterSoftwares();
+        Task<SoftwareDTO?> ObterSoftwareId (Guid id);
+        Task<List<SoftwareDTO>> BuscarSoftwaresNome(string nome);
+        Task<SoftwareDTO> CriarSoftware(CreateSoftwareDTO dto);
+        Task<SoftwareDTO?> AtualizarSoftware(Guid id, UpdateSoftwareDTO dto);
+        Task<bool> RemoverSoftware(Guid id);
     }
 }

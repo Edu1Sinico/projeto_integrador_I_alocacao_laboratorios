@@ -13,70 +13,73 @@ namespace SistemaLocLab.Application.Services
 
         private readonly ISoftwareRepository _softwareRepository;
 
-        public SoftwareService(ISoftwareService softwareService)
+        public SoftwareService(ISoftwareRepository softwareRepository)
         {
-            _softwareRepository = softwareService;
+            _softwareRepository = softwareRepository;
         }
 
-        public List<SoftwareDTO> ObterSoftwares()
+        public async Task<List<SoftwareDTO>> ObterSoftwares()
         {
-            var softwares = _softwareRepository.ObterTodosAsync();
+            var softwares = await _softwareRepository.ObterTodosAsync();
+
+            return softwares
+                .Select(MapearParaDTO)
+                .ToList();
         }
 
-        public SoftwareDTO ObterSoftwareId(int id)
+        public async Task<SoftwareDTO?> ObterSoftwareId(Guid id)
         {
-            var software = _softwareRepository.ObterPorIdAsync(id); // Verificar questão de buscar por ID e Guid
-        }
+            var software = await _softwareRepository.ObterPorIdAsync(id);
 
-        // Criar uma função no softwareRepository para buscar pelo nome
-        public List<SoftwareDTO> BuscarSoftwaresNome(string nome)
-        {
-            throw new NotImplementedException();
-        }
-
-        public SoftwareDTO CriarSoftware(CreateSoftwareDTO dto)
-        {
-            // Atribui o que foi recebido do DTO para a entidade verdadeira
-            var software = new Software
-            {
-                NomeSoftware = dto.NomeSoftware.Trim(),
-                Versao = dto.Versao.Trim(),
-                DateCriacao = dto.DateCriacao,
-                DataAtualizacao = dto.DataAtualizacao
-            };
-
-            _softwareRepository.AdicionarAsync(software);
+            if (software == null)
+                return null;
 
             return MapearParaDTO(software);
         }
 
-        public SoftwareDTO AtualizarSoftware(int id, UpdateSoftwareDTO dto)
+        // Criar uma função no softwareRepository para buscar pelo nome
+        public async Task<List<SoftwareDTO>> BuscarSoftwaresNome(string nome)
         {
-            var software = _softwareRepository.ObterPorIdAsync(id);
+            throw new NotImplementedException();
+        }
+
+        public async Task<SoftwareDTO> CriarSoftware(CreateSoftwareDTO dto)
+        {
+            // Atribui o que foi recebido do DTO para a entidade verdadeira
+            var software = new Software(dto.NomeSoftware, dto.Versao);
+
+            await _softwareRepository.AdicionarAsync(software);
+
+            return MapearParaDTO(software);
+        }
+
+        public async Task<SoftwareDTO?> AtualizarSoftware(Guid id, UpdateSoftwareDTO dto)
+        {
+            var software = await _softwareRepository.ObterPorIdAsync(id);
 
             // Se não exisitr, retorna null.
             if (software == null)
                 return null;
 
             // Se existir, atualiza os dados e retorna o produto atualizado.
-            software.NomeSoftware = dto.NomeSoftware;
-            software.Versao = dto.Versao;
-            software.DataAtualizacao = dto.DataAtualizacao;
+            software.Atualizar(dto.NomeSoftware, dto.Versao);
 
-            _softwareRepository.AtualizarAsync(software);
+            await _softwareRepository.AtualizarAsync(software);
 
             return MapearParaDTO(software);
         }
 
 
-        public bool RemoverSoftware(int id)
+        public async Task<bool> RemoverSoftware(Guid id)
         {
-            var software = _softwareRepository.ObterPorIdAsync(id);
+            var software = await _softwareRepository.ObterPorIdAsync(id);
 
             if (software == null)
                 return false;
 
-            return _softwareRepository.Remover(id);
+            await _softwareRepository.RemoverAsync(id);
+
+            return true;
         }
 
 

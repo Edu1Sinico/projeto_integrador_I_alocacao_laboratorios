@@ -18,9 +18,9 @@ namespace SistemaLocLab.Domain.Entities
 
         // RELACIONAMENTOS
 
-        public List<Laboratorios> Laboratorios{ get; private set; } = new();
+        public List<Laboratorios> Laboratorios { get; private set; } = new();
 
-        public List<Disciplina> Disciplinas{ get; private set; } = new();
+        public List<Disciplina> Disciplinas { get; private set; } = new();
 
         protected Software() { }
 

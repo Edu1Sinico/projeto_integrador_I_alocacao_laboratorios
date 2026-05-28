@@ -10,12 +10,12 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("SistemaLoclab.Application")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("SistemaLocLab.Application")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+26a4c7af79dd9eee224ea3f0f1c532db1038fbd6")]
-[assembly: System.Reflection.AssemblyProductAttribute("SistemaLoclab.Application")]
-[assembly: System.Reflection.AssemblyTitleAttribute("SistemaLoclab.Application")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+934011f90a76589f9b6f22f0692f6c12bbfb7971")]
+[assembly: System.Reflection.AssemblyProductAttribute("SistemaLocLab.Application")]
+[assembly: System.Reflection.AssemblyTitleAttribute("SistemaLocLab.Application")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
 
 // Gerado pela classe WriteCodeFragment do MSBuild.

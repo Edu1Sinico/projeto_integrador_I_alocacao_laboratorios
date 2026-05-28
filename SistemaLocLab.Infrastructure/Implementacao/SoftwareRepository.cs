@@ -4,6 +4,7 @@ using SistemaLocLab.Domain.Entities;
 using SistemaLocLab.Infrastructure.Context;
 
 
+
 namespace SistemaLocLab.Infrastructure.Repositories.Implementations
 {
     public class SoftwareRepository :

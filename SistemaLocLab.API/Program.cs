@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using SistemaLocLab.Infrastructure.Context;
-using SistemaLocLab.Infrastructure.Repositories.Interfaces;
 using SistemaLocLab.Infrastructure.Repositories.Implementations;
+using SistemaLocLab.Application.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 

@@ -1,5 +1,6 @@
 using SistemaLocLab.Domain.Entities;
 
+
 namespace SistemaLocLab.Application.Interfaces
 {
     public interface ILaboratorioRepository

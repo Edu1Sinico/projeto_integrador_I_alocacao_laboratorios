@@ -13,7 +13,6 @@ C:\Projeto_Sistema_De_Alocacao\SistemaAlocLab\SistemaLoclab.Application\obj\Debu
 C:\Projeto_Sistema_De_Alocacao\SistemaAlocLab\SistemaLoclab.Application\obj\Debug\net10.0\refint\SistemaLocLab.Application.dll
 C:\Projeto_Sistema_De_Alocacao\SistemaAlocLab\SistemaLoclab.Application\obj\Debug\net10.0\SistemaLocLab.Application.pdb
 C:\Projeto_Sistema_De_Alocacao\SistemaAlocLab\SistemaLoclab.Application\obj\Debug\net10.0\ref\SistemaLocLab.Application.dll
-C:\Projeto_Sistema_De_Alocacao\SistemaAlocLab\SistemaLocLab.Application\obj\Debug\net10.0\SistemaL.56847D1E.Up2Date
 C:\Users\sinic\OneDrive\Desktop\Códigos e Projetos\projeto_integrador_I_alocacao_laboratorios\SistemaLocLab.Application\obj\Debug\net10.0\SistemaLoclab.Application.csproj.AssemblyReference.cache
 C:\Users\sinic\OneDrive\Desktop\Códigos e Projetos\projeto_integrador_I_alocacao_laboratorios\SistemaLocLab.Application\obj\Debug\net10.0\SistemaLoclab.Application.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\sinic\OneDrive\Desktop\Códigos e Projetos\projeto_integrador_I_alocacao_laboratorios\SistemaLocLab.Application\obj\Debug\net10.0\SistemaLoclab.Application.AssemblyInfoInputs.cache
@@ -23,3 +22,4 @@ C:\Users\sinic\OneDrive\Desktop\Códigos e Projetos\projeto_integrador_I_alocaca
 C:\Users\sinic\OneDrive\Desktop\Códigos e Projetos\projeto_integrador_I_alocacao_laboratorios\SistemaLocLab.Application\obj\Debug\net10.0\SistemaLoclab.Application.dll
 C:\Users\sinic\OneDrive\Desktop\Códigos e Projetos\projeto_integrador_I_alocacao_laboratorios\SistemaLocLab.Application\obj\Debug\net10.0\refint\SistemaLoclab.Application.dll
 C:\Users\sinic\OneDrive\Desktop\Códigos e Projetos\projeto_integrador_I_alocacao_laboratorios\SistemaLocLab.Application\obj\Debug\net10.0\SistemaLoclab.Application.pdb
+C:\Projeto_Sistema_De_Alocacao\SistemaAlocLab\SistemaLocLab.Application\obj\Debug\net10.0\SistemaL.56847D1E.Up2Date

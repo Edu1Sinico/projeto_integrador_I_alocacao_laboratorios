@@ -13,5 +13,6 @@ namespace SistemaLocLab.Application.Interfaces
         Task<Software?> ObterPorIdAsync(Guid id);
 
         Task<IEnumerable<Software>> ObterTodosAsync();
+        Task<IEnumerable<Software>> BuscarPorNomeAsync(string nome);
     }
 }

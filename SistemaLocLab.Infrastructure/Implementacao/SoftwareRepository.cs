@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
+using SistemaLocLab.Application.Interfaces;
 using SistemaLocLab.Domain.Entities;
 using SistemaLocLab.Infrastructure.Context;
-using SistemaLocLab.Infrastructure.Repositories.Interfaces;
 
 
 namespace SistemaLocLab.Infrastructure.Repositories.Implementations
@@ -58,6 +58,13 @@ namespace SistemaLocLab.Infrastructure.Repositories.Implementations
             ObterTodosAsync()
         {
             return await _context.Softwares
+                .ToListAsync();
+        }
+
+        public async Task<IEnumerable<Software>> BuscarPorNomeAsync(string nome)
+        {
+            return await _context.Softwares
+                .Where(x => x.NomeSoftware.ToLower().Contains(nome.ToLower().Trim()))
                 .ToListAsync();
         }
     }

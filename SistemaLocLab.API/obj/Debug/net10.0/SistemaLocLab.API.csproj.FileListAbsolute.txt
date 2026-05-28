@@ -168,3 +168,6 @@ C:\Projeto_Sistema_De_Alocacao\SistemaAlocLab\SistemaLocLab.API\bin\Debug\net10.
 C:\Projeto_Sistema_De_Alocacao\SistemaAlocLab\SistemaLocLab.API\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
 C:\Projeto_Sistema_De_Alocacao\SistemaAlocLab\SistemaLocLab.API\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
 C:\Projeto_Sistema_De_Alocacao\SistemaAlocLab\SistemaLocLab.API\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+C:\Users\sinic\OneDrive\Desktop\Códigos e Projetos\projeto_integrador_I_alocacao_laboratorios\SistemaLocLab.API\obj\Debug\net10.0\SistemaLocLab.API.dll
+C:\Users\sinic\OneDrive\Desktop\Códigos e Projetos\projeto_integrador_I_alocacao_laboratorios\SistemaLocLab.API\obj\Debug\net10.0\refint\SistemaLocLab.API.dll
+C:\Users\sinic\OneDrive\Desktop\Códigos e Projetos\projeto_integrador_I_alocacao_laboratorios\SistemaLocLab.API\obj\Debug\net10.0\SistemaLocLab.API.pdb

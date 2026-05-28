@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using SistemaLocLab.Application.Interfaces;
-using SistemaLocLab.Infrastructure.Repositories.Interfaces;
 using SistemaLocLab.Domain.Entities;
 using SistemaLocLab.Application.DTOs;
 

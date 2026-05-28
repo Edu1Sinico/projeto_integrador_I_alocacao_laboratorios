@@ -1,6 +1,6 @@
 using SistemaLocLab.Domain.Entities;
 
-namespace SistemaLocLab.Infrastructure.Repositories.Interfaces
+namespace SistemaLocLab.Application.Interfaces
 {
     public interface IUsuarioRepository
     {

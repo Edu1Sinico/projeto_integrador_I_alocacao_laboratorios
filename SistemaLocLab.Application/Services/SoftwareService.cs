@@ -37,10 +37,16 @@ namespace SistemaLocLab.Application.Services
             return MapearParaDTO(software);
         }
 
-        // Criar uma função no softwareRepository para buscar pelo nome
         public async Task<List<SoftwareDTO>> BuscarSoftwaresNome(string nome)
         {
-            throw new NotImplementedException();
+            if (string.IsNullOrWhiteSpace(nome))
+                throw new ArgumentException("Informe um nome válido para busca.");
+
+            var softwares = await _softwareRepository.BuscarPorNomeAsync(nome.Trim());
+
+            return softwares
+                .Select(MapearParaDTO)
+                .ToList();
         }
 
         public async Task<SoftwareDTO> CriarSoftware(CreateSoftwareDTO dto)
@@ -91,7 +97,7 @@ namespace SistemaLocLab.Application.Services
                 IdSoftware = software.IdSoftware,
                 NomeSoftware = software.NomeSoftware,
                 Versao = software.Versao,
-                DateCriacao = software.DataCriacao,
+                DataCriacao = software.DataCriacao,
                 DataAtualizacao = software.DataAtualizacao
             };
         }

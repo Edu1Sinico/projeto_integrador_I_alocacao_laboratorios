@@ -1,5 +1,5 @@
 {
-  "version": 3,
+  "version": 4,
   "targets": {
     "net10.0": {
       "Azure.Core/1.47.1": {
@@ -3657,19 +3657,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\gusta\\.nuget\\packages\\": {}
+    "C:\\Users\\sinic\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Projeto_Sistema_De_Alocacao\\SistemaAlocLab\\SistemaLocLab.API\\SistemaLocLab.API.csproj",
+      "projectUniqueName": "C:\\Users\\sinic\\OneDrive\\Desktop\\Códigos e Projetos\\projeto_integrador_I_alocacao_laboratorios\\SistemaLocLab.API\\SistemaLocLab.API.csproj",
       "projectName": "SistemaLocLab.API",
-      "projectPath": "C:\\Projeto_Sistema_De_Alocacao\\SistemaAlocLab\\SistemaLocLab.API\\SistemaLocLab.API.csproj",
-      "packagesPath": "C:\\Users\\gusta\\.nuget\\packages\\",
-      "outputPath": "C:\\Projeto_Sistema_De_Alocacao\\SistemaAlocLab\\SistemaLocLab.API\\obj\\",
+      "projectPath": "C:\\Users\\sinic\\OneDrive\\Desktop\\Códigos e Projetos\\projeto_integrador_I_alocacao_laboratorios\\SistemaLocLab.API\\SistemaLocLab.API.csproj",
+      "packagesPath": "C:\\Users\\sinic\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\sinic\\OneDrive\\Desktop\\Códigos e Projetos\\projeto_integrador_I_alocacao_laboratorios\\SistemaLocLab.API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\gusta\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\sinic\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net10.0"
@@ -3679,13 +3679,14 @@
       },
       "frameworks": {
         "net10.0": {
+          "framework": "net10.0",
           "targetAlias": "net10.0",
           "projectReferences": {
-            "C:\\Projeto_Sistema_De_Alocacao\\SistemaAlocLab\\SistemaLocLab.Application\\SistemaLocLab.Application.csproj": {
-              "projectPath": "C:\\Projeto_Sistema_De_Alocacao\\SistemaAlocLab\\SistemaLocLab.Application\\SistemaLocLab.Application.csproj"
+            "C:\\Users\\sinic\\OneDrive\\Desktop\\Códigos e Projetos\\projeto_integrador_I_alocacao_laboratorios\\SistemaLocLab.Application\\SistemaLocLab.Application.csproj": {
+              "projectPath": "C:\\Users\\sinic\\OneDrive\\Desktop\\Códigos e Projetos\\projeto_integrador_I_alocacao_laboratorios\\SistemaLocLab.Application\\SistemaLocLab.Application.csproj"
             },
-            "C:\\Projeto_Sistema_De_Alocacao\\SistemaAlocLab\\SistemaLocLab.Infrastructure\\SistemaLocLab.Infrastructure.csproj": {
-              "projectPath": "C:\\Projeto_Sistema_De_Alocacao\\SistemaAlocLab\\SistemaLocLab.Infrastructure\\SistemaLocLab.Infrastructure.csproj"
+            "C:\\Users\\sinic\\OneDrive\\Desktop\\Códigos e Projetos\\projeto_integrador_I_alocacao_laboratorios\\SistemaLocLab.Infrastructure\\SistemaLocLab.Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\sinic\\OneDrive\\Desktop\\Códigos e Projetos\\projeto_integrador_I_alocacao_laboratorios\\SistemaLocLab.Infrastructure\\SistemaLocLab.Infrastructure.csproj"
             }
           }
         }
@@ -3700,10 +3701,11 @@
         "auditLevel": "low",
         "auditMode": "all"
       },
-      "SdkAnalysisLevel": "10.0.100"
+      "SdkAnalysisLevel": "10.0.300"
     },
     "frameworks": {
       "net10.0": {
+        "framework": "net10.0",
         "targetAlias": "net10.0",
         "dependencies": {
           "Microsoft.AspNetCore.OpenApi": {
@@ -3740,7 +3742,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.108/PortableRuntimeIdentifierGraph.json",
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.300/PortableRuntimeIdentifierGraph.json",
         "packagesToPrune": {
           "Microsoft.AspNetCore": "(,10.0.32767]",
           "Microsoft.AspNetCore.Antiforgery": "(,10.0.32767]",

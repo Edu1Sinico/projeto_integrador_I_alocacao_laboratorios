@@ -9,11 +9,11 @@ namespace SistemaLocLab.Application.Interfaces
 {
     public interface IDisciplinaService
     {
-        Task<IEnumerable<DisciplinaDTO>> ObterDisciplinas();
-        Task<IEnumerable<DisciplinaDTO>> ObterDisciplinaID(Guid id);
-        Task<IEnumerable<DisciplinaDTO>> BuscarDisciplinasNome(string nome);
+        Task<List<DisciplinaDTO>> ObterDisciplinas();
+        Task<DisciplinaDTO?> ObterDisciplinaID(Guid id);
+        Task<List<DisciplinaDTO>> BuscarDisciplinasNome(string nome);
         Task<DisciplinaDTO> CriarDisciplina(CreateDisciplinaDTO dto);
-        Task<DisciplinaDTO> AtualizarDisciplina(Guid id, UpdateDisciplinaDTO dto);
+        Task<DisciplinaDTO?> AtualizarDisciplina(Guid id, UpdateDisciplinaDTO dto);
         Task<bool> RemoverSoftware(Guid id);
     }
 }

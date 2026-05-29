@@ -1,5 +1,5 @@
 {
-  "version": 3,
+  "version": 4,
   "targets": {
     "net10.0": {
       "Azure.Core/1.47.1": {
@@ -1166,17 +1166,17 @@
           "buildTransitive/net8.0/_._": {}
         }
       },
-      "SistemaLocLab.Application/1.0.0": {
+      "SistemaLoclab.Application/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v10.0",
         "dependencies": {
           "SistemaLocLab.Domain": "1.0.0"
         },
         "compile": {
-          "bin/placeholder/SistemaLocLab.Application.dll": {}
+          "bin/placeholder/SistemaLoclab.Application.dll": {}
         },
         "runtime": {
-          "bin/placeholder/SistemaLocLab.Application.dll": {}
+          "bin/placeholder/SistemaLoclab.Application.dll": {}
         }
       },
       "SistemaLocLab.Domain/1.0.0": {
@@ -1196,8 +1196,8 @@
           "Microsoft.EntityFrameworkCore": "10.0.8",
           "Microsoft.EntityFrameworkCore.SqlServer": "10.0.8",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "10.0.1",
-          "SistemaLocLab.Application": "1.0.0",
-          "SistemaLocLab.Domain": "1.0.0"
+          "SistemaLocLab.Domain": "1.0.0",
+          "SistemaLoclab.Application": "1.0.0"
         },
         "compile": {
           "bin/placeholder/SistemaLocLab.Infrastructure.dll": {}
@@ -3631,10 +3631,10 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "SistemaLocLab.Application/1.0.0": {
+    "SistemaLoclab.Application/1.0.0": {
       "type": "project",
-      "path": "../SistemaLocLab.Application/SistemaLocLab.Application.csproj",
-      "msbuildProject": "../SistemaLocLab.Application/SistemaLocLab.Application.csproj"
+      "path": "../SistemaLocLab.Application/SistemaLoclab.Application.csproj",
+      "msbuildProject": "../SistemaLocLab.Application/SistemaLoclab.Application.csproj"
     },
     "SistemaLocLab.Domain/1.0.0": {
       "type": "project",
@@ -3651,25 +3651,25 @@
     "net10.0": [
       "Microsoft.AspNetCore.OpenApi >= 10.0.7",
       "Microsoft.EntityFrameworkCore.Design >= 10.0.8",
-      "SistemaLocLab.Application >= 1.0.0",
       "SistemaLocLab.Infrastructure >= 1.0.0",
+      "SistemaLoclab.Application >= 1.0.0",
       "Swashbuckle.AspNetCore >= 10.1.7"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\gusta\\.nuget\\packages\\": {}
+    "C:\\Users\\sinic\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Projeto_Sistema_De_Alocacao\\SistemaAlocLab\\SistemaLocLab.API\\SistemaLocLab.API.csproj",
+      "projectUniqueName": "C:\\Users\\sinic\\OneDrive\\Desktop\\Códigos e Projetos\\projeto_integrador_I_alocacao_laboratorios\\SistemaLocLab.API\\SistemaLocLab.API.csproj",
       "projectName": "SistemaLocLab.API",
-      "projectPath": "C:\\Projeto_Sistema_De_Alocacao\\SistemaAlocLab\\SistemaLocLab.API\\SistemaLocLab.API.csproj",
-      "packagesPath": "C:\\Users\\gusta\\.nuget\\packages\\",
-      "outputPath": "C:\\Projeto_Sistema_De_Alocacao\\SistemaAlocLab\\SistemaLocLab.API\\obj\\",
+      "projectPath": "C:\\Users\\sinic\\OneDrive\\Desktop\\Códigos e Projetos\\projeto_integrador_I_alocacao_laboratorios\\SistemaLocLab.API\\SistemaLocLab.API.csproj",
+      "packagesPath": "C:\\Users\\sinic\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\sinic\\OneDrive\\Desktop\\Códigos e Projetos\\projeto_integrador_I_alocacao_laboratorios\\SistemaLocLab.API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\gusta\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\sinic\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net10.0"
@@ -3679,13 +3679,14 @@
       },
       "frameworks": {
         "net10.0": {
+          "framework": "net10.0",
           "targetAlias": "net10.0",
           "projectReferences": {
-            "C:\\Projeto_Sistema_De_Alocacao\\SistemaAlocLab\\SistemaLocLab.Application\\SistemaLocLab.Application.csproj": {
-              "projectPath": "C:\\Projeto_Sistema_De_Alocacao\\SistemaAlocLab\\SistemaLocLab.Application\\SistemaLocLab.Application.csproj"
+            "C:\\Users\\sinic\\OneDrive\\Desktop\\Códigos e Projetos\\projeto_integrador_I_alocacao_laboratorios\\SistemaLocLab.Application\\SistemaLoclab.Application.csproj": {
+              "projectPath": "C:\\Users\\sinic\\OneDrive\\Desktop\\Códigos e Projetos\\projeto_integrador_I_alocacao_laboratorios\\SistemaLocLab.Application\\SistemaLoclab.Application.csproj"
             },
-            "C:\\Projeto_Sistema_De_Alocacao\\SistemaAlocLab\\SistemaLocLab.Infrastructure\\SistemaLocLab.Infrastructure.csproj": {
-              "projectPath": "C:\\Projeto_Sistema_De_Alocacao\\SistemaAlocLab\\SistemaLocLab.Infrastructure\\SistemaLocLab.Infrastructure.csproj"
+            "C:\\Users\\sinic\\OneDrive\\Desktop\\Códigos e Projetos\\projeto_integrador_I_alocacao_laboratorios\\SistemaLocLab.Infrastructure\\SistemaLocLab.Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\sinic\\OneDrive\\Desktop\\Códigos e Projetos\\projeto_integrador_I_alocacao_laboratorios\\SistemaLocLab.Infrastructure\\SistemaLocLab.Infrastructure.csproj"
             }
           }
         }
@@ -3700,10 +3701,11 @@
         "auditLevel": "low",
         "auditMode": "all"
       },
-      "SdkAnalysisLevel": "10.0.100"
+      "SdkAnalysisLevel": "10.0.300"
     },
     "frameworks": {
       "net10.0": {
+        "framework": "net10.0",
         "targetAlias": "net10.0",
         "dependencies": {
           "Microsoft.AspNetCore.OpenApi": {
@@ -3740,7 +3742,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.108/PortableRuntimeIdentifierGraph.json",
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.300/PortableRuntimeIdentifierGraph.json",
         "packagesToPrune": {
           "Microsoft.AspNetCore": "(,10.0.32767]",
           "Microsoft.AspNetCore.Antiforgery": "(,10.0.32767]",

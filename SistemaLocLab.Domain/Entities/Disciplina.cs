@@ -7,7 +7,7 @@ namespace SistemaLocLab.Domain.Entities
     {
         //Encapsulamento
         public Guid IdDisciplina { get; private set; }
-        public string NomeDisciplina { get; private set; }
+        public string NomeDisciplina { get; private set; } = string.Empty;
         public int QtdeAlunos { get; private set; }
         public DateTime DataCriacao { get; private set; }
         public DateTime? DataAtualizacao { get; private set; }
@@ -23,7 +23,7 @@ namespace SistemaLocLab.Domain.Entities
             IdDisciplina = Guid.NewGuid();
             NomeDisciplina = nomeDisciplina.Trim();
             QtdeAlunos = qtdeAlunos;
-            DataCriacao = DateTime.Now;
+            DataCriacao = DateTime.UtcNow;
         }
 
         public void Atualizar(string nomeDisciplina, int qtdeAlunos)
@@ -31,7 +31,7 @@ namespace SistemaLocLab.Domain.Entities
             Validacao(nomeDisciplina, qtdeAlunos);
             NomeDisciplina = nomeDisciplina.Trim();
             QtdeAlunos = qtdeAlunos;
-            DataAtualizacao = DateTime.Now;
+            DataAtualizacao = DateTime.UtcNow;
         }
         public void VincularSoftware(Software software)
         {

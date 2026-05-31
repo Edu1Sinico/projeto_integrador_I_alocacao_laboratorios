@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using SistemaLocLab.Application.DTOs;
 using SistemaLocLab.Application.Interfaces;
 
 namespace SistemaLocLab.API.Controllers
@@ -7,57 +8,88 @@ namespace SistemaLocLab.API.Controllers
     [Route("api/[controller]")]
     public class UsuarioController : ControllerBase
     {
-        // GET api/usuario
+        private readonly IUsuarioService _usuarioService;
+
+        public UsuarioController(IUsuarioService usuarioService)
+        {
+            _usuarioService = usuarioService;
+        }
+
         [HttpGet]
-        public IActionResult ObterTodos()
+        public async Task<IActionResult> ObterTodos()
         {
-            return Ok(new
-            {
-                mensagem = "Lista de usuários"
-            });
+            var usuarios = await _usuarioService.ObterUsuarios();
+
+            return Ok(usuarios);
         }
 
-        // GET api/usuario/{id}
         [HttpGet("{id}")]
-        public IActionResult ObterPorId(Guid id)
+        public async Task<IActionResult> ObterPorId(Guid id)
         {
-            return Ok(new
-            {
-                id = id,
-                mensagem = "Usuário encontrado"
-            });
+            var usuario = await _usuarioService.ObterUsuarioId(id);
+
+            if (usuario == null)
+                return NotFound("Usuario nao encontrado.");
+
+            return Ok(usuario);
         }
 
-        // POST api/usuario
+        [HttpGet("email")]
+        public async Task<IActionResult> ObterPorEmail([FromQuery] string email)
+        {
+            var usuario = await _usuarioService.ObterUsuarioEmail(email);
+
+            if (usuario == null)
+                return NotFound("Usuario nao encontrado.");
+
+            return Ok(usuario);
+        }
+
         [HttpPost]
-        public IActionResult Criar()
+        public async Task<IActionResult> Criar([FromBody] CreateUsuarioDTO dto)
         {
-            return Created("", new
-            {
-                mensagem = "Usuário criado"
-            });
+            var usuario = await _usuarioService.CriarUsuario(dto);
+
+            if (usuario == null)
+                return Conflict("Email ja cadastrado.");
+
+            return CreatedAtAction(
+                nameof(ObterPorId),
+                new { id = usuario.ID },
+                usuario);
         }
 
-        // PUT api/usuario/{id}
+        [HttpPost("login")]
+        public async Task<IActionResult> Login([FromBody] LoginDTO dto)
+        {
+            var usuario = await _usuarioService.Login(dto);
+
+            if (usuario == null)
+                return Unauthorized("Email ou senha invalido.");
+
+            return Ok(usuario);
+        }
+
         [HttpPut("{id}")]
-        public IActionResult Atualizar(Guid id)
+        public async Task<IActionResult> Atualizar(Guid id, [FromBody] UpdateUsuarioDTO dto)
         {
-            return Ok(new
-            {
-                id = id,
-                mensagem = "Usuário atualizado"
-            });
+            var usuario = await _usuarioService.AtualizarUsuario(id, dto);
+
+            if (usuario == null)
+                return NotFound("Usuario nao encontrado.");
+
+            return Ok(usuario);
         }
 
-        // DELETE api/usuario/{id}
         [HttpDelete("{id}")]
-        public IActionResult Remover(Guid id)
+        public async Task<IActionResult> Remover(Guid id)
         {
-            return Ok(new
-            {
-                id = id,
-                mensagem = "Usuário removido"
-            });
+            var removido = await _usuarioService.RemoverUsuario(id);
+
+            if (!removido)
+                return NotFound("Usuario nao encontrado.");
+
+            return NoContent();
         }
     }
 }

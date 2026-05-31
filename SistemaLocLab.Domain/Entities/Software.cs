@@ -8,9 +8,9 @@ namespace SistemaLocLab.Domain.Entities
     {
         public Guid IdSoftware { get; private set; }
 
-        public string NomeSoftware { get; private set; }
+        public string NomeSoftware { get; private set; } = string.Empty;
 
-        public string Versao { get; private set; }
+        public string Versao { get; private set; } = string.Empty;
 
         public DateTime DataCriacao { get; private set; }
 
@@ -34,7 +34,7 @@ namespace SistemaLocLab.Domain.Entities
 
             Versao = versao.Trim();
 
-            DataCriacao = DateTime.Now;
+            DataCriacao = DateTime.UtcNow;
         }
 
         public void Atualizar(string nomeSoftware, string versao)
@@ -45,7 +45,7 @@ namespace SistemaLocLab.Domain.Entities
 
             Versao = versao.Trim();
 
-            DataAtualizacao = DateTime.Now;
+            DataAtualizacao = DateTime.UtcNow;
         }
 
         //Vincula um software a um laboratorio

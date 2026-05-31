@@ -50,17 +50,18 @@ namespace SistemaLocLab.Infrastructure.Repositories.Implementations
 
         public async Task<Disciplina?> ObterPorIdAsync(Guid id)
         {
-            return await _context.Disciplinas
-                .Include(x => x.Softwares)
-                .Include(x => x.Alocacoes)
-                .FirstOrDefaultAsync(x =>
-                    x.IdDisciplina == id);
+            return await _context.Disciplinas.FirstOrDefaultAsync(x => x.IdDisciplina == id);
         }
 
         public async Task<IEnumerable<Disciplina>> ObterTodosAsync()
         {
             return await _context.Disciplinas
                 .ToListAsync();
+        }
+
+        public async Task<IEnumerable<Disciplina>> BuscarPorNomeAsync(string nome)
+        {
+            return await _context.Disciplinas.Where(x => x.NomeDisciplina.ToLower().Contains(nome.ToLower().Trim())).ToListAsync();
         }
     }
 }

@@ -17,10 +17,16 @@ namespace SistemaLocLab.Infrastructure.Mappings
             builder.Property(x => x.NumeroLaboratorio)
             .IsRequired();
 
-            builder.Property(x => x.qtdeComputador)
+            builder.Property(x => x.Bloco)
+                .IsRequired()
+                .HasMaxLength(20);
+
+            builder.Property(x => x.QtdeComputador)
+                .HasColumnName("qtdeComputador")
                 .IsRequired();
 
-            builder.Property(x => x.capacidadeMaxAluno)
+            builder.Property(x => x.CapacidadeMaxAluno)
+                .HasColumnName("capacidadeMaxAluno")
                 .IsRequired();
 
             builder.HasMany(x => x.Alocacoes)

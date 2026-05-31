@@ -53,9 +53,24 @@ namespace SistemaLocLab.Infrastructure.Repositories.Implementations
         public async Task<IEnumerable<Alocacao>> ObterPorLaboratorioAsync(Guid laboratorioId)
         {
             return await _context.Alocacoes
+                .Include(x => x.Usuario)
+                .Include(x => x.Disciplina)
+                .Include(x => x.Laboratorio)
                 .Where(x =>
                     x.LaboratorioId == laboratorioId)
                 .ToListAsync();
+        }
+
+        public async Task RemoverAsync(Guid id)
+        {
+            var alocacao = await ObterPorIdAsync(id);
+
+            if (alocacao == null)
+                return;
+
+            _context.Alocacoes.Remove(alocacao);
+
+            await _context.SaveChangesAsync();
         }
     }
 }

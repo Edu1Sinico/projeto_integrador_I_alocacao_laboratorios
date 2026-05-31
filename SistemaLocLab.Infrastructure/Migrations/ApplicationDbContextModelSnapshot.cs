@@ -124,14 +124,21 @@ namespace SistemaLocLab.Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
+                    b.Property<string>("Bloco")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("character varying(20)");
+
+                    b.Property<int>("CapacidadeMaxAluno")
+                        .HasColumnType("integer")
+                        .HasColumnName("capacidadeMaxAluno");
+
                     b.Property<int>("NumeroLaboratorio")
                         .HasColumnType("integer");
 
-                    b.Property<int>("capacidadeMaxAluno")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("qtdeComputador")
-                        .HasColumnType("integer");
+                    b.Property<int>("QtdeComputador")
+                        .HasColumnType("integer")
+                        .HasColumnName("qtdeComputador");
 
                     b.HasKey("IDLaboratorio");
 

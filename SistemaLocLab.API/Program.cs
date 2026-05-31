@@ -2,8 +2,11 @@ using Microsoft.EntityFrameworkCore;
 using SistemaLocLab.Infrastructure.Context;
 using SistemaLocLab.Infrastructure.Repositories.Implementations;
 using SistemaLocLab.Application.Interfaces;
+using SistemaLocLab.Application.Services;
 
 var builder = WebApplication.CreateBuilder(args);
+
+const string FrontendCorsPolicy = "FrontendCorsPolicy";
 
 // ======================================
 // BANCO DE DADOS
@@ -31,8 +34,24 @@ builder.Services.AddScoped<IAlocacaoRepository, AlocacaoRepository>();
 // ======================================
 // SERVICES
 // ======================================
+builder.Services.AddScoped<ISoftwareService, SoftwareService>();
+builder.Services.AddScoped<IDisciplinaService, DisciplinaService>();
+builder.Services.AddScoped<ILaboratorioService, LaboratorioService>();
+builder.Services.AddScoped<IUsuarioService, UsuarioService>();
+builder.Services.AddScoped<IAlocacaoService, AlocacaoService>();
 
 builder.Services.AddControllers();
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(FrontendCorsPolicy, policy =>
+    {
+        policy
+            .AllowAnyOrigin()
+            .AllowAnyHeader()
+            .AllowAnyMethod();
+    });
+});
 
 // ======================================
 // SWAGGER / OPENAPI
@@ -56,6 +75,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors(FrontendCorsPolicy);
 
 app.UseAuthorization();
 

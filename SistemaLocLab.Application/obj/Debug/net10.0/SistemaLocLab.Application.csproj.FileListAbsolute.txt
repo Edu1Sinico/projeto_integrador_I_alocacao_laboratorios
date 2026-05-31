@@ -22,7 +22,6 @@ C:\Users\sinic\OneDrive\Desktop\Códigos e Projetos\projeto_integrador_I_alocaca
 C:\Users\sinic\OneDrive\Desktop\Códigos e Projetos\projeto_integrador_I_alocacao_laboratorios\SistemaLocLab.Application\obj\Debug\net10.0\SistemaLoclab.Application.dll
 C:\Users\sinic\OneDrive\Desktop\Códigos e Projetos\projeto_integrador_I_alocacao_laboratorios\SistemaLocLab.Application\obj\Debug\net10.0\refint\SistemaLoclab.Application.dll
 C:\Users\sinic\OneDrive\Desktop\Códigos e Projetos\projeto_integrador_I_alocacao_laboratorios\SistemaLocLab.Application\obj\Debug\net10.0\SistemaLoclab.Application.pdb
-C:\Projeto_Sistema_De_Alocacao\SistemaAlocLab\SistemaLocLab.Application\obj\Debug\net10.0\SistemaL.56847D1E.Up2Date
 C:\Users\sinic\OneDrive\Desktop\Códigos e Projetos\projeto_integrador_I_alocacao_laboratorios\SistemaLocLab.Application\bin\Debug\net10.0\SistemaLoclab.Application.deps.json
 C:\Users\sinic\OneDrive\Desktop\Códigos e Projetos\projeto_integrador_I_alocacao_laboratorios\SistemaLocLab.Application\bin\Debug\net10.0\SistemaLoclab.Application.dll
 C:\Users\sinic\OneDrive\Desktop\Códigos e Projetos\projeto_integrador_I_alocacao_laboratorios\SistemaLocLab.Application\bin\Debug\net10.0\SistemaLoclab.Application.pdb
@@ -30,3 +29,4 @@ C:\Users\sinic\OneDrive\Desktop\Códigos e Projetos\projeto_integrador_I_alocaca
 C:\Users\sinic\OneDrive\Desktop\Códigos e Projetos\projeto_integrador_I_alocacao_laboratorios\SistemaLocLab.Application\bin\Debug\net10.0\SistemaLocLab.Domain.pdb
 C:\Users\sinic\OneDrive\Desktop\Códigos e Projetos\projeto_integrador_I_alocacao_laboratorios\SistemaLocLab.Application\obj\Debug\net10.0\ref\SistemaLoclab.Application.dll
 C:\Users\sinic\OneDrive\Desktop\Códigos e Projetos\projeto_integrador_I_alocacao_laboratorios\SistemaLocLab.Application\obj\Debug\net10.0\SistemaL.56847D1E.Up2Date
+C:\Projeto_Sistema_De_Alocacao\SistemaAlocLab\SistemaLocLab.Application\obj\Debug\net10.0\SistemaL.56847D1E.Up2Date

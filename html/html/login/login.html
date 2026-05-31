@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="icon" type="image/png" href="../img/icon_E.png">
+    <link rel="stylesheet" href="login_style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="../JS/api.js" defer></script>
+    <script src="../JS/auth.js" defer></script>
+    <script src="login.js" defer></script>
+</head>
+<body>
+    <main class="painel">
+        <figure class="logo-container">
+            <img src="../img/Logotipo_E.png" alt="Logotipo Einstein Limeira" class="logo">
+        </figure>
+
+        <h1>Portal de alocacao</h1>
+
+        <form id="form-login">
+            <div class="input-group">
+                <div class="icon-box"><img class="icon-size" src="../img/email.png" alt=""></div>
+                <input type="email" id="login-email" placeholder="Email institucional" required>
+            </div>
+
+            <div class="input-group">
+                <div class="icon-box"><img class="icon-size" src="../img/password.png" alt=""></div>
+                <input type="password" id="login-senha" placeholder="Senha" required>
+            </div>
+
+            <p id="login-feedback" aria-live="polite"></p>
+
+            <button class="btn-enviar" type="submit">Entrar</button>
+        </form>
+
+        <a class="link-cadastro" href="../cadastro/cadastro.html">Cadastrar usuario</a>
+    </main>
+</body>
+</html>

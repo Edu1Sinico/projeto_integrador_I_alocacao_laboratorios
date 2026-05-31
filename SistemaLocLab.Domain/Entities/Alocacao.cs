@@ -13,11 +13,11 @@ namespace SistemaLocLab.Domain.Entities
 
         // CHAVES E RELACIONAMENTOS
         public Guid LaboratorioId { get; private set; }
-        public Laboratorios Laboratorio { get; private set; }
+        public Laboratorios Laboratorio { get; private set; } = null!;
         public Guid DisciplinaId { get; private set; }
-        public Disciplina Disciplina { get; private set; }
+        public Disciplina Disciplina { get; private set; } = null!;
         public Guid UsuarioId { get; private set; }
-        public Usuarios Usuario { get; private set; }
+        public Usuarios Usuario { get; private set; } = null!;
         protected Alocacao() { }
         public Alocacao(DateTime data,TimeSpan horaInicio,TimeSpan horaFim,Laboratorios laboratorio,Disciplina disciplina,Usuarios usuario)
         {
@@ -34,7 +34,7 @@ namespace SistemaLocLab.Domain.Entities
             Usuario = usuario;
             UsuarioId = usuario.ID;
             Status = StatusAlocacao.Pendente;
-            DataCriacao = DateTime.Now;
+            DataCriacao = DateTime.UtcNow;
         }
         public void Aprovar()
         {
@@ -62,7 +62,7 @@ namespace SistemaLocLab.Domain.Entities
         }
         private void ValidacaoData(DateTime data)
         {
-            if (data.Date < DateTime.Now.Date)
+            if (data.Date < DateTime.UtcNow.Date)
                 throw new ArgumentException(
                 "Não é possível realizar alocações em datas passadas.");
         }

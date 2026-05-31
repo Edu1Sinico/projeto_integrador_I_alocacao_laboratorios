@@ -1,93 +1,84 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace SistemaLocLab.Domain.Entities
 {
     public class Laboratorios
     {
-        //Encapsulamento
         public Guid IDLaboratorio { get; private set; }
-
         public int NumeroLaboratorio { get; private set; }
+        public string Bloco { get; private set; }
+        public int QtdeComputador { get; private set; }
+        public int CapacidadeMaxAluno { get; private set; }
 
-        public int qtdeComputador { get; private set; }
+        public List<Software> Softwares { get; private set; } = new();
+        public List<Alocacao> Alocacoes { get; private set; } = new();
 
-        public int capacidadeMaxAluno { get; private set; }
-
-        //Referencia as classes Software(Softwares cadastrados em cada lab) e alocacoes(Informações da alocação do lab)
-        public List<Software> Softwares
-            { get; private set; } = new();
-
-        public List<Alocacao> Alocacoes
-            { get; private set; } = new();
-
-        //preteção do construtor
-        protected Laboratorios() { }
-
-        //Construtor
-        public Laboratorios(int numeroLaboratorio, int qtdeComputador)
+        protected Laboratorios()
         {
-            Validacao(numeroLaboratorio, qtdeComputador);
+            Bloco = string.Empty;
+        }
+
+        public Laboratorios(int numeroLaboratorio, string bloco, int qtdeComputador)
+        {
+            Validacao(numeroLaboratorio, bloco, qtdeComputador);
 
             IDLaboratorio = Guid.NewGuid();
-
             NumeroLaboratorio = numeroLaboratorio;
-
-            this.qtdeComputador = qtdeComputador;
-
-            capacidadeMaxAluno = CalcularCapacidade(qtdeComputador);
+            Bloco = bloco.Trim().ToUpper();
+            QtdeComputador = qtdeComputador;
+            CapacidadeMaxAluno = CalcularCapacidade(qtdeComputador);
         }
-//Metodo de padronização para dar update nos dados dos atributos
-        public void Atualizar(int numeroLaboratorio, int qtdeComputador)
+
+        public void Atualizar(int numeroLaboratorio, string bloco, int qtdeComputador)
         {
-            Validacao(numeroLaboratorio, qtdeComputador);
+            Validacao(numeroLaboratorio, bloco, qtdeComputador);
 
             NumeroLaboratorio = numeroLaboratorio;
-
-            this.qtdeComputador = qtdeComputador;
-
-            capacidadeMaxAluno = CalcularCapacidade(qtdeComputador);
+            Bloco = bloco.Trim().ToUpper();
+            QtdeComputador = qtdeComputador;
+            CapacidadeMaxAluno = CalcularCapacidade(qtdeComputador);
         }
 
-        //Metodo para validar se a sala comporta ou não a quantidade de alunos informada
         public bool PodeComportar(int quantidadeAlunos)
         {
-            return quantidadeAlunos <= capacidadeMaxAluno;
+            return quantidadeAlunos <= CapacidadeMaxAluno;
         }
 
-        //Faz o calculo da capacidade maxima (2 alunos por pc)
         private int CalcularCapacidade(int qtdeComputador)
         {
             return qtdeComputador * 2;
         }
 
-        //Metodos de validação 
-        private void Validacao(int numeroLaboratorio, int qtdeComputador)
+        private void Validacao(int numeroLaboratorio, string bloco, int qtdeComputador)
         {
             ValidacaoNumero(numeroLaboratorio);
-
+            ValidacaoBloco(bloco);
             ValidacaoComputadores(qtdeComputador);
         }
 
-        //Numero do laboratorio não pode ser < 0
         private void ValidacaoNumero(int numeroLaboratorio)
         {
             if (numeroLaboratorio <= 0)
-                throw new ArgumentException(
-                    "Número do laboratório inválido.");
+                throw new ArgumentException("Numero do laboratorio invalido.");
         }
 
-        
+        private void ValidacaoBloco(string bloco)
+        {
+            if (string.IsNullOrWhiteSpace(bloco))
+                throw new ArgumentException("Bloco do laboratorio obrigatorio.");
+
+            if (bloco.Trim().Length > 20)
+                throw new ArgumentException("Bloco do laboratorio muito grande.");
+        }
+
         private void ValidacaoComputadores(int qtdeComputador)
         {
             if (qtdeComputador <= 0)
-                throw new ArgumentException(
-                    "Quantidade de computadores inválida.");
+                throw new ArgumentException("Quantidade de computadores invalida.");
 
             if (qtdeComputador > 200)
-                throw new ArgumentException(
-                    "Quantidade máxima excedida.");
+                throw new ArgumentException("Quantidade maxima excedida.");
         }
     }
 }

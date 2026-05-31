@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="icon" type="image/png" href="../img/icon_E.png">
+    <link rel="stylesheet" href="cadastro_style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="../JS/api.js" defer></script>
+    <script src="cadastro.js" defer></script>
+</head>
+<body>
+    <main class="painel">
+        <figure class="logo-container">
+            <img src="../img/Logotipo_E.png" alt="Logotipo Einstein Limeira" class="logo">
+        </figure>
+        
+        <h1 id="titulo_portal">Cadastro de usuario</h1>
+
+        <form id="infos">
+            <div class="input-group">
+                <div class="icon-box"><img class="icon-size" src="../img/list.png" alt=""></div>
+                <select id="tipo_funcionario" name="tipo" required>
+                    <option value="" disabled selected>Selecione o usuario</option>
+                    <option value="2">Coordenador</option>
+                    <option value="1">Diretor Academico</option>
+                    <option value="3">Responsavel TI</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <div class="icon-box"><img class="icon-size" src="../img/user.png" alt=""></div>
+                <input type="text" name="nome" id="cad_nome" placeholder="Nome completo" required>
+            </div>
+
+            <div class="input-group">
+                <div class="icon-box"><img class="icon-size" src="../img/email.png" alt=""></div>
+                <input type="email" name="email" id="cad_email" placeholder="Email institucional" required>
+            </div>
+
+            <div class="input-group">
+                <div class="icon-box"><img class="icon-size" src="../img/user.png" alt=""></div>
+                <input type="text" name="re" id="cad_re" placeholder="RE institucional" required>
+            </div>
+
+            <div class="input-group">
+                <div class="icon-box"><img class="icon-size" src="../img/password.png" alt=""></div>
+                <input type="password" name="senha" id="cad_senha" placeholder="Senha" required>
+            </div>
+
+            <p id="cadastro-feedback" aria-live="polite"></p>
+
+            <button class="btn-enviar" type="submit">Cadastrar</button>
+        </form>
+
+        <a class="link-login" href="../login/login.html">Voltar para login</a>
+    </main>  
+</body>
+</html>

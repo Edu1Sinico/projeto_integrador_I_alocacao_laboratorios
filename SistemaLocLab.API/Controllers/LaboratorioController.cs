@@ -1,4 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
+using SistemaLocLab.Application.DTOs;
+using SistemaLocLab.Application.Interfaces;
 
 namespace SistemaLocLab.API.Controllers
 {
@@ -6,57 +8,74 @@ namespace SistemaLocLab.API.Controllers
     [Route("api/[controller]")]
     public class LaboratorioController : ControllerBase
     {
-        // GET api/laboratorio
+        private readonly ILaboratorioService _laboratorioService;
+
+        public LaboratorioController(ILaboratorioService laboratorioService)
+        {
+            _laboratorioService = laboratorioService;
+        }
+
         [HttpGet]
-        public IActionResult ObterTodos()
+        public async Task<IActionResult> ObterTodos()
         {
-            return Ok(new
-            {
-                mensagem = "Lista de laboratórios"
-            });
+            var laboratorios = await _laboratorioService.ObterLaboratorios();
+
+            return Ok(laboratorios);
         }
 
-        // GET api/laboratorio/{id}
         [HttpGet("{id}")]
-        public IActionResult ObterPorId(Guid id)
+        public async Task<IActionResult> ObterPorId(Guid id)
         {
-            return Ok(new
-            {
-                id = id,
-                mensagem = "Laboratório encontrado"
-            });
+            var laboratorio = await _laboratorioService.ObterLaboratorioId(id);
+
+            if (laboratorio == null)
+                return NotFound("Laboratorio nao encontrado.");
+
+            return Ok(laboratorio);
         }
 
-        // POST api/laboratorio
+        [HttpGet("numero/{numero:int}")]
+        public async Task<IActionResult> ObterPorNumero(int numero)
+        {
+            var laboratorio = await _laboratorioService.ObterLaboratorioNumero(numero);
+
+            if (laboratorio == null)
+                return NotFound("Laboratorio nao encontrado.");
+
+            return Ok(laboratorio);
+        }
+
         [HttpPost]
-        public IActionResult Criar()
+        public async Task<IActionResult> Criar([FromBody] CreateLaboratorioDTO dto)
         {
-            return Created("", new
-            {
-                mensagem = "Laboratório criado"
-            });
+            var laboratorio = await _laboratorioService.CriarLaboratorio(dto);
+
+            return CreatedAtAction(
+                nameof(ObterPorId),
+                new { id = laboratorio.IDLaboratorio },
+                laboratorio);
         }
 
-        // PUT api/laboratorio/{id}
         [HttpPut("{id}")]
-        public IActionResult Atualizar(Guid id)
+        public async Task<IActionResult> Atualizar(Guid id, [FromBody] UpdateLaboratorioDTO dto)
         {
-            return Ok(new
-            {
-                id = id,
-                mensagem = "Laboratório atualizado"
-            });
+            var laboratorio = await _laboratorioService.AtualizarLaboratorio(id, dto);
+
+            if (laboratorio == null)
+                return NotFound("Laboratorio nao encontrado.");
+
+            return Ok(laboratorio);
         }
 
-        // DELETE api/laboratorio/{id}
         [HttpDelete("{id}")]
-        public IActionResult Remover(Guid id)
+        public async Task<IActionResult> Remover(Guid id)
         {
-            return Ok(new
-            {
-                id = id,
-                mensagem = "Laboratório removido"
-            });
+            var removido = await _laboratorioService.RemoverLaboratorio(id);
+
+            if (!removido)
+                return NotFound("Laboratorio nao encontrado.");
+
+            return NoContent();
         }
     }
 }

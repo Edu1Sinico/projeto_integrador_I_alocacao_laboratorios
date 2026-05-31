@@ -2,12 +2,11 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SistemaLocLab.Domain\SistemaLocLab.Domain.csproj" />
-    <ProjectReference Include="..\SistemaLoclab.Application\SistemaLocLab.Application.csproj" />
+    <ProjectReference Include="..\SistemaLocLab.Application\SistemaLocLab.Application.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="10.0.8" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="10.0.8" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="10.0.8">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>

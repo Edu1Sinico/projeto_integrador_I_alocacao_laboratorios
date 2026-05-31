@@ -72,7 +72,7 @@ namespace SistemaLocLab.Application.Services
             return MapearParaDTO(disciplina);
         }
 
-        public async Task<bool> RemoverSoftware(Guid id)
+        public async Task<bool> RemoverDisciplina(Guid id)
         {
             var disciplina = await _disciplinaRepository.ObterPorIdAsync(id);
 

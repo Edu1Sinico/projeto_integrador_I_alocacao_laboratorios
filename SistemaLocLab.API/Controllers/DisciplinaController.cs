@@ -1,4 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
+using SistemaLocLab.Application.DTOs;
+using SistemaLocLab.Application.Interfaces;
 
 namespace SistemaLocLab.API.Controllers
 {
@@ -6,57 +8,71 @@ namespace SistemaLocLab.API.Controllers
     [Route("api/[controller]")]
     public class DisciplinaController : ControllerBase
     {
-        // GET api/disciplina
+        private readonly IDisciplinaService _disciplinaService;
+
+        public DisciplinaController(IDisciplinaService disciplinaService)
+        {
+            _disciplinaService = disciplinaService;
+        }
+
         [HttpGet]
-        public IActionResult ObterTodos()
+        public async Task<IActionResult> ObterTodos()
         {
-            return Ok(new
-            {
-                mensagem = "Lista de disciplinas"
-            });
+            var disciplinas = await _disciplinaService.ObterDisciplinas();
+
+            return Ok(disciplinas);
         }
 
-        // GET api/disciplina/{id}
         [HttpGet("{id}")]
-        public IActionResult ObterPorId(Guid id)
+        public async Task<IActionResult> ObterPorId(Guid id)
         {
-            return Ok(new
-            {
-                id,
-                mensagem = "Disciplina encontrada"
-            });
+            var disciplina = await _disciplinaService.ObterDisciplinaID(id);
+
+            if (disciplina == null)
+                return NotFound("Disciplina nao encontrada.");
+
+            return Ok(disciplina);
         }
 
-        // POST api/disciplina
+        [HttpGet("buscar")]
+        public async Task<IActionResult> BuscarPorNome([FromQuery] string nome)
+        {
+            var disciplinas = await _disciplinaService.BuscarDisciplinasNome(nome);
+
+            return Ok(disciplinas);
+        }
+
         [HttpPost]
-        public IActionResult Criar()
+        public async Task<IActionResult> Criar([FromBody] CreateDisciplinaDTO dto)
         {
-            return Created("", new
-            {
-                mensagem = "Disciplina criada"
-            });
+            var disciplina = await _disciplinaService.CriarDisciplina(dto);
+
+            return CreatedAtAction(
+                nameof(ObterPorId),
+                new { id = disciplina.IdDisciplina },
+                disciplina);
         }
 
-        // PUT api/disciplina/{id}
         [HttpPut("{id}")]
-        public IActionResult Atualizar(Guid id)
+        public async Task<IActionResult> Atualizar(Guid id, [FromBody] UpdateDisciplinaDTO dto)
         {
-            return Ok(new
-            {
-                id,
-                mensagem = "Disciplina atualizada"
-            });
+            var disciplina = await _disciplinaService.AtualizarDisciplina(id, dto);
+
+            if (disciplina == null)
+                return NotFound("Disciplina nao encontrada.");
+
+            return Ok(disciplina);
         }
 
-        // DELETE api/disciplina/{id}
         [HttpDelete("{id}")]
-        public IActionResult Remover(Guid id)
+        public async Task<IActionResult> Remover(Guid id)
         {
-            return Ok(new
-            {
-                id,
-                mensagem = "Disciplina removida"
-            });
+            var removido = await _disciplinaService.RemoverDisciplina(id);
+
+            if (!removido)
+                return NotFound("Disciplina nao encontrada.");
+
+            return NoContent();
         }
     }
 }

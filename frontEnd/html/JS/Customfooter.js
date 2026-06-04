@@ -13,7 +13,7 @@ class Customfooter extends HTMLElement {
 }
 
 .footer-logo{
-    height: 120px;
+    height: 100px;
 }
 
 #contato-counteiner{
@@ -52,6 +52,32 @@ class Customfooter extends HTMLElement {
     gap: 20px;
     margin-left: 20%;
 }
+
+@media (max-width: 768px) {
+    footer {
+        flex-direction: column;   /* logo em cima, contato-space abaixo */
+        align-items: center;
+        text-align: center;
+    }
+
+    #contato-space {
+        flex-direction: column;   /* linha vira horizontal, contatos abaixo */
+        margin-left: 0;
+        align-items: center;
+        gap: 12px;
+    }
+
+    #linha-footer {
+        width: 80%;               /* linha horizontal */
+        height: 3px;
+    }
+
+    #contato-counteiner {
+        flex-direction: row;      /* contatos lado a lado */
+        justify-content: center;
+        gap: 12px 20px;
+    }
+        
         </style>
         <footer>
         <figure>

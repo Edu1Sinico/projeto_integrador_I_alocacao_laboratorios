@@ -12,6 +12,7 @@ class Customheader extends HTMLElement {
         padding: 20px;
         flex-wrap: nowrap;
         box-shadow: 0 4px 10px #a9a9a9;
+        margin: 0px;
     }
 
     .img-box {

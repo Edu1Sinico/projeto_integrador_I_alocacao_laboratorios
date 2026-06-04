@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal de Alocação</title>
+    <link rel="stylesheet" href="alocacao_style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script></script>
+</head>
+<body>
+
+  <div class="page-wrapper">
+
+    
+    <main class="main-content">
+
+      <!-- TÍTULO DO LAB -->
+      <div class="lab-titulo-section">
+        <h2 class="lab-titulo">Laboratório <span id="lab-numero">13</span></h2>
+      </div>
+
+      <div class="grid-layout">
+
+        <!-- CARD INFO DO LAB -->
+        <aside class="info-lab-card">
+          <div class="info-lab-header">
+            <div class="lab-badge">LAB 13</div>
+            <span class="status-badge disponivel">Disponível</span>
+          </div>
+
+          <div class="info-lab-body">
+            <h3 class="info-section-title">Informações do Laboratório</h3>
+
+            <ul class="info-list">
+              <li>
+                <span class="info-icon">&#9632;</span>
+                <div>
+                  <span class="info-label">Bloco</span>
+                  <span class="info-value">C</span>
+                </div>
+              </li>
+              <li>
+                <span class="info-icon">&#9632;</span>
+                <div>
+                  <span class="info-label">Qtd. máxima de alunos</span>
+                  <span class="info-value">100 alunos</span>
+                </div>
+              </li>
+              <li>
+                <span class="info-icon">&#9632;</span>
+                <div>
+                  <span class="info-label">Qtd. de computadores</span>
+                  <span class="info-value">50 máquinas</span>
+                </div>
+              </li>
+            </ul>
+
+            <div class="softwares-section">
+              <span class="info-label">Softwares cadastrados</span>
+              <div class="softwares-tags">
+                <span class="tag">VS Code</span>
+                <span class="tag">Blender</span>
+                <span class="tag">Android Studio</span>
+                <span class="tag">IntelliJ</span>
+                <span class="tag">AutoCAD</span>
+                <span class="tag">Eclipse</span>
+              </div>
+            </div>
+          </div>
+        </aside>
+
+        <!-- FORMULÁRIO -->
+        <section class="form-section">
+          <form class="alocacao-form" id="alocacao-form">
+
+            <!-- BLOCO 1: IDENTIFICAÇÃO -->
+            <div class="form-block">
+              <div class="form-block-header">
+                <div class="block-number">01</div>
+                <h3 class="block-title">Identificação do Solicitante</h3>
+              </div>
+
+              <div class="form-grid">
+                <div class="form-group full">
+                  <label for="nome">Nome completo do docente</label>
+                  <input type="text" id="nome" placeholder="Ex: Prof. João da Silva" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="matricula">Matrícula / CPF</label>
+                  <input type="text" id="matricula" placeholder="000.000.000-00" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="email">E-mail institucional</label>
+                  <input type="email" id="email" placeholder="docente@einstein.br" required>
+                </div>
+
+                <div class="form-group full">
+                  <label for="departamento">Departamento / Curso</label>
+                  <select id="departamento" required>
+                    <option value="" disabled selected>Selecione o departamento...</option>
+                    <option>Ciência da Computação</option>
+                    <option>Engenharia de Software</option>
+                    <option>Sistemas de Informação</option>
+                    <option>Engenharia Civil</option>
+                    <option>Administração</option>
+                    <option>Outro</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <!-- BLOCO 2: INFORMAÇÕES DE USO -->
+            <div class="form-block">
+              <div class="form-block-header">
+                <div class="block-number">02</div>
+                <h3 class="block-title">Informações de Uso</h3>
+              </div>
+
+              <div class="form-grid">
+                <div class="form-group">
+                  <label for="disciplina">Disciplina / Turma</label>
+                  <input type="text" id="disciplina" placeholder="Ex: Programação Orientada a Objetos - T01" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="qtd-alunos">Quantidade estimada de alunos</label>
+                  <input type="number" id="qtd-alunos" placeholder="Ex: 35" min="1" max="100" required>
+                </div>
+
+                <div class="form-group full">
+                  <label>Softwares que serão utilizados</label>
+                  <div class="softwares-check">
+                    <label class="check-item"><input type="checkbox" value="vscode"> VS Code</label>
+                    <label class="check-item"><input type="checkbox" value="blender"> Blender</label>
+                    <label class="check-item"><input type="checkbox" value="android"> Android Studio</label>
+                    <label class="check-item"><input type="checkbox" value="intellij"> IntelliJ</label>
+                    <label class="check-item"><input type="checkbox" value="autocad"> AutoCAD</label>
+                    <label class="check-item"><input type="checkbox" value="eclipse"> Eclipse</label>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="data-uso">Data do uso</label>
+                  <input type="date" id="data-uso" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="hora-uso">Horário</label>
+                  <input type="time" id="hora-uso" required>
+                </div>
+              </div>
+            </div>
+
+            <!-- BOTÃO -->
+            <button type="submit" class="btn-submit">
+              Confirmar Alocação
+            </button>
+
+          </form>
+        </section>
+
+      </div>
+    </main>
+
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const num = params.get('lab');
+    if (num) {
+      document.getElementById('lab-numero').textContent = num;
+      document.querySelector('.lab-badge').textContent = 'LAB ' + num;
+    }
+
+    document.getElementById('alocacao-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Alocação solicitada com sucesso!');
+    });
+  </script>
+</body>
+</html>

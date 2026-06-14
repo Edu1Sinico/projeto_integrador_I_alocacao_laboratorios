@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portal de Alocacao</title>
+  <link rel="icon" type="image/png" href="../img/icon_E.png">
+  <link rel="stylesheet" href="index_style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <script src="../JS/api.js" defer></script>
+  <script src="../JS/auth.js" defer></script>
+  <script src="../JS/Customheader.js" defer></script>
+  <script src="../JS/Customfooter.js" defer></script>
+  <script src="index.js" defer></script>
+</head>
+
+<body>
+  <custom-header></custom-header>
+  <main>
+    <form id="filtros-laboratorio">
+      <div id="inputs-counteiner">
+        <div id="search-box">
+          <input id="input-busca" type="text" placeholder="Pesquise o laboratorio que deseja alocar">
+          <div class="search-img"><img src="../img/search.png" alt="search"></div>
+        </div>
+
+        <div id="date-time">
+          <div class="input-box">
+            <input id="filtro-data" type="date">
+            <div class="search-img"><img src="../img/calendar.png" alt="date"></div>
+          </div>
+          <div class="input-box">
+            <input id="filtro-hora" type="time">
+            <div class="search-img"><img src="../img/time.png" alt="time"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container-filtros">
+        <figure class="box-filtro-icone">
+          <img class="icone-filtro" src="../img/filtro.png" alt="filtro">
+        </figure>
+
+        <div class="controles-filtros">
+          <div class="grupo-campo">
+            <label for="select-bloco">Bloco</label>
+            <select id="select-bloco" name="bloco">
+              <option value="">Todos</option>
+            </select>
+          </div>
+
+          <div class="grupo-campo">
+            <label for="input-computadores">Qtd. Computadores</label>
+            <input type="number" id="input-computadores" name="computadores" min="0" placeholder="Ex: 20">
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <h3>Aloque um laboratorio</h3>
+    <p id="feedback-principal" aria-live="polite"></p>
+
+    <section>
+      <div id="cards-laboratorios" class="cards-grid"></div>
+    </section>
+  </main>
+
+  <div id="modal-alocacao" class="modal-overlay">
+    <div class="modal-container">
+      <div id="modal-titulo" class="modal-header">Laboratorio</div>
+
+      <div id="modal-detalhes" class="modal-body"></div>
+
+      <form id="form-alocacao" class="modal-form">
+        <label>
+          Disciplina
+          <select id="modal-disciplina" required></select>
+        </label>
+        <label>
+          Data
+          <input id="modal-data" type="date" required>
+        </label>
+        <label>
+          Inicio
+          <input id="modal-hora-inicio" type="time" required>
+        </label>
+        <label>
+          Fim
+          <input id="modal-hora-fim" type="time" required>
+        </label>
+        <p id="feedback-alocacao" aria-live="polite"></p>
+        <div class="modal-actions">
+          <button type="button" id="btn-fechar-modal" class="modal-btn secondary">Cancelar</button>
+          <button type="submit" class="modal-btn">Alocar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <custom-footer></custom-footer>
+</body>
+
+</html>

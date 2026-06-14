@@ -1,0 +1,97 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #f4f4f4;
+    font-family: Arial, sans-serif;
+}
+
+main {
+    padding: 24px;
+}
+
+h1 {
+    text-align: center;
+    color: #9b7901;
+}
+
+.cadastro-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.cadastro-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background: #dedede;
+    border: 1px solid #c4c4c4;
+    border-radius: 8px;
+    padding: 16px;
+}
+
+.cadastro-form h2 {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.cadastro-form input,
+.cadastro-form button {
+    min-height: 38px;
+    border-radius: 6px;
+    border: 1px solid #999;
+    padding: 0 10px;
+}
+
+.cadastro-form button,
+td button {
+    background: #ffcc00;
+    color: #000;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.cadastro-form button:hover,
+td button:hover {
+    background: #cda100;
+    color: #fff;
+}
+
+.cadastro-counteiner {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 20px;
+}
+
+.table-counteiner {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+}
+
+th,
+td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background: #000;
+    color: #ffcc00;
+}
+
+#gestao-feedback {
+    min-height: 22px;
+    text-align: center;
+    color: #7a1a1a;
+}

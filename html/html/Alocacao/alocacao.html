@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alocacoes</title>
+    <link rel="icon" type="image/png" href="../img/icon_E.png">
+    <link rel="stylesheet" href="alocacao_style.css">
+    <script src="../JS/api.js" defer></script>
+    <script src="../JS/auth.js" defer></script>
+    <script src="../JS/Customheader.js" defer></script>
+    <script src="../JS/Customfooter.js" defer></script>
+    <script src="alocacao.js" defer></script>
+</head>
+<body>
+    <custom-header></custom-header>
+    <main>
+        <h1>Alocacoes</h1>
+        <p id="alocacao-feedback" aria-live="polite"></p>
+
+        <section class="table-counteiner">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Data</th>
+                        <th>Horario</th>
+                        <th>Laboratorio</th>
+                        <th>Disciplina</th>
+                        <th>Responsavel</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="tabela-alocacoes"></tbody>
+            </table>
+        </section>
+    </main>
+    <custom-footer></custom-footer>
+</body>
+</html>

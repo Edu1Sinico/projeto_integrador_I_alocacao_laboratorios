@@ -1,0 +1,46 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #f4f4f4;
+    font-family: Arial, sans-serif;
+}
+
+main {
+    padding: 24px;
+}
+
+h1 {
+    text-align: center;
+    color: #9b7901;
+}
+
+.table-counteiner {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+}
+
+th,
+td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background: #000;
+    color: #ffcc00;
+}
+
+#alocacao-feedback {
+    min-height: 22px;
+    text-align: center;
+    color: #7a1a1a;
+}

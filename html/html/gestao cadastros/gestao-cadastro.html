@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestao de Cadastros</title>
+    <link rel="icon" type="image/png" href="../img/icon_E.png">
+    <link rel="stylesheet" href="gestao-cadastros_style.css">
+    <script src="../JS/api.js" defer></script>
+    <script src="../JS/auth.js" defer></script>
+    <script src="../JS/Customheader.js" defer></script>
+    <script src="../JS/Customfooter.js" defer></script>
+    <script src="gestao-cadastro.js" defer></script>
+</head>
+
+<body>
+    <custom-header></custom-header>
+    <main>
+        <h1>Gestao de cadastros</h1>
+        <p id="gestao-feedback" aria-live="polite"></p>
+
+        <section class="cadastro-grid">
+            <form id="form-laboratorio" class="cadastro-form">
+                <h2>Novo laboratorio</h2>
+                <input id="lab-numero" type="number" min="1" placeholder="Numero" required>
+                <input id="lab-bloco" type="text" maxlength="20" placeholder="Bloco" required>
+                <input id="lab-computadores" type="number" min="1" max="200" placeholder="Computadores" required>
+                <button type="submit">Cadastrar</button>
+            </form>
+
+            <form id="form-disciplina" class="cadastro-form">
+                <h2>Nova disciplina</h2>
+                <input id="disciplina-nome" type="text" maxlength="50" placeholder="Nome" required>
+                <input id="disciplina-alunos" type="number" min="1" max="100" placeholder="Quantidade de alunos" required>
+                <button type="submit">Cadastrar</button>
+            </form>
+
+            <form id="form-software" class="cadastro-form">
+                <h2>Novo software</h2>
+                <input id="software-nome" type="text" maxlength="50" placeholder="Nome" required>
+                <input id="software-versao" type="text" maxlength="30" placeholder="Versao" required>
+                <button type="submit">Cadastrar</button>
+            </form>
+        </section>
+
+        <div class="cadastro-counteiner">
+            <div class="table-counteiner">
+                <h2>Laboratorios de informatica</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Numero</th>
+                            <th>Bloco</th>
+                            <th>Computadores</th>
+                            <th>Capacidade</th>
+                            <th>Acoes</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabela-laboratorios"></tbody>
+                </table>
+            </div>
+
+            <div class="table-counteiner">
+                <h2>Usuarios</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Email</th>
+                            <th>RE</th>
+                            <th>Tipo</th>
+                            <th>Acoes</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabela-usuarios"></tbody>
+                </table>
+            </div>
+
+            <div class="table-counteiner">
+                <h2>Disciplinas</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Alunos</th>
+                            <th>Acoes</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabela-disciplinas"></tbody>
+                </table>
+            </div>
+
+            <div class="table-counteiner">
+                <h2>Softwares</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Versao</th>
+                            <th>Acoes</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabela-softwares"></tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+    <custom-footer></custom-footer>
+</body>
+
+</html>

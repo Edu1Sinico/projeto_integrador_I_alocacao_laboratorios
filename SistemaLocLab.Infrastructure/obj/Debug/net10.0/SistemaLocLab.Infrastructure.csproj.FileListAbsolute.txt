@@ -1,0 +1,40 @@
+C:\Projeto_Sistema_De_Alocacao\SistemaAlocLab\SistemaLocLab.Infrastructure\obj\Debug\net10.0\SistemaLocLab.Infrastructure.csproj.AssemblyReference.cache
+C:\Projeto_Sistema_De_Alocacao\SistemaAlocLab\SistemaLocLab.Infrastructure\obj\Debug\net10.0\SistemaLocLab.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projeto_Sistema_De_Alocacao\SistemaAlocLab\SistemaLocLab.Infrastructure\obj\Debug\net10.0\SistemaLocLab.Infrastructure.AssemblyInfoInputs.cache
+C:\Projeto_Sistema_De_Alocacao\SistemaAlocLab\SistemaLocLab.Infrastructure\obj\Debug\net10.0\SistemaLocLab.Infrastructure.AssemblyInfo.cs
+C:\Projeto_Sistema_De_Alocacao\SistemaAlocLab\SistemaLocLab.Infrastructure\obj\Debug\net10.0\SistemaLocLab.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Projeto_Sistema_De_Alocacao\SistemaAlocLab\SistemaLocLab.Infrastructure\obj\Debug\net10.0\SistemaLocLab.Infrastructure.sourcelink.json
+C:\Projeto_Sistema_De_Alocacao\SistemaAlocLab\SistemaLocLab.Infrastructure\bin\Debug\net10.0\SistemaLocLab.Infrastructure.deps.json
+C:\Projeto_Sistema_De_Alocacao\SistemaAlocLab\SistemaLocLab.Infrastructure\bin\Debug\net10.0\SistemaLocLab.Infrastructure.runtimeconfig.json
+C:\Projeto_Sistema_De_Alocacao\SistemaAlocLab\SistemaLocLab.Infrastructure\bin\Debug\net10.0\SistemaLocLab.Infrastructure.dll
+C:\Projeto_Sistema_De_Alocacao\SistemaAlocLab\SistemaLocLab.Infrastructure\bin\Debug\net10.0\SistemaLocLab.Infrastructure.pdb
+C:\Projeto_Sistema_De_Alocacao\SistemaAlocLab\SistemaLocLab.Infrastructure\bin\Debug\net10.0\SistemaLoclab.Application.dll
+C:\Projeto_Sistema_De_Alocacao\SistemaAlocLab\SistemaLocLab.Infrastructure\bin\Debug\net10.0\SistemaLocLab.Domain.dll
+C:\Projeto_Sistema_De_Alocacao\SistemaAlocLab\SistemaLocLab.Infrastructure\bin\Debug\net10.0\SistemaLocLab.Domain.pdb
+C:\Projeto_Sistema_De_Alocacao\SistemaAlocLab\SistemaLocLab.Infrastructure\bin\Debug\net10.0\SistemaLoclab.Application.pdb
+C:\Projeto_Sistema_De_Alocacao\SistemaAlocLab\SistemaLocLab.Infrastructure\obj\Debug\net10.0\SistemaL.6739A13F.Up2Date
+C:\Projeto_Sistema_De_Alocacao\SistemaAlocLab\SistemaLocLab.Infrastructure\obj\Debug\net10.0\SistemaLocLab.Infrastructure.dll
+C:\Projeto_Sistema_De_Alocacao\SistemaAlocLab\SistemaLocLab.Infrastructure\obj\Debug\net10.0\refint\SistemaLocLab.Infrastructure.dll
+C:\Projeto_Sistema_De_Alocacao\SistemaAlocLab\SistemaLocLab.Infrastructure\obj\Debug\net10.0\SistemaLocLab.Infrastructure.pdb
+C:\Projeto_Sistema_De_Alocacao\SistemaAlocLab\SistemaLocLab.Infrastructure\obj\Debug\net10.0\SistemaLocLab.Infrastructure.genruntimeconfig.cache
+C:\Projeto_Sistema_De_Alocacao\SistemaAlocLab\SistemaLocLab.Infrastructure\obj\Debug\net10.0\ref\SistemaLocLab.Infrastructure.dll
+C:\Users\sinic\OneDrive\Desktop\Códigos e Projetos\projeto_integrador_I_alocacao_laboratorios\SistemaLocLab.Infrastructure\obj\Debug\net10.0\SistemaLocLab.Infrastructure.dll
+C:\Users\sinic\OneDrive\Desktop\Códigos e Projetos\projeto_integrador_I_alocacao_laboratorios\SistemaLocLab.Infrastructure\obj\Debug\net10.0\refint\SistemaLocLab.Infrastructure.dll
+C:\Users\sinic\OneDrive\Desktop\Códigos e Projetos\projeto_integrador_I_alocacao_laboratorios\SistemaLocLab.Infrastructure\obj\Debug\net10.0\SistemaLocLab.Infrastructure.pdb
+C:\Users\sinic\OneDrive\Desktop\Códigos e Projetos\projeto_integrador_I_alocacao_laboratorios\SistemaLocLab.Infrastructure\bin\Debug\net10.0\SistemaLocLab.Infrastructure.deps.json
+C:\Users\sinic\OneDrive\Desktop\Códigos e Projetos\projeto_integrador_I_alocacao_laboratorios\SistemaLocLab.Infrastructure\bin\Debug\net10.0\SistemaLocLab.Infrastructure.runtimeconfig.json
+C:\Users\sinic\OneDrive\Desktop\Códigos e Projetos\projeto_integrador_I_alocacao_laboratorios\SistemaLocLab.Infrastructure\bin\Debug\net10.0\SistemaLocLab.Infrastructure.dll
+C:\Users\sinic\OneDrive\Desktop\Códigos e Projetos\projeto_integrador_I_alocacao_laboratorios\SistemaLocLab.Infrastructure\bin\Debug\net10.0\SistemaLocLab.Infrastructure.pdb
+C:\Users\sinic\OneDrive\Desktop\Códigos e Projetos\projeto_integrador_I_alocacao_laboratorios\SistemaLocLab.Infrastructure\bin\Debug\net10.0\SistemaLoclab.Application.dll
+C:\Users\sinic\OneDrive\Desktop\Códigos e Projetos\projeto_integrador_I_alocacao_laboratorios\SistemaLocLab.Infrastructure\bin\Debug\net10.0\SistemaLocLab.Domain.dll
+C:\Users\sinic\OneDrive\Desktop\Códigos e Projetos\projeto_integrador_I_alocacao_laboratorios\SistemaLocLab.Infrastructure\bin\Debug\net10.0\SistemaLocLab.Domain.pdb
+C:\Users\sinic\OneDrive\Desktop\Códigos e Projetos\projeto_integrador_I_alocacao_laboratorios\SistemaLocLab.Infrastructure\bin\Debug\net10.0\SistemaLoclab.Application.pdb
+C:\Users\sinic\OneDrive\Desktop\Códigos e Projetos\projeto_integrador_I_alocacao_laboratorios\SistemaLocLab.Infrastructure\obj\Debug\net10.0\SistemaLocLab.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\sinic\OneDrive\Desktop\Códigos e Projetos\projeto_integrador_I_alocacao_laboratorios\SistemaLocLab.Infrastructure\obj\Debug\net10.0\SistemaLocLab.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\sinic\OneDrive\Desktop\Códigos e Projetos\projeto_integrador_I_alocacao_laboratorios\SistemaLocLab.Infrastructure\obj\Debug\net10.0\SistemaLocLab.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\sinic\OneDrive\Desktop\Códigos e Projetos\projeto_integrador_I_alocacao_laboratorios\SistemaLocLab.Infrastructure\obj\Debug\net10.0\SistemaLocLab.Infrastructure.AssemblyInfo.cs
+C:\Users\sinic\OneDrive\Desktop\Códigos e Projetos\projeto_integrador_I_alocacao_laboratorios\SistemaLocLab.Infrastructure\obj\Debug\net10.0\SistemaLocLab.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\sinic\OneDrive\Desktop\Códigos e Projetos\projeto_integrador_I_alocacao_laboratorios\SistemaLocLab.Infrastructure\obj\Debug\net10.0\SistemaLocLab.Infrastructure.sourcelink.json
+C:\Users\sinic\OneDrive\Desktop\Códigos e Projetos\projeto_integrador_I_alocacao_laboratorios\SistemaLocLab.Infrastructure\obj\Debug\net10.0\SistemaL.6739A13F.Up2Date
+C:\Users\sinic\OneDrive\Desktop\Códigos e Projetos\projeto_integrador_I_alocacao_laboratorios\SistemaLocLab.Infrastructure\obj\Debug\net10.0\SistemaLocLab.Infrastructure.genruntimeconfig.cache
+C:\Users\sinic\OneDrive\Desktop\Códigos e Projetos\projeto_integrador_I_alocacao_laboratorios\SistemaLocLab.Infrastructure\obj\Debug\net10.0\ref\SistemaLocLab.Infrastructure.dll

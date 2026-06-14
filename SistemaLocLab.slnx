@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/SistemaLocLab.Application/">
+    <Project Path="SistemaLocLab.Application/SistemaLoclab.Application.csproj" />
+  </Folder>
+  <Project Path="SistemaLocLab.API/SistemaLocLab.API.csproj" />
+  <Project Path="SistemaLocLab.Domain/SistemaLocLab.Domain.csproj" />
+  <Project Path="SistemaLocLab.Infrastructure/SistemaLocLab.Infrastructure.csproj" />
+</Solution>

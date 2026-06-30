@@ -1,4 +1,4 @@
-# Projeto Integrador I: Sistema de Alocação do Laboratório.
+# Projeto Integrador I: Sistema de Alocação de Laboratório.
 
 O sistema foi desenvolvido com o objetivo de otimizar o processo de alocação de laboratórios de informática, garantindo que cada disciplina seja atribuída a um ambiente compatível com seus requisitos de software, capacidade e disponibilidade de horário.
 

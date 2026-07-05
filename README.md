@@ -6,7 +6,7 @@ O sistema foi desenvolvido com o objetivo de otimizar o processo de alocação d
 
 - [Introdução](#introdução)
 - [Objetivo](#objetivo)
-- [Tecnologias Utilizadas](#tecnologia-utilizadas)
+- [Tecnologias Utilizadas](#tecnologias-utilizadas)
 - [Funcionalidades](#funcionalidades)
 - [Arquitetura do Projeto](#arquitetura-do-projeto)
 - [Requisitos para Execução](#requisitos-para-execução)

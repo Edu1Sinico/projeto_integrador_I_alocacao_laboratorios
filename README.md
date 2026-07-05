@@ -37,3 +37,13 @@ A solução busca:
 - Validar automaticamente a capacidade de atendimento;
 - Facilitar o trabalho da coordenação e da equipe de TI;
 - Melhorar a utilização da infraestrutura tecnológica da instituição.
+
+> ## _Tecnologias Utilizadas_
+
+| Camada | Tecnologia |
+| --- | --- |
+| Backend | C# |
+| Framework | .NET 10 (LTS) |
+| Banco de Dados | PostgreSQL |
+| IDE | Visual Studio Code |
+

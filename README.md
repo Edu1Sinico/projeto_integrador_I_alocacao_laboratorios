@@ -42,8 +42,9 @@ A solução busca:
 
 | Camada | Tecnologia |
 | --- | --- |
-| Backend | C# |
+| Back-end | C# |
 | Framework | .NET 10 (LTS) |
+| Front-end | HTML + CSS + JS |
 | Banco de Dados | PostgreSQL |
 | IDE | Visual Studio Code |
 
